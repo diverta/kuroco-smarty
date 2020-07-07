@@ -1,443 +1,122 @@
-<HTML
-><HEAD
-><TITLE
->{textformat}</TITLE
-><META
-NAME="GENERATOR"
-CONTENT="Modular DocBook HTML Stylesheet Version 1.7"><LINK
-REL="HOME"
-TITLE="Smarty マニュアル"
-HREF="index.html"><LINK
-REL="UP"
-TITLE="カスタム関数"
-HREF="language.custom.functions.html"><LINK
-REL="PREVIOUS"
-TITLE="{popup_init}"
-HREF="language.function.popup.init.html"><LINK
-REL="NEXT"
-TITLE="設定ファイル"
-HREF="config.files.html"><META
-HTTP-EQUIV="Content-type"
-CONTENT="text/html; charset=utf-8"></HEAD
-><BODY
-CLASS="sect1"
-BGCOLOR="#FFFFFF"
-TEXT="#000000"
-LINK="#0000FF"
-VLINK="#840084"
-ALINK="#0000FF"
-><DIV
-CLASS="NAVHEADER"
-><TABLE
-SUMMARY="Header navigation table"
-WIDTH="100%"
-BORDER="0"
-CELLPADDING="0"
-CELLSPACING="0"
-><TR
-><TH
-COLSPAN="3"
-ALIGN="center"
->Smarty マニュアル</TH
-></TR
-><TR
-><TD
-WIDTH="10%"
-ALIGN="left"
-VALIGN="bottom"
-><A
-HREF="language.function.popup.init.html"
-ACCESSKEY="P"
->前のページ</A
-></TD
-><TD
-WIDTH="80%"
-ALIGN="center"
-VALIGN="bottom"
->第 8章カスタム関数</TD
-><TD
-WIDTH="10%"
-ALIGN="right"
-VALIGN="bottom"
-><A
-HREF="config.files.html"
-ACCESSKEY="N"
->次のページ</A
-></TD
-></TR
-></TABLE
-><HR
-ALIGN="LEFT"
-WIDTH="100%"></DIV
-><DIV
-CLASS="sect1"
-><H1
-CLASS="sect1"
-><A
-NAME="language.function.textformat"
-></A
->{textformat}</H1
-><P
->&#13;   <TT
-CLASS="varname"
->{textformat}</TT
-> は、
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>{textformat}</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.75.1">
+<link rel="home" href="index.html" title="Smarty マニュアル">
+<link rel="up" href="language.custom.functions.html" title="Chapter 8. カスタム関数">
+<link rel="prev" href="language.function.popup.init.html" title="{popup_init}">
+<link rel="next" href="config.files.html" title="Chapter 9. 設定ファイル">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<div class="navheader">
+<table width="100%" summary="Navigation header">
+<tr><th colspan="3" align="center">{textformat}</th></tr>
+<tr>
+<td width="20%" align="left">
+<a accesskey="p" href="language.function.popup.init.html">Prev</a> </td>
+<th width="60%" align="center">Chapter 8. カスタム関数</th>
+<td width="20%" align="right"> <a accesskey="n" href="config.files.html">Next</a>
+</td>
+</tr>
+</table>
+<hr>
+</div>
+<div class="sect1" title="{textformat}">
+<div class="titlepage"><div><div><h2 class="title" style="clear: both">
+<a name="language.function.textformat"></a>{textformat}</h2></div></div></div>
+<p>
+   <code class="varname">{textformat}</code> は、
    テキストを整形するために用いる
-   <A
-HREF="plugins.block.functions.html"
->ブロック関数</A
-> です。
+   <a class="link" href="plugins.block.functions.html" title="ブロック関数プラグイン">ブロック関数</a> です。
    これは基本的に空白と特殊文字を取り除き、
    境界でラップして行をインデントする事によって段落を整形します。
-  </P
-><P
->&#13;   明示的にパラメータを設定したり、あらかじめ決められたスタイルを使用したりできます。現在、
-   <SPAN
-CLASS="QUOTE"
->"email"</SPAN
-> のみが有効なスタイルです。
- </P
-><DIV
-CLASS="informaltable"
-><A
-NAME="AEN4700"
-></A
-><P
-></P
-><TABLE
-BORDER="1"
-CLASS="CALSTABLE"
-><THEAD
-><TR
-><TH
-WIDTH="20%"
-ALIGN="CENTER"
-VALIGN="MIDDLE"
->属性名</TH
-><TH
-WIDTH="20%"
-ALIGN="CENTER"
-VALIGN="MIDDLE"
->型</TH
-><TH
-WIDTH="20%"
-ALIGN="CENTER"
-VALIGN="MIDDLE"
->必須</TH
-><TH
-WIDTH="20%"
-ALIGN="CENTER"
-VALIGN="MIDDLE"
->デフォルト</TH
-><TH
-WIDTH="20%"
-ALIGN="LEFT"
-VALIGN="MIDDLE"
->概要</TH
-></TR
-></THEAD
-><TBODY
-><TR
-><TD
-WIDTH="20%"
-ALIGN="CENTER"
-VALIGN="MIDDLE"
->style</TD
-><TD
-WIDTH="20%"
-ALIGN="CENTER"
-VALIGN="MIDDLE"
->string</TD
-><TD
-WIDTH="20%"
-ALIGN="CENTER"
-VALIGN="MIDDLE"
->No</TD
-><TD
-WIDTH="20%"
-ALIGN="CENTER"
-VALIGN="MIDDLE"
-><SPAN
-CLASS="emphasis"
-><I
-CLASS="emphasis"
->n/a</I
-></SPAN
-></TD
-><TD
-WIDTH="20%"
-ALIGN="LEFT"
-VALIGN="MIDDLE"
->あらかじめ決められたスタイル</TD
-></TR
-><TR
-><TD
-WIDTH="20%"
-ALIGN="CENTER"
-VALIGN="MIDDLE"
->indent</TD
-><TD
-WIDTH="20%"
-ALIGN="CENTER"
-VALIGN="MIDDLE"
->number</TD
-><TD
-WIDTH="20%"
-ALIGN="CENTER"
-VALIGN="MIDDLE"
->No</TD
-><TD
-WIDTH="20%"
-ALIGN="CENTER"
-VALIGN="MIDDLE"
-><SPAN
-CLASS="emphasis"
-><I
-CLASS="emphasis"
->0</I
-></SPAN
-></TD
-><TD
-WIDTH="20%"
-ALIGN="LEFT"
-VALIGN="MIDDLE"
->各行をインデントするキャラクタ数</TD
-></TR
-><TR
-><TD
-WIDTH="20%"
-ALIGN="CENTER"
-VALIGN="MIDDLE"
->indent_first</TD
-><TD
-WIDTH="20%"
-ALIGN="CENTER"
-VALIGN="MIDDLE"
->number</TD
-><TD
-WIDTH="20%"
-ALIGN="CENTER"
-VALIGN="MIDDLE"
->No</TD
-><TD
-WIDTH="20%"
-ALIGN="CENTER"
-VALIGN="MIDDLE"
-><SPAN
-CLASS="emphasis"
-><I
-CLASS="emphasis"
->0</I
-></SPAN
-></TD
-><TD
-WIDTH="20%"
-ALIGN="LEFT"
-VALIGN="MIDDLE"
->最初の行をインデントするキャラクタ数</TD
-></TR
-><TR
-><TD
-WIDTH="20%"
-ALIGN="CENTER"
-VALIGN="MIDDLE"
->indent_char</TD
-><TD
-WIDTH="20%"
-ALIGN="CENTER"
-VALIGN="MIDDLE"
->string</TD
-><TD
-WIDTH="20%"
-ALIGN="CENTER"
-VALIGN="MIDDLE"
->No</TD
-><TD
-WIDTH="20%"
-ALIGN="CENTER"
-VALIGN="MIDDLE"
-><SPAN
-CLASS="emphasis"
-><I
-CLASS="emphasis"
->(半角スペース１個)</I
-></SPAN
-></TD
-><TD
-WIDTH="20%"
-ALIGN="LEFT"
-VALIGN="MIDDLE"
->インデントするために使われるキャラクタ(又は文字列)</TD
-></TR
-><TR
-><TD
-WIDTH="20%"
-ALIGN="CENTER"
-VALIGN="MIDDLE"
->wrap</TD
-><TD
-WIDTH="20%"
-ALIGN="CENTER"
-VALIGN="MIDDLE"
->number</TD
-><TD
-WIDTH="20%"
-ALIGN="CENTER"
-VALIGN="MIDDLE"
->No</TD
-><TD
-WIDTH="20%"
-ALIGN="CENTER"
-VALIGN="MIDDLE"
-><SPAN
-CLASS="emphasis"
-><I
-CLASS="emphasis"
->80</I
-></SPAN
-></TD
-><TD
-WIDTH="20%"
-ALIGN="LEFT"
-VALIGN="MIDDLE"
->各行をいくつのキャラクタ数でラップするか</TD
-></TR
-><TR
-><TD
-WIDTH="20%"
-ALIGN="CENTER"
-VALIGN="MIDDLE"
->wrap_char</TD
-><TD
-WIDTH="20%"
-ALIGN="CENTER"
-VALIGN="MIDDLE"
->string</TD
-><TD
-WIDTH="20%"
-ALIGN="CENTER"
-VALIGN="MIDDLE"
->No</TD
-><TD
-WIDTH="20%"
-ALIGN="CENTER"
-VALIGN="MIDDLE"
-><SPAN
-CLASS="emphasis"
-><I
-CLASS="emphasis"
->\n</I
-></SPAN
-></TD
-><TD
-WIDTH="20%"
-ALIGN="LEFT"
-VALIGN="MIDDLE"
->各行を分割するためのキャラクタ(又は文字列)</TD
-></TR
-><TR
-><TD
-WIDTH="20%"
-ALIGN="CENTER"
-VALIGN="MIDDLE"
->wrap_cut</TD
-><TD
-WIDTH="20%"
-ALIGN="CENTER"
-VALIGN="MIDDLE"
->boolean</TD
-><TD
-WIDTH="20%"
-ALIGN="CENTER"
-VALIGN="MIDDLE"
->No</TD
-><TD
-WIDTH="20%"
-ALIGN="CENTER"
-VALIGN="MIDDLE"
-><SPAN
-CLASS="emphasis"
-><I
-CLASS="emphasis"
-><TT
-CLASS="constant"
->FALSE</TT
-></I
-></SPAN
-></TD
-><TD
-WIDTH="20%"
-ALIGN="LEFT"
-VALIGN="MIDDLE"
-><TT
-CLASS="constant"
->TRUE</TT
-> ならば、単語の境界の代わりに正確なキャラクタ数で行を分割します。</TD
-></TR
-><TR
-><TD
-WIDTH="20%"
-ALIGN="CENTER"
-VALIGN="MIDDLE"
->assign</TD
-><TD
-WIDTH="20%"
-ALIGN="CENTER"
-VALIGN="MIDDLE"
->string</TD
-><TD
-WIDTH="20%"
-ALIGN="CENTER"
-VALIGN="MIDDLE"
->No</TD
-><TD
-WIDTH="20%"
-ALIGN="CENTER"
-VALIGN="MIDDLE"
-><SPAN
-CLASS="emphasis"
-><I
-CLASS="emphasis"
->n/a</I
-></SPAN
-></TD
-><TD
-WIDTH="20%"
-ALIGN="LEFT"
-VALIGN="MIDDLE"
->出力が割り当てられるテンプレート変数</TD
-></TR
-></TBODY
-></TABLE
-><P
-></P
-></DIV
-><TABLE
-WIDTH="100%"
-BORDER="0"
-CELLPADDING="0"
-CELLSPACING="0"
-CLASS="EXAMPLE"
-><TR
-><TD
-><DIV
-CLASS="example"
-><A
-NAME="AEN4773"
-></A
-><P
-><B
->例 8-27. {textformat}</B
-></P
-><TABLE
-BORDER="0"
-BGCOLOR="#E0E0E0"
-CELLPADDING="5"
-><TR
-><TD
-><PRE
-CLASS="programlisting"
->{textformat wrap=40}
+  </p>
+<p>
+   明示的にパラメータを設定したり、あらかじめ決められたスタイルを使用したりできます。現在、
+   <span class="quote">“<span class="quote">email</span>”</span> のみが有効なスタイルです。
+ </p>
+<div class="informaltable"><table border="1">
+<colgroup>
+<col align="center">
+<col align="center">
+<col align="center">
+<col align="center">
+<col>
+</colgroup>
+<thead><tr>
+<th align="center">属性名</th>
+<th align="center">型</th>
+<th align="center">必須</th>
+<th align="center">デフォルト</th>
+<th>概要</th>
+</tr></thead>
+<tbody>
+<tr>
+<td align="center">style</td>
+<td align="center">string</td>
+<td align="center">No</td>
+<td align="center"><span class="emphasis"><em>n/a</em></span></td>
+<td>あらかじめ決められたスタイル</td>
+</tr>
+<tr>
+<td align="center">indent</td>
+<td align="center">number</td>
+<td align="center">No</td>
+<td align="center"><span class="emphasis"><em>0</em></span></td>
+<td>各行をインデントするキャラクタ数</td>
+</tr>
+<tr>
+<td align="center">indent_first</td>
+<td align="center">number</td>
+<td align="center">No</td>
+<td align="center"><span class="emphasis"><em>0</em></span></td>
+<td>最初の行をインデントするキャラクタ数</td>
+</tr>
+<tr>
+<td align="center">indent_char</td>
+<td align="center">string</td>
+<td align="center">No</td>
+<td align="center"><span class="emphasis"><em>(半角スペース１個)</em></span></td>
+<td>インデントするために使われるキャラクタ(又は文字列)</td>
+</tr>
+<tr>
+<td align="center">wrap</td>
+<td align="center">number</td>
+<td align="center">No</td>
+<td align="center"><span class="emphasis"><em>80</em></span></td>
+<td>各行をいくつのキャラクタ数でラップするか</td>
+</tr>
+<tr>
+<td align="center">wrap_char</td>
+<td align="center">string</td>
+<td align="center">No</td>
+<td align="center"><span class="emphasis"><em>\n</em></span></td>
+<td>各行を分割するためのキャラクタ(又は文字列)</td>
+</tr>
+<tr>
+<td align="center">wrap_cut</td>
+<td align="center">boolean</td>
+<td align="center">No</td>
+<td align="center"><span class="emphasis"><em><code class="constant">FALSE</code></em></span></td>
+<td>
+<code class="constant">TRUE</code> ならば、単語の境界の代わりに正確なキャラクタ数で行を分割します。</td>
+</tr>
+<tr>
+<td align="center">assign</td>
+<td align="center">string</td>
+<td align="center">No</td>
+<td align="center"><span class="emphasis"><em>n/a</em></span></td>
+<td>出力が割り当てられるテンプレート変数</td>
+</tr>
+</tbody>
+</table></div>
+<div class="example">
+<a name="id2807109"></a><p class="title"><b>Example 8.27. {textformat}</b></p>
+<div class="example-contents">
+<pre class="programlisting">
+
+   {textformat wrap=40}
 
    This is foo.
    This is foo.
@@ -456,22 +135,17 @@ CLASS="programlisting"
    bar foo bar foo     foo.
    bar foo bar foo     foo.
 
-   {/textformat}</PRE
-></TD
-></TR
-></TABLE
-><P
->&#13;   上の例の出力
-  </P
-><TABLE
-BORDER="0"
-BGCOLOR="#E0E0E0"
-CELLPADDING="5"
-><TR
-><TD
-><PRE
-CLASS="screen"
->This is foo. This is foo. This is foo.
+   {/textformat}
+
+
+  </pre>
+<p>
+   上の例の出力
+  </p>
+<pre class="screen">
+
+
+   This is foo. This is foo. This is foo.
    This is foo. This is foo. This is foo.
 
    This is bar.
@@ -479,19 +153,12 @@ CLASS="screen"
    bar foo bar foo foo. bar foo bar foo
    foo. bar foo bar foo foo. bar foo bar
    foo foo. bar foo bar foo foo. bar foo
-   bar foo foo. bar foo bar foo foo.</PRE
-></TD
-></TR
-></TABLE
-><TABLE
-BORDER="0"
-BGCOLOR="#E0E0E0"
-CELLPADDING="5"
-><TR
-><TD
-><PRE
-CLASS="programlisting"
->{textformat wrap=40 indent=4}
+   bar foo foo. bar foo bar foo foo.
+
+  </pre>
+<pre class="programlisting">
+
+   {textformat wrap=40 indent=4}
 
    This is foo.
    This is foo.
@@ -510,22 +177,17 @@ CLASS="programlisting"
    bar foo bar foo     foo.
    bar foo bar foo     foo.
 
-   {/textformat}</PRE
-></TD
-></TR
-></TABLE
-><P
->&#13;   上の例の出力
-  </P
-><TABLE
-BORDER="0"
-BGCOLOR="#E0E0E0"
-CELLPADDING="5"
-><TR
-><TD
-><PRE
-CLASS="screen"
->This is foo. This is foo. This is
+   {/textformat}
+
+
+  </pre>
+<p>
+   上の例の出力
+  </p>
+<pre class="screen">
+
+
+   This is foo. This is foo. This is
    foo. This is foo. This is foo. This
    is foo.
 
@@ -535,19 +197,12 @@ CLASS="screen"
    foo. bar foo bar foo foo. bar foo
    bar foo foo. bar foo bar foo foo.
    bar foo bar foo foo. bar foo bar
-   foo foo.</PRE
-></TD
-></TR
-></TABLE
-><TABLE
-BORDER="0"
-BGCOLOR="#E0E0E0"
-CELLPADDING="5"
-><TR
-><TD
-><PRE
-CLASS="programlisting"
->{textformat wrap=40 indent=4 indent_first=4}
+   foo foo.
+
+  </pre>
+<pre class="programlisting">
+
+   {textformat wrap=40 indent=4 indent_first=4}
 
    This is foo.
    This is foo.
@@ -566,22 +221,16 @@ CLASS="programlisting"
    bar foo bar foo     foo.
    bar foo bar foo     foo.
 
-   {/textformat}</PRE
-></TD
-></TR
-></TABLE
-><P
->&#13;   上の例の出力
-  </P
-><TABLE
-BORDER="0"
-BGCOLOR="#E0E0E0"
-CELLPADDING="5"
-><TR
-><TD
-><PRE
-CLASS="screen"
->This is foo. This is foo. This
+   {/textformat}
+
+  </pre>
+<p>
+   上の例の出力
+  </p>
+<pre class="screen">
+
+
+   This is foo. This is foo. This
    is foo. This is foo. This is foo.
    This is foo.
 
@@ -591,19 +240,12 @@ CLASS="screen"
    foo foo. bar foo bar foo foo. bar
    foo bar foo foo. bar foo bar foo
    foo. bar foo bar foo foo. bar foo
-   bar foo foo.</PRE
-></TD
-></TR
-></TABLE
-><TABLE
-BORDER="0"
-BGCOLOR="#E0E0E0"
-CELLPADDING="5"
-><TR
-><TD
-><PRE
-CLASS="programlisting"
->{textformat style="email"}
+   bar foo foo.
+
+  </pre>
+<pre class="programlisting">
+
+   {textformat style="email"}
 
    This is foo.
    This is foo.
@@ -622,117 +264,52 @@ CLASS="programlisting"
    bar foo bar foo     foo.
    bar foo bar foo     foo.
 
-   {/textformat}</PRE
-></TD
-></TR
-></TABLE
-><P
->&#13;   上の例の出力
-  </P
-><TABLE
-BORDER="0"
-BGCOLOR="#E0E0E0"
-CELLPADDING="5"
-><TR
-><TD
-><PRE
-CLASS="screen"
->This is foo. This is foo. This is foo. This is foo. This is foo. This is
+   {/textformat}
+
+
+  </pre>
+<p>
+   上の例の出力
+  </p>
+<pre class="screen">
+
+
+   This is foo. This is foo. This is foo. This is foo. This is foo. This is
    foo.
 
    This is bar.
 
    bar foo bar foo foo. bar foo bar foo foo. bar foo bar foo foo. bar foo
    bar foo foo. bar foo bar foo foo. bar foo bar foo foo. bar foo bar foo
-   foo.</PRE
-></TD
-></TR
-></TABLE
-></DIV
-></TD
-></TR
-></TABLE
-><P
->&#13;  <A
-HREF="language.function.strip.html"
-><TT
-CLASS="varname"
->{strip}</TT
-></A
->
+   foo.
+
+
+  </pre>
+</div>
+</div>
+<br class="example-break"><p>
+  <a class="link" href="language.function.strip.html" title="{strip}"><code class="varname">{strip}</code></a>
   および
-  <A
-HREF="language.modifier.wordwrap.html"
-><TT
-CLASS="varname"
->wordwrap</TT
-></A
->
+  <a class="link" href="language.modifier.wordwrap.html" title="wordwrap"><code class="varname">wordwrap</code></a>
   も参照してください。
- </P
-></DIV
-><DIV
-CLASS="NAVFOOTER"
-><HR
-ALIGN="LEFT"
-WIDTH="100%"><TABLE
-SUMMARY="Footer navigation table"
-WIDTH="100%"
-BORDER="0"
-CELLPADDING="0"
-CELLSPACING="0"
-><TR
-><TD
-WIDTH="33%"
-ALIGN="left"
-VALIGN="top"
-><A
-HREF="language.function.popup.init.html"
-ACCESSKEY="P"
->前のページ</A
-></TD
-><TD
-WIDTH="34%"
-ALIGN="center"
-VALIGN="top"
-><A
-HREF="index.html"
-ACCESSKEY="H"
->ホーム</A
-></TD
-><TD
-WIDTH="33%"
-ALIGN="right"
-VALIGN="top"
-><A
-HREF="config.files.html"
-ACCESSKEY="N"
->次のページ</A
-></TD
-></TR
-><TR
-><TD
-WIDTH="33%"
-ALIGN="left"
-VALIGN="top"
->{popup_init}</TD
-><TD
-WIDTH="34%"
-ALIGN="center"
-VALIGN="top"
-><A
-HREF="language.custom.functions.html"
-ACCESSKEY="U"
->上に戻る</A
-></TD
-><TD
-WIDTH="33%"
-ALIGN="right"
-VALIGN="top"
->設定ファイル</TD
-></TR
-></TABLE
-></DIV
-></BODY
-></HTML
->
+ </p>
+</div>
+<div class="navfooter">
+<hr>
+<table width="100%" summary="Navigation footer">
+<tr>
+<td width="40%" align="left">
+<a accesskey="p" href="language.function.popup.init.html">Prev</a> </td>
+<td width="20%" align="center"><a accesskey="u" href="language.custom.functions.html">Up</a></td>
+<td width="40%" align="right"> <a accesskey="n" href="config.files.html">Next</a>
+</td>
+</tr>
+<tr>
+<td width="40%" align="left" valign="top">{popup_init} </td>
+<td width="20%" align="center"><a accesskey="h" href="index.html">Home</a></td>
+<td width="40%" align="right" valign="top"> Chapter 9. 設定ファイル</td>
+</tr>
+</table>
+</div>
+</body>
+</html>

@@ -1,706 +1,244 @@
-<HTML
-><HEAD
-><TITLE
->{html_checkboxes}</TITLE
-><META
-NAME="GENERATOR"
-CONTENT="Modular DocBook HTML Stylesheet Version 1.7"><LINK
-REL="HOME"
-TITLE="Smarty マニュアル"
-HREF="index.html"><LINK
-REL="UP"
-TITLE="カスタム関数"
-HREF="language.custom.functions.html"><LINK
-REL="PREVIOUS"
-TITLE="{fetch}"
-HREF="language.function.fetch.html"><LINK
-REL="NEXT"
-TITLE="{html_image}"
-HREF="language.function.html.image.html"><META
-HTTP-EQUIV="Content-type"
-CONTENT="text/html; charset=utf-8"></HEAD
-><BODY
-CLASS="sect1"
-BGCOLOR="#FFFFFF"
-TEXT="#000000"
-LINK="#0000FF"
-VLINK="#840084"
-ALINK="#0000FF"
-><DIV
-CLASS="NAVHEADER"
-><TABLE
-SUMMARY="Header navigation table"
-WIDTH="100%"
-BORDER="0"
-CELLPADDING="0"
-CELLSPACING="0"
-><TR
-><TH
-COLSPAN="3"
-ALIGN="center"
->Smarty マニュアル</TH
-></TR
-><TR
-><TD
-WIDTH="10%"
-ALIGN="left"
-VALIGN="bottom"
-><A
-HREF="language.function.fetch.html"
-ACCESSKEY="P"
->前のページ</A
-></TD
-><TD
-WIDTH="80%"
-ALIGN="center"
-VALIGN="bottom"
->第 8章カスタム関数</TD
-><TD
-WIDTH="10%"
-ALIGN="right"
-VALIGN="bottom"
-><A
-HREF="language.function.html.image.html"
-ACCESSKEY="N"
->次のページ</A
-></TD
-></TR
-></TABLE
-><HR
-ALIGN="LEFT"
-WIDTH="100%"></DIV
-><DIV
-CLASS="sect1"
-><H1
-CLASS="sect1"
-><A
-NAME="language.function.html.checkboxes"
-></A
->{html_checkboxes}</H1
-><P
->&#13;   <TT
-CLASS="varname"
->{html_checkboxes}</TT
-> は、
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>{html_checkboxes}</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.75.1">
+<link rel="home" href="index.html" title="Smarty マニュアル">
+<link rel="up" href="language.custom.functions.html" title="Chapter 8. カスタム関数">
+<link rel="prev" href="language.function.fetch.html" title="{fetch}">
+<link rel="next" href="language.function.html.image.html" title="{html_image}">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<div class="navheader">
+<table width="100%" summary="Navigation header">
+<tr><th colspan="3" align="center">{html_checkboxes}</th></tr>
+<tr>
+<td width="20%" align="left">
+<a accesskey="p" href="language.function.fetch.html">Prev</a> </td>
+<th width="60%" align="center">Chapter 8. カスタム関数</th>
+<td width="20%" align="right"> <a accesskey="n" href="language.function.html.image.html">Next</a>
+</td>
+</tr>
+</table>
+<hr>
+</div>
+<div class="sect1" title="{html_checkboxes}">
+<div class="titlepage"><div><div><h2 class="title" style="clear: both">
+<a name="language.function.html.checkboxes"></a>{html_checkboxes}</h2></div></div></div>
+<p>
+   <code class="varname">{html_checkboxes}</code> は、
    提供されたデータから HTML チェックボックスグループを作成する
-   <A
-HREF="language.custom.functions.html"
->カスタム関数</A
->
+   <a class="link" href="language.custom.functions.html" title="Chapter 8. カスタム関数">カスタム関数</a>
    です。デフォルトで選択されているアイテムの指定もうまく配慮されます。
-   </P
-><DIV
-CLASS="informaltable"
-><A
-NAME="AEN3170"
-></A
-><P
-></P
-><TABLE
-BORDER="1"
-CLASS="CALSTABLE"
-><THEAD
-><TR
-><TH
-WIDTH="20%"
-ALIGN="CENTER"
-VALIGN="MIDDLE"
->属性名</TH
-><TH
-WIDTH="20%"
-ALIGN="CENTER"
-VALIGN="MIDDLE"
->型</TH
-><TH
-WIDTH="20%"
-ALIGN="CENTER"
-VALIGN="MIDDLE"
->必須</TH
-><TH
-WIDTH="20%"
-ALIGN="CENTER"
-VALIGN="MIDDLE"
->デフォルト</TH
-><TH
-WIDTH="20%"
-ALIGN="LEFT"
-VALIGN="MIDDLE"
->概要</TH
-></TR
-></THEAD
-><TBODY
-><TR
-><TD
-WIDTH="20%"
-ALIGN="CENTER"
-VALIGN="MIDDLE"
->name</TD
-><TD
-WIDTH="20%"
-ALIGN="CENTER"
-VALIGN="MIDDLE"
->string</TD
-><TD
-WIDTH="20%"
-ALIGN="CENTER"
-VALIGN="MIDDLE"
->No</TD
-><TD
-WIDTH="20%"
-ALIGN="CENTER"
-VALIGN="MIDDLE"
-><SPAN
-CLASS="emphasis"
-><I
-CLASS="emphasis"
->checkbox</I
-></SPAN
-></TD
-><TD
-WIDTH="20%"
-ALIGN="LEFT"
-VALIGN="MIDDLE"
->チェックボックスリストの名前</TD
-></TR
-><TR
-><TD
-WIDTH="20%"
-ALIGN="CENTER"
-VALIGN="MIDDLE"
->values</TD
-><TD
-WIDTH="20%"
-ALIGN="CENTER"
-VALIGN="MIDDLE"
->array</TD
-><TD
-WIDTH="20%"
-ALIGN="CENTER"
-VALIGN="MIDDLE"
->Yes (options属性を用いない場合)</TD
-><TD
-WIDTH="20%"
-ALIGN="CENTER"
-VALIGN="MIDDLE"
-><SPAN
-CLASS="emphasis"
-><I
-CLASS="emphasis"
->n/a</I
-></SPAN
-></TD
-><TD
-WIDTH="20%"
-ALIGN="LEFT"
-VALIGN="MIDDLE"
->チェックボックスボタンの値の配列</TD
-></TR
-><TR
-><TD
-WIDTH="20%"
-ALIGN="CENTER"
-VALIGN="MIDDLE"
->output</TD
-><TD
-WIDTH="20%"
-ALIGN="CENTER"
-VALIGN="MIDDLE"
->array</TD
-><TD
-WIDTH="20%"
-ALIGN="CENTER"
-VALIGN="MIDDLE"
->Yes (options属性を用いない場合)</TD
-><TD
-WIDTH="20%"
-ALIGN="CENTER"
-VALIGN="MIDDLE"
-><SPAN
-CLASS="emphasis"
-><I
-CLASS="emphasis"
->n/a</I
-></SPAN
-></TD
-><TD
-WIDTH="20%"
-ALIGN="LEFT"
-VALIGN="MIDDLE"
->チェックボックスボタンの出力の配列</TD
-></TR
-><TR
-><TD
-WIDTH="20%"
-ALIGN="CENTER"
-VALIGN="MIDDLE"
->selected</TD
-><TD
-WIDTH="20%"
-ALIGN="CENTER"
-VALIGN="MIDDLE"
->string/array</TD
-><TD
-WIDTH="20%"
-ALIGN="CENTER"
-VALIGN="MIDDLE"
->No</TD
-><TD
-WIDTH="20%"
-ALIGN="CENTER"
-VALIGN="MIDDLE"
-><SPAN
-CLASS="emphasis"
-><I
-CLASS="emphasis"
->empty</I
-></SPAN
-></TD
-><TD
-WIDTH="20%"
-ALIGN="LEFT"
-VALIGN="MIDDLE"
->あらかじめ選択されたチェックボックス要素群</TD
-></TR
-><TR
-><TD
-WIDTH="20%"
-ALIGN="CENTER"
-VALIGN="MIDDLE"
->options</TD
-><TD
-WIDTH="20%"
-ALIGN="CENTER"
-VALIGN="MIDDLE"
->associative array</TD
-><TD
-WIDTH="20%"
-ALIGN="CENTER"
-VALIGN="MIDDLE"
->Yes (valuesとoutput属性を用いない場合)</TD
-><TD
-WIDTH="20%"
-ALIGN="CENTER"
-VALIGN="MIDDLE"
-><SPAN
-CLASS="emphasis"
-><I
-CLASS="emphasis"
->n/a</I
-></SPAN
-></TD
-><TD
-WIDTH="20%"
-ALIGN="LEFT"
-VALIGN="MIDDLE"
->values属性とoutput属性の連想配列</TD
-></TR
-><TR
-><TD
-WIDTH="20%"
-ALIGN="CENTER"
-VALIGN="MIDDLE"
->separator</TD
-><TD
-WIDTH="20%"
-ALIGN="CENTER"
-VALIGN="MIDDLE"
->string</TD
-><TD
-WIDTH="20%"
-ALIGN="CENTER"
-VALIGN="MIDDLE"
->No</TD
-><TD
-WIDTH="20%"
-ALIGN="CENTER"
-VALIGN="MIDDLE"
-><SPAN
-CLASS="emphasis"
-><I
-CLASS="emphasis"
->empty</I
-></SPAN
-></TD
-><TD
-WIDTH="20%"
-ALIGN="LEFT"
-VALIGN="MIDDLE"
->各チェックボックスアイテムを区分するための文字列</TD
-></TR
-><TR
-><TD
-WIDTH="20%"
-ALIGN="CENTER"
-VALIGN="MIDDLE"
->assign</TD
-><TD
-WIDTH="20%"
-ALIGN="CENTER"
-VALIGN="MIDDLE"
->string</TD
-><TD
-WIDTH="20%"
-ALIGN="CENTER"
-VALIGN="MIDDLE"
->No</TD
-><TD
-WIDTH="20%"
-ALIGN="CENTER"
-VALIGN="MIDDLE"
-><SPAN
-CLASS="emphasis"
-><I
-CLASS="emphasis"
->empty</I
-></SPAN
-></TD
-><TD
-WIDTH="20%"
-ALIGN="LEFT"
-VALIGN="MIDDLE"
->チェックボックスのタグを出力せずに配列に格納する</TD
-></TR
-><TR
-><TD
-WIDTH="20%"
-ALIGN="CENTER"
-VALIGN="MIDDLE"
->labels</TD
-><TD
-WIDTH="20%"
-ALIGN="CENTER"
-VALIGN="MIDDLE"
->boolean</TD
-><TD
-WIDTH="20%"
-ALIGN="CENTER"
-VALIGN="MIDDLE"
->No</TD
-><TD
-WIDTH="20%"
-ALIGN="CENTER"
-VALIGN="MIDDLE"
-><SPAN
-CLASS="emphasis"
-><I
-CLASS="emphasis"
-><TT
-CLASS="constant"
->TRUE</TT
-></I
-></SPAN
-></TD
-><TD
-WIDTH="20%"
-ALIGN="LEFT"
-VALIGN="MIDDLE"
->出力に &#60;label&#62; タグを加える</TD
-></TR
-><TR
-><TD
-WIDTH="20%"
-ALIGN="CENTER"
-VALIGN="MIDDLE"
->assign</TD
-><TD
-WIDTH="20%"
-ALIGN="CENTER"
-VALIGN="MIDDLE"
->string</TD
-><TD
-WIDTH="20%"
-ALIGN="CENTER"
-VALIGN="MIDDLE"
->No</TD
-><TD
-WIDTH="20%"
-ALIGN="CENTER"
-VALIGN="MIDDLE"
-><SPAN
-CLASS="emphasis"
-><I
-CLASS="emphasis"
->empty</I
-></SPAN
-></TD
-><TD
-WIDTH="20%"
-ALIGN="LEFT"
-VALIGN="MIDDLE"
->各チェックボックスの出力をひとつの要素とする配列に格納する</TD
-></TR
-></TBODY
-></TABLE
-><P
-></P
-></DIV
-><P
-></P
-><UL
-><LI
-><P
->&#13;   <TT
-CLASS="parameter"
-><I
->options</I
-></TT
-> を使用しない場合は、
-   必須の属性は <TT
-CLASS="parameter"
-><I
->values</I
-></TT
-> および
-   <TT
-CLASS="parameter"
-><I
->output</I
-></TT
-> となります。
-   </P
-></LI
-><LI
-><P
->&#13;   全ての出力は XHTML 準拠です。
-  </P
-></LI
-><LI
-><P
->&#13;   上の属性リストに無いパラメータが与えられた場合は、作成された各
-   &#60;input&#62; タグの内側に名前/値のペアで表されます。
-   </P
-></LI
-></UL
-><TABLE
-WIDTH="100%"
-BORDER="0"
-CELLPADDING="0"
-CELLSPACING="0"
-CLASS="EXAMPLE"
-><TR
-><TD
-><DIV
-CLASS="example"
-><A
-NAME="AEN3259"
-></A
-><P
-><B
->例 8-9. {html_checkboxes}</B
-></P
-><TABLE
-BORDER="0"
-BGCOLOR="#E0E0E0"
-CELLPADDING="5"
-><TR
-><TD
-><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br /><br />$smarty</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">assign</span><span style="color: #007700">(</span><span style="color: #DD0000">'cust_ids'</span><span style="color: #007700">,&nbsp;array(</span><span style="color: #0000BB">1000</span><span style="color: #007700">,</span><span style="color: #0000BB">1001</span><span style="color: #007700">,</span><span style="color: #0000BB">1002</span><span style="color: #007700">,</span><span style="color: #0000BB">1003</span><span style="color: #007700">));<br /></span><span style="color: #0000BB">$smarty</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">assign</span><span style="color: #007700">(</span><span style="color: #DD0000">'cust_names'</span><span style="color: #007700">,&nbsp;array(<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'Joe&nbsp;Schmoe'</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'Jack&nbsp;Smith'</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'Jane&nbsp;Johnson'</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'Charlie&nbsp;Brown'</span><span style="color: #007700">)<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;);<br /></span><span style="color: #0000BB">$smarty</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">assign</span><span style="color: #007700">(</span><span style="color: #DD0000">'customer_id'</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">1001</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">?&gt;</span>
-</span>
-</code></TD
-></TR
-></TABLE
-><P
->&#13;テンプレート
-  </P
-><TABLE
-BORDER="0"
-BGCOLOR="#E0E0E0"
-CELLPADDING="5"
-><TR
-><TD
-><PRE
-CLASS="programlisting"
->{html_checkboxes name='id' values=$cust_ids output=$cust_names
-   selected=$customer_id  separator='&#60;br /&#62;'}</PRE
-></TD
-></TR
-></TABLE
-><P
->&#13;   あるいは、このような PHP コードに対して
-  </P
-><TABLE
-BORDER="0"
-BGCOLOR="#E0E0E0"
-CELLPADDING="5"
-><TR
-><TD
-><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br /><br />$smarty</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">assign</span><span style="color: #007700">(</span><span style="color: #DD0000">'cust_checkboxes'</span><span style="color: #007700">,&nbsp;array(<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">1000&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">'Joe&nbsp;Schmoe'</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">1001&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">'Jack&nbsp;Smith'</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">1002&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">'Jane&nbsp;Johnson'</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">1003&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">'Charlie&nbsp;Brown'</span><span style="color: #007700">)<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;);<br /></span><span style="color: #0000BB">$smarty</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">assign</span><span style="color: #007700">(</span><span style="color: #DD0000">'customer_id'</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">1001</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">?&gt;</span>
-</span>
-</code></TD
-></TR
-></TABLE
-><P
->&#13;  テンプレートはこのようになります。
-  </P
-><TABLE
-BORDER="0"
-BGCOLOR="#E0E0E0"
-CELLPADDING="5"
-><TR
-><TD
-><PRE
-CLASS="programlisting"
->{html_checkboxes name='id' options=$cust_checkboxes
-   selected=$customer_id separator='&#60;br /&#62;'}</PRE
-></TD
-></TR
-></TABLE
-><P
->&#13;   どちらも、出力は次のようになります。
-  </P
-><TABLE
-BORDER="0"
-BGCOLOR="#E0E0E0"
-CELLPADDING="5"
-><TR
-><TD
-><PRE
-CLASS="screen"
->&#60;label&#62;&#60;input type="checkbox" name="id[]" value="1000" /&#62;Joe Schmoe&#60;/label&#62;&#60;br /&#62;
-&#60;label&#62;&#60;input type="checkbox" name="id[]" value="1001" checked="checked" /&#62;Jack Smith&#60;/label&#62;
-&#60;br /&#62;
-&#60;label&#62;&#60;input type="checkbox" name="id[]" value="1002" /&#62;Jane Johnson&#60;/label&#62;&#60;br /&#62;
-&#60;label&#62;&#60;input type="checkbox" name="id[]" value="1003" /&#62;Charlie Brown&#60;/label&#62;&#60;br /&#62;</PRE
-></TD
-></TR
-></TABLE
-></DIV
-></TD
-></TR
-></TABLE
-><TABLE
-WIDTH="100%"
-BORDER="0"
-CELLPADDING="0"
-CELLSPACING="0"
-CLASS="EXAMPLE"
-><TR
-><TD
-><DIV
-CLASS="example"
-><A
-NAME="AEN3270"
-></A
-><P
-><B
->例 8-10. 
+   </p>
+<div class="informaltable"><table border="1">
+<colgroup>
+<col align="center">
+<col align="center">
+<col align="center">
+<col align="center">
+<col>
+</colgroup>
+<thead><tr>
+<th align="center">属性名</th>
+<th align="center">型</th>
+<th align="center">必須</th>
+<th align="center">デフォルト</th>
+<th>概要</th>
+</tr></thead>
+<tbody>
+<tr>
+<td align="center">name</td>
+<td align="center">string</td>
+<td align="center">No</td>
+<td align="center"><span class="emphasis"><em>checkbox</em></span></td>
+<td>チェックボックスリストの名前</td>
+</tr>
+<tr>
+<td align="center">values</td>
+<td align="center">array</td>
+<td align="center">Yes (options属性を用いない場合)</td>
+<td align="center"><span class="emphasis"><em>n/a</em></span></td>
+<td>チェックボックスボタンの値の配列</td>
+</tr>
+<tr>
+<td align="center">output</td>
+<td align="center">array</td>
+<td align="center">Yes (options属性を用いない場合)</td>
+<td align="center"><span class="emphasis"><em>n/a</em></span></td>
+<td>チェックボックスボタンの出力の配列</td>
+</tr>
+<tr>
+<td align="center">selected</td>
+<td align="center">string/array</td>
+<td align="center">No</td>
+<td align="center"><span class="emphasis"><em>empty</em></span></td>
+<td>あらかじめ選択されたチェックボックス要素群</td>
+</tr>
+<tr>
+<td align="center">options</td>
+<td align="center">associative array</td>
+<td align="center">Yes (valuesとoutput属性を用いない場合)</td>
+<td align="center"><span class="emphasis"><em>n/a</em></span></td>
+<td>values属性とoutput属性の連想配列</td>
+</tr>
+<tr>
+<td align="center">separator</td>
+<td align="center">string</td>
+<td align="center">No</td>
+<td align="center"><span class="emphasis"><em>empty</em></span></td>
+<td>各チェックボックスアイテムを区分するための文字列</td>
+</tr>
+<tr>
+<td align="center">assign</td>
+<td align="center">string</td>
+<td align="center">No</td>
+<td align="center"><span class="emphasis"><em>empty</em></span></td>
+<td>チェックボックスのタグを出力せずに配列に格納する</td>
+</tr>
+<tr>
+<td align="center">labels</td>
+<td align="center">boolean</td>
+<td align="center">No</td>
+<td align="center"><span class="emphasis"><em><code class="constant">TRUE</code></em></span></td>
+<td>出力に &lt;label&gt; タグを加える</td>
+</tr>
+</tbody>
+</table></div>
+<div class="itemizedlist"><ul class="itemizedlist" type="disc">
+<li class="listitem"><p>
+   <em class="parameter"><code>options</code></em> を使用しない場合は、
+   必須の属性は <em class="parameter"><code>values</code></em> および
+   <em class="parameter"><code>output</code></em> となります。
+   </p></li>
+<li class="listitem"><p>
+   全ての出力は XHTML 準拠です。
+  </p></li>
+<li class="listitem"><p>
+   上の属性リストに無いパラメータが与えられた場合は、作成された各
+   &lt;input&gt; タグの内側に名前/値のペアで表されます。
+   </p></li>
+</ul></div>
+<div class="example">
+<a name="id2793954"></a><p class="title"><b>Example 8.9. {html_checkboxes}</b></p>
+<div class="example-contents">
+<pre class="programlisting">
+
+&lt;?php
+
+$smarty-&gt;assign('cust_ids', array(1000,1001,1002,1003));
+$smarty-&gt;assign('cust_names', array(
+                                'Joe Schmoe',
+                                'Jack Smith',
+                                'Jane Johnson',
+                                'Charlie Brown')
+                              );
+$smarty-&gt;assign('customer_id', 1001);
+
+?&gt;
+
+  </pre>
+<p>
+テンプレート
+  </p>
+<pre class="programlisting">
+
+{html_checkboxes name='id' values=$cust_ids output=$cust_names
+   selected=$customer_id  separator='&lt;br /&gt;'}
+
+  </pre>
+<p>
+   あるいは、このような PHP コードに対して
+  </p>
+<pre class="programlisting">
+
+&lt;?php
+
+$smarty-&gt;assign('cust_checkboxes', array(
+                                     1000 =&gt; 'Joe Schmoe',
+                                     1001 =&gt; 'Jack Smith',
+                                     1002 =&gt; 'Jane Johnson',
+                                     1003 =&gt; 'Charlie Brown')
+                                   );
+$smarty-&gt;assign('customer_id', 1001);
+
+?&gt;
+
+  </pre>
+<p>
+  テンプレートはこのようになります。
+  </p>
+<pre class="programlisting">
+
+{html_checkboxes name='id' options=$cust_checkboxes
+   selected=$customer_id separator='&lt;br /&gt;'}
+
+  </pre>
+<p>
+   どちらも、出力は次のようになります。
+  </p>
+<pre class="screen">
+
+&lt;label&gt;&lt;input type="checkbox" name="id[]" value="1000" /&gt;Joe Schmoe&lt;/label&gt;&lt;br /&gt;
+&lt;label&gt;&lt;input type="checkbox" name="id[]" value="1001" checked="checked" /&gt;Jack Smith&lt;/label&gt;
+&lt;br /&gt;
+&lt;label&gt;&lt;input type="checkbox" name="id[]" value="1002" /&gt;Jane Johnson&lt;/label&gt;&lt;br /&gt;
+&lt;label&gt;&lt;input type="checkbox" name="id[]" value="1003" /&gt;Charlie Brown&lt;/label&gt;&lt;br /&gt;
+
+  </pre>
+</div>
+</div>
+<br class="example-break"><div class="example">
+<a name="id2794045"></a><p class="title"><b>Example 8.10. 
       データベースの例 (PEAR あるいは ADODB)
-  </B
-></P
-><TABLE
-BORDER="0"
-BGCOLOR="#E0E0E0"
-CELLPADDING="5"
-><TR
-><TD
-><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br /><br />$sql&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">'select&nbsp;type_id,&nbsp;types&nbsp;from&nbsp;contact_types&nbsp;order&nbsp;by&nbsp;type'</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$smarty</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">assign</span><span style="color: #007700">(</span><span style="color: #DD0000">'contact_types'</span><span style="color: #007700">,</span><span style="color: #0000BB">$db</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getAssoc</span><span style="color: #007700">(</span><span style="color: #0000BB">$sql</span><span style="color: #007700">));<br /><br /></span><span style="color: #0000BB">$sql&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">'select&nbsp;contact_id,&nbsp;contact_type_id,&nbsp;contact&nbsp;'<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #007700">.</span><span style="color: #DD0000">'from&nbsp;contacts&nbsp;where&nbsp;contact_id=12'</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$smarty</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">assign</span><span style="color: #007700">(</span><span style="color: #DD0000">'contact'</span><span style="color: #007700">,</span><span style="color: #0000BB">$db</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getRow</span><span style="color: #007700">(</span><span style="color: #0000BB">$sql</span><span style="color: #007700">));<br /><br /></span><span style="color: #0000BB">?&gt;</span>
-</span>
-</code></TD
-></TR
-></TABLE
-><P
->データベースのクエリの出力</P
-><TABLE
-BORDER="0"
-BGCOLOR="#E0E0E0"
-CELLPADDING="5"
-><TR
-><TD
-><PRE
-CLASS="programlisting"
->{html_checkboxes name='contact_type_id' options=$contact_types
-        selected=$contact.contact_type_id separator='&#60;br /&#62;'}</PRE
-></TD
-></TR
-></TABLE
-></DIV
-></TD
-></TR
-></TABLE
-><P
->&#13;  <A
-HREF="language.function.html.radios.html"
-><TT
-CLASS="varname"
->{html_radios}</TT
-></A
->
+  </b></p>
+<div class="example-contents">
+<pre class="programlisting">
+
+&lt;?php
+
+$sql = 'select type_id, types from contact_types order by type';
+$smarty-&gt;assign('contact_types',$db-&gt;getAssoc($sql));
+
+$sql = 'select contact_id, contact_type_id, contact '
+       .'from contacts where contact_id=12';
+$smarty-&gt;assign('contact',$db-&gt;getRow($sql));
+
+?&gt;
+
+  </pre>
+<p>データベースのクエリの出力</p>
+<pre class="programlisting">
+
+{html_checkboxes name='contact_type_id' options=$contact_types
+        selected=$contact.contact_type_id separator='&lt;br /&gt;'}
+
+</pre>
+</div>
+</div>
+<br class="example-break"><p>
+  <a class="link" href="language.function.html.radios.html" title="{html_radios}"><code class="varname">{html_radios}</code></a>
   および
-  <A
-HREF="language.function.html.options.html"
-><TT
-CLASS="varname"
->{html_options}</TT
-></A
->
+  <a class="link" href="language.function.html.options.html" title="{html_options}"><code class="varname">{html_options}</code></a>
   も参照してください。
- </P
-></DIV
-><DIV
-CLASS="NAVFOOTER"
-><HR
-ALIGN="LEFT"
-WIDTH="100%"><TABLE
-SUMMARY="Footer navigation table"
-WIDTH="100%"
-BORDER="0"
-CELLPADDING="0"
-CELLSPACING="0"
-><TR
-><TD
-WIDTH="33%"
-ALIGN="left"
-VALIGN="top"
-><A
-HREF="language.function.fetch.html"
-ACCESSKEY="P"
->前のページ</A
-></TD
-><TD
-WIDTH="34%"
-ALIGN="center"
-VALIGN="top"
-><A
-HREF="index.html"
-ACCESSKEY="H"
->ホーム</A
-></TD
-><TD
-WIDTH="33%"
-ALIGN="right"
-VALIGN="top"
-><A
-HREF="language.function.html.image.html"
-ACCESSKEY="N"
->次のページ</A
-></TD
-></TR
-><TR
-><TD
-WIDTH="33%"
-ALIGN="left"
-VALIGN="top"
->{fetch}</TD
-><TD
-WIDTH="34%"
-ALIGN="center"
-VALIGN="top"
-><A
-HREF="language.custom.functions.html"
-ACCESSKEY="U"
->上に戻る</A
-></TD
-><TD
-WIDTH="33%"
-ALIGN="right"
-VALIGN="top"
->{html_image}</TD
-></TR
-></TABLE
-></DIV
-></BODY
-></HTML
->
+ </p>
+</div>
+<div class="navfooter">
+<hr>
+<table width="100%" summary="Navigation footer">
+<tr>
+<td width="40%" align="left">
+<a accesskey="p" href="language.function.fetch.html">Prev</a> </td>
+<td width="20%" align="center"><a accesskey="u" href="language.custom.functions.html">Up</a></td>
+<td width="40%" align="right"> <a accesskey="n" href="language.function.html.image.html">Next</a>
+</td>
+</tr>
+<tr>
+<td width="40%" align="left" valign="top">{fetch} </td>
+<td width="20%" align="center"><a accesskey="h" href="index.html">Home</a></td>
+<td width="40%" align="right" valign="top"> {html_image}</td>
+</tr>
+</table>
+</div>
+</body>
+</html>

@@ -1,1357 +1,471 @@
-<HTML
-><HEAD
-><TITLE
->{foreach},{foreachelse}</TITLE
-><META
-NAME="GENERATOR"
-CONTENT="Modular DocBook HTML Stylesheet Version 1.7"><LINK
-REL="HOME"
-TITLE="Smarty マニュアル"
-HREF="index.html"><LINK
-REL="UP"
-TITLE="組み込み関数"
-HREF="language.builtin.functions.html"><LINK
-REL="PREVIOUS"
-TITLE="{config_load}"
-HREF="language.function.config.load.html"><LINK
-REL="NEXT"
-TITLE="{if},{elseif},{else}"
-HREF="language.function.if.html"><META
-HTTP-EQUIV="Content-type"
-CONTENT="text/html; charset=utf-8"></HEAD
-><BODY
-CLASS="sect1"
-BGCOLOR="#FFFFFF"
-TEXT="#000000"
-LINK="#0000FF"
-VLINK="#840084"
-ALINK="#0000FF"
-><DIV
-CLASS="NAVHEADER"
-><TABLE
-SUMMARY="Header navigation table"
-WIDTH="100%"
-BORDER="0"
-CELLPADDING="0"
-CELLSPACING="0"
-><TR
-><TH
-COLSPAN="3"
-ALIGN="center"
->Smarty マニュアル</TH
-></TR
-><TR
-><TD
-WIDTH="10%"
-ALIGN="left"
-VALIGN="bottom"
-><A
-HREF="language.function.config.load.html"
-ACCESSKEY="P"
->前のページ</A
-></TD
-><TD
-WIDTH="80%"
-ALIGN="center"
-VALIGN="bottom"
->第 7章組み込み関数</TD
-><TD
-WIDTH="10%"
-ALIGN="right"
-VALIGN="bottom"
-><A
-HREF="language.function.if.html"
-ACCESSKEY="N"
->次のページ</A
-></TD
-></TR
-></TABLE
-><HR
-ALIGN="LEFT"
-WIDTH="100%"></DIV
-><DIV
-CLASS="sect1"
-><H1
-CLASS="sect1"
-><A
-NAME="language.function.foreach"
-></A
->{foreach},{foreachelse}</H1
-><P
->&#13;  <TT
-CLASS="varname"
->{foreach}</TT
-> を使用して、通常の数値添字配列と同じように
-   <SPAN
-CLASS="bold"
-><B
-CLASS="emphasis"
->連想配列</B
-></SPAN
-> をループします。
-   <A
-HREF="language.function.section.html"
-><TT
-CLASS="varname"
->{section}</TT
-></A
->
-  のように、<SPAN
-CLASS="bold"
-><B
-CLASS="emphasis"
->数値添字の配列のみ</B
-></SPAN
-> をループさせるということはありません。
-   <TT
-CLASS="varname"
->{foreach}</TT
-> の構文は
-   <A
-HREF="language.function.section.html"
-><TT
-CLASS="varname"
->{section}</TT
-></A
->
-   よりずっと簡単ですが、その代わりに <SPAN
-CLASS="bold"
-><B
-CLASS="emphasis"
->１つの配列</B
-></SPAN
->
-   しか扱えません。すべての <TT
-CLASS="varname"
->{foreach}</TT
-> タグは、
-   終了タグ <TT
-CLASS="varname"
->{/foreach}</TT
-> とペアである必要があります。
-   </P
-><DIV
-CLASS="informaltable"
-><A
-NAME="AEN1736"
-></A
-><P
-></P
-><TABLE
-BORDER="1"
-CLASS="CALSTABLE"
-><THEAD
-><TR
-><TH
-WIDTH="20%"
-ALIGN="CENTER"
-VALIGN="MIDDLE"
->属性名</TH
-><TH
-WIDTH="20%"
-ALIGN="CENTER"
-VALIGN="MIDDLE"
->型</TH
-><TH
-WIDTH="20%"
-ALIGN="CENTER"
-VALIGN="MIDDLE"
->必須</TH
-><TH
-WIDTH="20%"
-ALIGN="CENTER"
-VALIGN="MIDDLE"
->デフォルト</TH
-><TH
-WIDTH="20%"
-ALIGN="LEFT"
-VALIGN="MIDDLE"
->概要</TH
-></TR
-></THEAD
-><TBODY
-><TR
-><TD
-WIDTH="20%"
-ALIGN="CENTER"
-VALIGN="MIDDLE"
->from</TD
-><TD
-WIDTH="20%"
-ALIGN="CENTER"
-VALIGN="MIDDLE"
->array</TD
-><TD
-WIDTH="20%"
-ALIGN="CENTER"
-VALIGN="MIDDLE"
->Yes</TD
-><TD
-WIDTH="20%"
-ALIGN="CENTER"
-VALIGN="MIDDLE"
-><SPAN
-CLASS="emphasis"
-><I
-CLASS="emphasis"
->n/a</I
-></SPAN
-></TD
-><TD
-WIDTH="20%"
-ALIGN="LEFT"
-VALIGN="MIDDLE"
->ループに使用する配列</TD
-></TR
-><TR
-><TD
-WIDTH="20%"
-ALIGN="CENTER"
-VALIGN="MIDDLE"
->item</TD
-><TD
-WIDTH="20%"
-ALIGN="CENTER"
-VALIGN="MIDDLE"
->string</TD
-><TD
-WIDTH="20%"
-ALIGN="CENTER"
-VALIGN="MIDDLE"
->Yes</TD
-><TD
-WIDTH="20%"
-ALIGN="CENTER"
-VALIGN="MIDDLE"
-><SPAN
-CLASS="emphasis"
-><I
-CLASS="emphasis"
->n/a</I
-></SPAN
-></TD
-><TD
-WIDTH="20%"
-ALIGN="LEFT"
-VALIGN="MIDDLE"
->現在の要素を示す変数の名前</TD
-></TR
-><TR
-><TD
-WIDTH="20%"
-ALIGN="CENTER"
-VALIGN="MIDDLE"
->key</TD
-><TD
-WIDTH="20%"
-ALIGN="CENTER"
-VALIGN="MIDDLE"
->string</TD
-><TD
-WIDTH="20%"
-ALIGN="CENTER"
-VALIGN="MIDDLE"
->No</TD
-><TD
-WIDTH="20%"
-ALIGN="CENTER"
-VALIGN="MIDDLE"
-><SPAN
-CLASS="emphasis"
-><I
-CLASS="emphasis"
->n/a</I
-></SPAN
-></TD
-><TD
-WIDTH="20%"
-ALIGN="LEFT"
-VALIGN="MIDDLE"
->現在のキーを示す変数の名前</TD
-></TR
-><TR
-><TD
-WIDTH="20%"
-ALIGN="CENTER"
-VALIGN="MIDDLE"
->name</TD
-><TD
-WIDTH="20%"
-ALIGN="CENTER"
-VALIGN="MIDDLE"
->string</TD
-><TD
-WIDTH="20%"
-ALIGN="CENTER"
-VALIGN="MIDDLE"
->No</TD
-><TD
-WIDTH="20%"
-ALIGN="CENTER"
-VALIGN="MIDDLE"
-><SPAN
-CLASS="emphasis"
-><I
-CLASS="emphasis"
->n/a</I
-></SPAN
-></TD
-><TD
-WIDTH="20%"
-ALIGN="LEFT"
-VALIGN="MIDDLE"
->foreach プロパティにアクセスするための foreach ループ名</TD
-></TR
-></TBODY
-></TABLE
-><P
-></P
-></DIV
-><P
-></P
-><UL
-><LI
-><P
->&#13;   必須の属性は <TT
-CLASS="parameter"
-><I
->from</I
-></TT
-> と <TT
-CLASS="parameter"
-><I
->item</I
-></TT
-> です。
-   </P
-></LI
-><LI
-><P
->&#13;   <TT
-CLASS="varname"
->{foreach}</TT
-> ループの <TT
-CLASS="parameter"
-><I
->name</I
-></TT
->
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>{foreach},{foreachelse}</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.75.1">
+<link rel="home" href="index.html" title="Smarty マニュアル">
+<link rel="up" href="language.builtin.functions.html" title="Chapter 7. 組み込み関数">
+<link rel="prev" href="language.function.config.load.html" title="{config_load}">
+<link rel="next" href="language.function.if.html" title="{if},{elseif},{else}">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<div class="navheader">
+<table width="100%" summary="Navigation header">
+<tr><th colspan="3" align="center">{foreach},{foreachelse}</th></tr>
+<tr>
+<td width="20%" align="left">
+<a accesskey="p" href="language.function.config.load.html">Prev</a> </td>
+<th width="60%" align="center">Chapter 7. 組み込み関数</th>
+<td width="20%" align="right"> <a accesskey="n" href="language.function.if.html">Next</a>
+</td>
+</tr>
+</table>
+<hr>
+</div>
+<div class="sect1" title="{foreach},{foreachelse}">
+<div class="titlepage"><div><div><h2 class="title" style="clear: both">
+<a name="language.function.foreach"></a>{foreach},{foreachelse}</h2></div></div></div>
+<p>
+  <code class="varname">{foreach}</code> を使用して、通常の数値添字配列と同じように
+   <span class="bold"><strong>連想配列</strong></span> をループします。
+   <a class="link" href="language.function.section.html" title="{section},{sectionelse}"><code class="varname">{section}</code></a>
+  のように、<span class="bold"><strong>数値添字の配列のみ</strong></span> をループさせるということはありません。
+   <code class="varname">{foreach}</code> の構文は
+   <a class="link" href="language.function.section.html" title="{section},{sectionelse}"><code class="varname">{section}</code></a>
+   よりずっと簡単ですが、その代わりに <span class="bold"><strong>１つの配列</strong></span>
+   しか扱えません。すべての <code class="varname">{foreach}</code> タグは、
+   終了タグ <code class="varname">{/foreach}</code> とペアである必要があります。
+   </p>
+<div class="informaltable"><table border="1">
+<colgroup>
+<col align="center">
+<col align="center">
+<col align="center">
+<col align="center">
+<col>
+</colgroup>
+<thead><tr>
+<th align="center">属性名</th>
+<th align="center">型</th>
+<th align="center">必須</th>
+<th align="center">デフォルト</th>
+<th>概要</th>
+</tr></thead>
+<tbody>
+<tr>
+<td align="center">from</td>
+<td align="center">array</td>
+<td align="center">Yes</td>
+<td align="center"><span class="emphasis"><em>n/a</em></span></td>
+<td>ループに使用する配列</td>
+</tr>
+<tr>
+<td align="center">item</td>
+<td align="center">string</td>
+<td align="center">Yes</td>
+<td align="center"><span class="emphasis"><em>n/a</em></span></td>
+<td>現在の要素を示す変数の名前</td>
+</tr>
+<tr>
+<td align="center">key</td>
+<td align="center">string</td>
+<td align="center">No</td>
+<td align="center"><span class="emphasis"><em>n/a</em></span></td>
+<td>現在のキーを示す変数の名前</td>
+</tr>
+<tr>
+<td align="center">name</td>
+<td align="center">string</td>
+<td align="center">No</td>
+<td align="center"><span class="emphasis"><em>n/a</em></span></td>
+<td>foreach プロパティにアクセスするための foreach ループ名</td>
+</tr>
+</tbody>
+</table></div>
+<div class="itemizedlist"><ul class="itemizedlist" type="disc">
+<li class="listitem"><p>
+   必須の属性は <em class="parameter"><code>from</code></em> と <em class="parameter"><code>item</code></em> です。
+   </p></li>
+<li class="listitem"><p>
+   <code class="varname">{foreach}</code> ループの <em class="parameter"><code>name</code></em>
    は、英数字とアンダースコアを使用して自由に命名できます。これは
-    <A
-HREF="http://php.net/language.variables"
-TARGET="_top"
->PHP の変数</A
->
+    <a class="ulink" href="http://php.net/language.variables" target="_top">PHP の変数</a>
    と同じです。
-   </P
-></LI
-><LI
-><P
->&#13;   <TT
-CLASS="varname"
->{foreach}</TT
-> ループはネスト可能で、ネストした
-   <TT
-CLASS="varname"
->{foreach}</TT
-> の name はお互いにユニークである必要があります。
-   </P
-></LI
-><LI
-><P
->&#13;   <TT
-CLASS="parameter"
-><I
->from</I
-></TT
-> 属性は、通常は値の配列で、
-   <TT
-CLASS="varname"
->{foreach}</TT
-> のループ回数を決定するために使われます。
-   </P
-></LI
-><LI
-><P
->&#13;   <TT
-CLASS="varname"
->{foreachelse}</TT
-> は、
-   <TT
-CLASS="parameter"
-><I
->from</I
-></TT
-> 変数の値が存在しない場合に実行されます。
-   </P
-></LI
-><LI
-><P
->&#13;      <TT
-CLASS="varname"
->{foreach}</TT
-> ループは、プロパティを操作する変数を自身で持っています。
+   </p></li>
+<li class="listitem"><p>
+   <code class="varname">{foreach}</code> ループはネスト可能で、ネストした
+   <code class="varname">{foreach}</code> の name はお互いにユニークである必要があります。
+   </p></li>
+<li class="listitem"><p>
+   <em class="parameter"><code>from</code></em> 属性は、通常は値の配列で、
+   <code class="varname">{foreach}</code> のループ回数を決定するために使われます。
+   </p></li>
+<li class="listitem"><p>
+   <code class="varname">{foreachelse}</code> は、
+   <em class="parameter"><code>from</code></em> 変数の値が存在しない場合に実行されます。
+   </p></li>
+<li class="listitem">
+<p>
+      <code class="varname">{foreach}</code> ループは、プロパティを操作する変数を自身で持っています。
       これらは次のように表されます。
-      <A
-HREF="language.variables.smarty.html#language.variables.smarty.loops"
->&#13;      <TT
-CLASS="parameter"
-><I
->{$smarty.foreach.name.property}</I
-></TT
-></A
->
-      ここで、<SPAN
-CLASS="QUOTE"
->"name"</SPAN
-> は
-      <TT
-CLASS="parameter"
-><I
->name</I
-></TT
-> 属性の値となります。
-      </P
-><DIV
-CLASS="note"
-><BLOCKQUOTE
-CLASS="note"
-><P
-><B
->注意: </B
-><TT
-CLASS="parameter"
-><I
->name</I
-></TT
-> 属性が必要となるのは
-      <TT
-CLASS="varname"
->{foreach</TT
->} のプロパティにアクセスする必要がある場合のみです。
-      これは <A
-HREF="language.function.section.html"
-><TT
-CLASS="varname"
->{section}</TT
-></A
->
-      の場合とは異なります。<TT
-CLASS="varname"
->{foreach}</TT
-> のプロパティに対して
-      定義されていない <TT
-CLASS="parameter"
-><I
->name</I
-></TT
-> でアクセスしてもエラーは発生しませんが、
+      <a class="link" href="language.variables.smarty.html#language.variables.smarty.loops" title="{$smarty.section}、{$smarty.foreach}">
+      <em class="parameter"><code>{$smarty.foreach.name.property}</code></em></a>
+      ここで、<span class="quote">“<span class="quote">name</span>”</span> は
+      <em class="parameter"><code>name</code></em> 属性の値となります。
+      </p>
+<div class="note" title="注意" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">注意</h3>
+<p><em class="parameter"><code>name</code></em> 属性が必要となるのは
+      <code class="varname">{foreach}</code> のプロパティにアクセスする必要がある場合のみです。
+      これは <a class="link" href="language.function.section.html" title="{section},{sectionelse}"><code class="varname">{section}</code></a>
+      の場合とは異なります。<code class="varname">{foreach}</code> のプロパティに対して
+      定義されていない <em class="parameter"><code>name</code></em> でアクセスしてもエラーは発生しませんが、
       結果は予測できない値になります。
-      </P
-></BLOCKQUOTE
-></DIV
-></LI
-><LI
-><P
->&#13;    <TT
-CLASS="varname"
->{foreach}</TT
-> のプロパティには
-    <A
-HREF="language.function.foreach.html#foreach.property.index"
-><TT
-CLASS="parameter"
-><I
->index</I
-></TT
-></A
->、
-    <A
-HREF="language.function.foreach.html#foreach.property.iteration"
-><TT
-CLASS="parameter"
-><I
->iteration</I
-></TT
-></A
->、
-    <A
-HREF="language.function.foreach.html#foreach.property.first"
-><TT
-CLASS="parameter"
-><I
->first</I
-></TT
-></A
->、
-    <A
-HREF="language.function.foreach.html#foreach.property.last"
-><TT
-CLASS="parameter"
-><I
->last</I
-></TT
-></A
->、
-    <A
-HREF="language.function.foreach.html#foreach.property.show"
-><TT
-CLASS="parameter"
-><I
->show</I
-></TT
-></A
->、
-    <A
-HREF="language.function.foreach.html#foreach.property.total"
-><TT
-CLASS="parameter"
-><I
->total</I
-></TT
-></A
->
+      </p>
+</div>
+</li>
+<li class="listitem"><p>
+    <code class="varname">{foreach}</code> のプロパティには
+    <a class="link" href="language.function.foreach.html#foreach.property.index" title=".index"><em class="parameter"><code>index</code></em></a>、
+    <a class="link" href="language.function.foreach.html#foreach.property.iteration" title=".iteration"><em class="parameter"><code>iteration</code></em></a>、
+    <a class="link" href="language.function.foreach.html#foreach.property.first" title=".first"><em class="parameter"><code>first</code></em></a>、
+    <a class="link" href="language.function.foreach.html#foreach.property.last" title=".last"><em class="parameter"><code>last</code></em></a>、
+    <a class="link" href="language.function.foreach.html#foreach.property.show" title=".show"><em class="parameter"><code>show</code></em></a>、
+    <a class="link" href="language.function.foreach.html#foreach.property.total" title=".total"><em class="parameter"><code>total</code></em></a>
     があります。
-    </P
-></LI
-></UL
-><TABLE
-WIDTH="100%"
-BORDER="0"
-CELLPADDING="0"
-CELLSPACING="0"
-CLASS="EXAMPLE"
-><TR
-><TD
-><DIV
-CLASS="example"
-><A
-NAME="AEN1832"
-></A
-><P
-><B
->例 7-5. <TT
-CLASS="parameter"
-><I
->item</I
-></TT
-> 属性</B
-></P
-><TABLE
-BORDER="0"
-BGCOLOR="#E0E0E0"
-CELLPADDING="5"
-><TR
-><TD
-><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br />$arr&nbsp;</span><span style="color: #007700">=&nbsp;array(</span><span style="color: #0000BB">1000</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">1001</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">1002</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$smarty</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">assign</span><span style="color: #007700">(</span><span style="color: #DD0000">'myArray'</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$arr</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
-</span>
-</code></TD
-></TR
-></TABLE
-><P
-><TT
-CLASS="parameter"
-><I
->$myArray</I
-></TT
-> を順序なしリストで出力するテンプレート</P
-><TABLE
-BORDER="0"
-BGCOLOR="#E0E0E0"
-CELLPADDING="5"
-><TR
-><TD
-><PRE
-CLASS="programlisting"
->&#60;ul&#62;
+    </p></li>
+</ul></div>
+<div class="example">
+<a name="id2773201"></a><p class="title"><b>Example 7.5. <em class="parameter"><code>item</code></em> 属性</b></p>
+<div class="example-contents">
+<pre class="programlisting">
+
+&lt;?php
+$arr = array(1000, 1001, 1002);
+$smarty-&gt;assign('myArray', $arr);
+?&gt;
+
+  </pre>
+<p><em class="parameter"><code>$myArray</code></em> を順序なしリストで出力するテンプレート</p>
+<pre class="programlisting">
+
+&lt;ul&gt;
 {foreach from=$myArray item=foo}
-    &#60;li&#62;{$foo}&#60;/li&#62;
+    &lt;li&gt;{$foo}&lt;/li&gt;
 {/foreach}
-&#60;/ul&#62;</PRE
-></TD
-></TR
-></TABLE
-><P
->&#13;   出力
-  </P
-><TABLE
-BORDER="0"
-BGCOLOR="#E0E0E0"
-CELLPADDING="5"
-><TR
-><TD
-><PRE
-CLASS="screen"
->&#60;ul&#62;
-    &#60;li&#62;1000&#60;/li&#62;
-    &#60;li&#62;1001&#60;/li&#62;
-    &#60;li&#62;1002&#60;/li&#62;
-&#60;/ul&#62;</PRE
-></TD
-></TR
-></TABLE
-></DIV
-></TD
-></TR
-></TABLE
-><TABLE
-WIDTH="100%"
-BORDER="0"
-CELLPADDING="0"
-CELLSPACING="0"
-CLASS="EXAMPLE"
-><TR
-><TD
-><DIV
-CLASS="example"
-><A
-NAME="AEN1841"
-></A
-><P
-><B
->例 7-6. <TT
-CLASS="parameter"
-><I
->item</I
-></TT
-> および <TT
-CLASS="parameter"
-><I
->key</I
-></TT
-> 属性の説明</B
-></P
-><TABLE
-BORDER="0"
-BGCOLOR="#E0E0E0"
-CELLPADDING="5"
-><TR
-><TD
-><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br />$arr&nbsp;</span><span style="color: #007700">=&nbsp;array(</span><span style="color: #0000BB">9&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">'Tennis'</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">3&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">'Swimming'</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">8&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">'Coding'</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$smarty</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">assign</span><span style="color: #007700">(</span><span style="color: #DD0000">'myArray'</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$arr</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
-</span>
-</code></TD
-></TR
-></TABLE
-><P
-><TT
-CLASS="parameter"
-><I
->$myArray</I
-></TT
-> を キー/値 のペアで出力するテンプレート。
-   PHP の <A
-HREF="http://php.net/foreach"
-TARGET="_top"
-><TT
-CLASS="varname"
->foreach</TT
-></A
-> と似ています。</P
-><TABLE
-BORDER="0"
-BGCOLOR="#E0E0E0"
-CELLPADDING="5"
-><TR
-><TD
-><PRE
-CLASS="programlisting"
->&#60;ul&#62;
+&lt;/ul&gt;
+
+  </pre>
+<p>
+   出力
+  </p>
+<pre class="screen">
+
+&lt;ul&gt;
+    &lt;li&gt;1000&lt;/li&gt;
+    &lt;li&gt;1001&lt;/li&gt;
+    &lt;li&gt;1002&lt;/li&gt;
+&lt;/ul&gt;
+
+  </pre>
+</div>
+</div>
+<br class="example-break"><div class="example">
+<a name="id2773253"></a><p class="title"><b>Example 7.6. <em class="parameter"><code>item</code></em> および <em class="parameter"><code>key</code></em> 属性の説明</b></p>
+<div class="example-contents">
+<pre class="programlisting">
+
+&lt;?php
+$arr = array(9 =&gt; 'Tennis', 3 =&gt; 'Swimming', 8 =&gt; 'Coding');
+$smarty-&gt;assign('myArray', $arr);
+?&gt;
+
+  </pre>
+<p><em class="parameter"><code>$myArray</code></em> を キー/値 のペアで出力するテンプレート。
+   PHP の <a class="ulink" href="http://php.net/foreach" target="_top"><code class="varname">foreach</code></a> と似ています。</p>
+<pre class="programlisting">
+
+&lt;ul&gt;
 {foreach from=$myArray key=k item=v}
-   &#60;li&#62;{$k}: {$v}&#60;/li&#62;
+   &lt;li&gt;{$k}: {$v}&lt;/li&gt;
 {/foreach}
-&#60;/ul&#62;</PRE
-></TD
-></TR
-></TABLE
-><P
->&#13;   出力
-  </P
-><TABLE
-BORDER="0"
-BGCOLOR="#E0E0E0"
-CELLPADDING="5"
-><TR
-><TD
-><PRE
-CLASS="screen"
->&#60;ul&#62;
-    &#60;li&#62;9: Tennis&#60;/li&#62;
-    &#60;li&#62;3: Swimming&#60;/li&#62;
-    &#60;li&#62;8: Coding&#60;/li&#62;
-&#60;/ul&#62;</PRE
-></TD
-></TR
-></TABLE
-></DIV
-></TD
-></TR
-></TABLE
-><TABLE
-WIDTH="100%"
-BORDER="0"
-CELLPADDING="0"
-CELLSPACING="0"
-CLASS="EXAMPLE"
-><TR
-><TD
-><DIV
-CLASS="example"
-><A
-NAME="AEN1853"
-></A
-><P
-><B
->例 7-7. {foreach} で連想配列の <TT
-CLASS="parameter"
-><I
->item</I
-></TT
-> 属性を指定する例</B
-></P
-><TABLE
-BORDER="0"
-BGCOLOR="#E0E0E0"
-CELLPADDING="5"
-><TR
-><TD
-><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br />$items_list&nbsp;</span><span style="color: #007700">=&nbsp;array(</span><span style="color: #0000BB">23&nbsp;</span><span style="color: #007700">=&gt;&nbsp;array(</span><span style="color: #DD0000">'no'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #0000BB">2456</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'label'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">'Salad'</span><span style="color: #007700">),<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">96&nbsp;</span><span style="color: #007700">=&gt;&nbsp;array(</span><span style="color: #DD0000">'no'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #0000BB">4889</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'label'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">'Cream'</span><span style="color: #007700">)<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;);<br /></span><span style="color: #0000BB">$smarty</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">assign</span><span style="color: #007700">(</span><span style="color: #DD0000">'items'</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$items_list</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
-</span>
-</code></TD
-></TR
-></TABLE
-><P
-><TT
-CLASS="parameter"
-><I
->$items</I
-></TT
-> と
-   <TT
-CLASS="parameter"
-><I
->$myId</I
-></TT
-> を url に出力するテンプレート</P
-><TABLE
-BORDER="0"
-BGCOLOR="#E0E0E0"
-CELLPADDING="5"
-><TR
-><TD
-><PRE
-CLASS="programlisting"
->&#60;ul&#62;
+&lt;/ul&gt;
+
+  </pre>
+<p>
+   出力
+  </p>
+<pre class="screen">
+
+&lt;ul&gt;
+    &lt;li&gt;9: Tennis&lt;/li&gt;
+    &lt;li&gt;3: Swimming&lt;/li&gt;
+    &lt;li&gt;8: Coding&lt;/li&gt;
+&lt;/ul&gt;
+
+  </pre>
+</div>
+</div>
+<br class="example-break"><div class="example">
+<a name="id2773322"></a><p class="title"><b>Example 7.7. {foreach} で連想配列の <em class="parameter"><code>item</code></em> 属性を指定する例</b></p>
+<div class="example-contents">
+<pre class="programlisting">
+
+&lt;?php
+$items_list = array(23 =&gt; array('no' =&gt; 2456, 'label' =&gt; 'Salad'),
+                    96 =&gt; array('no' =&gt; 4889, 'label' =&gt; 'Cream')
+                    );
+$smarty-&gt;assign('items', $items_list);
+?&gt;
+
+  </pre>
+<p><em class="parameter"><code>$items</code></em> と
+   <em class="parameter"><code>$myId</code></em> を url に出力するテンプレート</p>
+<pre class="programlisting">
+
+&lt;ul&gt;
 {foreach from=$items key=myId item=i}
-  &#60;li&#62;&#60;a href="item.php?id={$myId}"&#62;{$i.no}: {$i.label}&#60;/li&#62;
+  &lt;li&gt;&lt;a href="item.php?id={$myId}"&gt;{$i.no}: {$i.label}&lt;/li&gt;
 {/foreach}
-&#60;/ul&#62;</PRE
-></TD
-></TR
-></TABLE
-><P
->&#13;   出力
-  </P
-><TABLE
-BORDER="0"
-BGCOLOR="#E0E0E0"
-CELLPADDING="5"
-><TR
-><TD
-><PRE
-CLASS="screen"
->&#60;ul&#62;
-  &#60;li&#62;&#60;a href="item.php?id=23"&#62;2456: Salad&#60;/li&#62;
-  &#60;li&#62;&#60;a href="item.php?id=96"&#62;4889: Cream&#60;/li&#62;
-&#60;/ul&#62;</PRE
-></TD
-></TR
-></TABLE
-></DIV
-></TD
-></TR
-></TABLE
-><TABLE
-WIDTH="100%"
-BORDER="0"
-CELLPADDING="0"
-CELLSPACING="0"
-CLASS="EXAMPLE"
-><TR
-><TD
-><DIV
-CLASS="example"
-><A
-NAME="AEN1863"
-></A
-><P
-><B
->例 7-8. {foreach} で <TT
-CLASS="parameter"
-><I
->item</I
-></TT
-> と <TT
-CLASS="parameter"
-><I
->key</I
-></TT
-> をネストする例</B
-></P
-><P
->配列を Smarty に割り当てます。key にはループする値のキーが含まれます。</P
-><TABLE
-BORDER="0"
-BGCOLOR="#E0E0E0"
-CELLPADDING="5"
-><TR
-><TD
-><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br />&nbsp;$smarty</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">assign</span><span style="color: #007700">(</span><span style="color: #DD0000">'contacts'</span><span style="color: #007700">,&nbsp;array(<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;array(</span><span style="color: #DD0000">'phone'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">'1'</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'fax'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">'2'</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'cell'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">'3'</span><span style="color: #007700">),<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;array(</span><span style="color: #DD0000">'phone'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">'555-4444'</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'fax'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">'555-3333'</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'cell'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">'760-1234'</span><span style="color: #007700">)<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;));<br /></span><span style="color: #0000BB">?&gt;</span>
-</span>
-</code></TD
-></TR
-></TABLE
-><P
-><TT
-CLASS="parameter"
-><I
->$contact</I
-></TT
-> を出力するテンプレート</P
-><TABLE
-BORDER="0"
-BGCOLOR="#E0E0E0"
-CELLPADDING="5"
-><TR
-><TD
-><PRE
-CLASS="programlisting"
->{foreach name=outer item=contact from=$contacts}
-  &#60;hr /&#62;
+&lt;/ul&gt;
+
+  </pre>
+<p>
+   出力
+  </p>
+<pre class="screen">
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href="item.php?id=23"&gt;2456: Salad&lt;/li&gt;
+  &lt;li&gt;&lt;a href="item.php?id=96"&gt;4889: Cream&lt;/li&gt;
+&lt;/ul&gt;
+
+  </pre>
+</div>
+</div>
+<br class="example-break"><div class="example">
+<a name="id2773385"></a><p class="title"><b>Example 7.8. {foreach} で <em class="parameter"><code>item</code></em> と <em class="parameter"><code>key</code></em> をネストする例</b></p>
+<div class="example-contents">
+<p>配列を Smarty に割り当てます。key にはループする値のキーが含まれます。</p>
+<pre class="programlisting">
+
+&lt;?php
+ $smarty-&gt;assign('contacts', array(
+                             array('phone' =&gt; '1',
+                                   'fax' =&gt; '2',
+                                   'cell' =&gt; '3'),
+                             array('phone' =&gt; '555-4444',
+                                   'fax' =&gt; '555-3333',
+                                   'cell' =&gt; '760-1234')
+                             ));
+?&gt;
+
+  </pre>
+<p><em class="parameter"><code>$contact</code></em> を出力するテンプレート</p>
+<pre class="programlisting">
+
+{foreach name=outer item=contact from=$contacts}
+  &lt;hr /&gt;
   {foreach key=key item=item from=$contact}
-    {$key}: {$item}&#60;br /&#62;
+    {$key}: {$item}&lt;br /&gt;
   {/foreach}
-{/foreach}</PRE
-></TD
-></TR
-></TABLE
-><P
->&#13;   出力
-  </P
-><TABLE
-BORDER="0"
-BGCOLOR="#E0E0E0"
-CELLPADDING="5"
-><TR
-><TD
-><PRE
-CLASS="screen"
->&#60;hr /&#62;
-  phone: 1&#60;br /&#62;
-  fax: 2&#60;br /&#62;
-  cell: 3&#60;br /&#62;
-&#60;hr /&#62;
-  phone: 555-4444&#60;br /&#62;
-  fax: 555-3333&#60;br /&#62;
-  cell: 760-1234&#60;br /&#62;</PRE
-></TD
-></TR
-></TABLE
-></DIV
-></TD
-></TR
-></TABLE
-><TABLE
-WIDTH="100%"
-BORDER="0"
-CELLPADDING="0"
-CELLSPACING="0"
-CLASS="EXAMPLE"
-><TR
-><TD
-><DIV
-CLASS="example"
-><A
-NAME="AEN1874"
-></A
-><P
-><B
->例 7-9. データベースを使用する {foreachelse} の例</B
-></P
-><P
->データベース (PEAR や ADODB など) を検索する例で、クエリの結果を Smarty に割り当てます。</P
-><TABLE
-BORDER="0"
-BGCOLOR="#E0E0E0"
-CELLPADDING="5"
-><TR
-><TD
-><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br />&nbsp;&nbsp;$search_condition&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">"where&nbsp;name&nbsp;like&nbsp;'$foo%'&nbsp;"</span><span style="color: #007700">;<br />&nbsp;&nbsp;</span><span style="color: #0000BB">$sql&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">'select&nbsp;contact_id,&nbsp;name,&nbsp;nick&nbsp;from&nbsp;contacts&nbsp;'</span><span style="color: #007700">.</span><span style="color: #0000BB">$search_condition</span><span style="color: #007700">.</span><span style="color: #DD0000">'&nbsp;order&nbsp;by&nbsp;name'</span><span style="color: #007700">;<br />&nbsp;&nbsp;</span><span style="color: #0000BB">$smarty</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">assign</span><span style="color: #007700">(</span><span style="color: #DD0000">'results'</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$db</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getAssoc</span><span style="color: #007700">(</span><span style="color: #0000BB">$sql</span><span style="color: #007700">)&nbsp;);<br /></span><span style="color: #0000BB">?&gt;</span>
-</span>
-</code></TD
-></TR
-></TABLE
-><P
->結果がない場合に、<TT
-CLASS="varname"
->{foreachelse}</TT
->
-  を使用して <SPAN
-CLASS="QUOTE"
->"見つかりません"</SPAN
-> と表示するテンプレート</P
-><TABLE
-BORDER="0"
-BGCOLOR="#E0E0E0"
-CELLPADDING="5"
-><TR
-><TD
-><PRE
-CLASS="programlisting"
->{foreach key=cid item=con from=$results}
-    &#60;a href="contact.php?contact_id={$cid}"&#62;{$con.name} - {$con.nick}&#60;/a&#62;&#60;br /&#62;
+{/foreach}
+
+  </pre>
+<p>
+   出力
+  </p>
+<pre class="screen">
+
+&lt;hr /&gt;
+  phone: 1&lt;br /&gt;
+  fax: 2&lt;br /&gt;
+  cell: 3&lt;br /&gt;
+&lt;hr /&gt;
+  phone: 555-4444&lt;br /&gt;
+  fax: 555-3333&lt;br /&gt;
+  cell: 760-1234&lt;br /&gt;
+
+  </pre>
+</div>
+</div>
+<br class="example-break"><div class="example">
+<a name="id2773464"></a><p class="title"><b>Example 7.9. データベースを使用する {foreachelse} の例</b></p>
+<div class="example-contents">
+<p>データベース (PEAR や ADODB など) を検索する例で、クエリの結果を Smarty に割り当てます。</p>
+<pre class="programlisting">
+
+&lt;?php
+  $search_condition = "where name like '$foo%' ";
+  $sql = 'select contact_id, name, nick from contacts '.$search_condition.' order by name';
+  $smarty-&gt;assign('results', $db-&gt;getAssoc($sql) );
+?&gt;
+
+  </pre>
+<p>結果がない場合に、<code class="varname">{foreachelse}</code>
+  を使用して <span class="quote">“<span class="quote">見つかりません</span>”</span> と表示するテンプレート</p>
+<pre class="programlisting">
+
+{foreach key=cid item=con from=$results}
+    &lt;a href="contact.php?contact_id={$cid}"&gt;{$con.name} - {$con.nick}&lt;/a&gt;&lt;br /&gt;
 {foreachelse}
     検索結果が見つかりませんでした
-{/foreach}</PRE
-></TD
-></TR
-></TABLE
-></DIV
-></TD
-></TR
-></TABLE
-><DIV
-CLASS="sect2"
-><H2
-CLASS="sect2"
-><A
-NAME="foreach.property.index"
-></A
->.index</H2
-><P
->&#13;   <TT
-CLASS="parameter"
-><I
->index</I
-></TT
-> には、現在の配列のインデックスをゼロから数えた値が含まれます。
-  </P
-><TABLE
-WIDTH="100%"
-BORDER="0"
-CELLPADDING="0"
-CELLSPACING="0"
-CLASS="EXAMPLE"
-><TR
-><TD
-><DIV
-CLASS="example"
-><A
-NAME="AEN1886"
-></A
-><P
-><B
->例 7-10. <TT
-CLASS="parameter"
-><I
->index</I
-></TT
-> の例</B
-></P
-><TABLE
-BORDER="0"
-BGCOLOR="#E0E0E0"
-CELLPADDING="5"
-><TR
-><TD
-><code><span style="color: #000000">
-{*&nbsp;ヘッダブロックを５行おきに出力します&nbsp;*}<br />&lt;table&gt;<br />{foreach&nbsp;from=$items&nbsp;key=myId&nbsp;item=i&nbsp;name=foo}<br />&nbsp;&nbsp;{if&nbsp;$smarty.foreach.foo.index&nbsp;%&nbsp;5&nbsp;==&nbsp;0}<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;tr&gt;&lt;th&gt;タイトル&lt;/th&gt;&lt;/tr&gt;<br />&nbsp;&nbsp;{/if}<br />&nbsp;&nbsp;&lt;tr&gt;&lt;td&gt;{$i.label}&lt;/td&gt;&lt;/tr&gt;<br />{/foreach}<br />&lt;/table&gt;</span>
-</code></TD
-></TR
-></TABLE
-></DIV
-></TD
-></TR
-></TABLE
-></DIV
-><DIV
-CLASS="sect2"
-><H2
-CLASS="sect2"
-><A
-NAME="foreach.property.iteration"
-></A
->.iteration</H2
-><P
->&#13;   <TT
-CLASS="parameter"
-><I
->iteration</I
-></TT
-> は現在のループが反復された回数を表示します。
-   <A
-HREF="language.function.foreach.html#foreach.property.index"
-><TT
-CLASS="parameter"
-><I
->index</I
-></TT
-></A
->
+{/foreach}
+
+  </pre>
+</div>
+</div>
+<br class="example-break"><div class="sect2" title=".index">
+<div class="titlepage"><div><div><h3 class="title">
+<a name="foreach.property.index"></a>.index</h3></div></div></div>
+<p>
+   <em class="parameter"><code>index</code></em> には、現在の配列のインデックスをゼロから数えた値が含まれます。
+  </p>
+<div class="example">
+<a name="id2773543"></a><p class="title"><b>Example 7.10. <em class="parameter"><code>index</code></em> の例</b></p>
+<div class="example-contents"><pre class="programlisting">
+
+{* ヘッダブロックを５行おきに出力します *}
+&lt;table&gt;
+{foreach from=$items key=myId item=i name=foo}
+  {if $smarty.foreach.foo.index % 5 == 0}
+     &lt;tr&gt;&lt;th&gt;タイトル&lt;/th&gt;&lt;/tr&gt;
+  {/if}
+  &lt;tr&gt;&lt;td&gt;{$i.label}&lt;/td&gt;&lt;/tr&gt;
+{/foreach}
+&lt;/table&gt;
+
+  </pre></div>
+</div>
+<br class="example-break">
+</div>
+<div class="sect2" title=".iteration">
+<div class="titlepage"><div><div><h3 class="title">
+<a name="foreach.property.iteration"></a>.iteration</h3></div></div></div>
+<p>
+   <em class="parameter"><code>iteration</code></em> は現在のループが反復された回数を表示します。
+   <a class="link" href="language.function.foreach.html#foreach.property.index" title=".index"><em class="parameter"><code>index</code></em></a>
    とは異なり、常に 1 から始まります。
    各ループごとに 1 ずつ加算されます。
-  </P
-><TABLE
-WIDTH="100%"
-BORDER="0"
-CELLPADDING="0"
-CELLSPACING="0"
-CLASS="EXAMPLE"
-><TR
-><TD
-><DIV
-CLASS="example"
-><A
-NAME="AEN1896"
-></A
-><P
-><B
->例 7-11. <TT
-CLASS="parameter"
-><I
->iteration</I
-></TT
-> および <TT
-CLASS="parameter"
-><I
->index</I
-></TT
-> の例</B
-></P
-><TABLE
-BORDER="0"
-BGCOLOR="#E0E0E0"
-CELLPADDING="5"
-><TR
-><TD
-><code><span style="color: #000000">
-{*&nbsp;この出力は&nbsp;0|1,&nbsp;1|2,&nbsp;2|3,&nbsp;...&nbsp;のようになります&nbsp;*}<br />{foreach&nbsp;from=$myArray&nbsp;item=i&nbsp;name=foo}<br />{$smarty.foreach.foo.index}|{$smarty.foreach.foo.iteration},<br />{/foreach}</span>
-</code></TD
-></TR
-></TABLE
-></DIV
-></TD
-></TR
-></TABLE
-></DIV
-><DIV
-CLASS="sect2"
-><H2
-CLASS="sect2"
-><A
-NAME="foreach.property.first"
-></A
->.first</H2
-><P
->&#13;   <TT
-CLASS="parameter"
-><I
->first</I
-></TT
-> は、現在の <TT
-CLASS="varname"
->{foreach}</TT
->
-   の反復が最初のものであるときに <TT
-CLASS="constant"
->TRUE</TT
-> となります。
-  </P
-><TABLE
-WIDTH="100%"
-BORDER="0"
-CELLPADDING="0"
-CELLSPACING="0"
-CLASS="EXAMPLE"
-><TR
-><TD
-><DIV
-CLASS="example"
-><A
-NAME="AEN1907"
-></A
-><P
-><B
->例 7-12. <TT
-CLASS="parameter"
-><I
->first</I
-></TT
-> プロパティの例</B
-></P
-><TABLE
-BORDER="0"
-BGCOLOR="#E0E0E0"
-CELLPADDING="5"
-><TR
-><TD
-><code><span style="color: #000000">
-{*&nbsp;最初の項目には「最新」、それ以外は&nbsp;id&nbsp;を表示します&nbsp;*}<br />&lt;table&gt;<br />{foreach&nbsp;from=$items&nbsp;key=myId&nbsp;item=i&nbsp;name=foo}<br />&lt;tr&gt;<br />&nbsp;&nbsp;&lt;td&gt;{if&nbsp;$smarty.foreach.foo.first}最新{else}{$myId}{/if}&lt;/td&gt;<br />&nbsp;&nbsp;&lt;td&gt;{$i.label}&lt;/td&gt;<br />&lt;/tr&gt;<br />{/foreach}<br />&lt;/table&gt;</span>
-</code></TD
-></TR
-></TABLE
-></DIV
-></TD
-></TR
-></TABLE
-></DIV
-><DIV
-CLASS="sect2"
-><H2
-CLASS="sect2"
-><A
-NAME="foreach.property.last"
-></A
->.last</H2
-><P
->&#13;   <TT
-CLASS="parameter"
-><I
->last</I
-></TT
-> は、現在の <TT
-CLASS="varname"
->{foreach}</TT
->
-   の反復が最後のものであるときに <TT
-CLASS="constant"
->TRUE</TT
-> となります。
-  </P
-><TABLE
-WIDTH="100%"
-BORDER="0"
-CELLPADDING="0"
-CELLSPACING="0"
-CLASS="EXAMPLE"
-><TR
-><TD
-><DIV
-CLASS="example"
-><A
-NAME="AEN1917"
-></A
-><P
-><B
->例 7-13. <TT
-CLASS="parameter"
-><I
->last</I
-></TT
-> プロパティの例</B
-></P
-><TABLE
-BORDER="0"
-BGCOLOR="#E0E0E0"
-CELLPADDING="5"
-><TR
-><TD
-><code><span style="color: #000000">
-{*&nbsp;一覧の最後に横罫線を追加します&nbsp;*}<br />{foreach&nbsp;from=$items&nbsp;key=part_id&nbsp;item=prod&nbsp;name=products}<br />&nbsp;&nbsp;&lt;a&nbsp;href="#{$part_id}"&gt;{$prod}&lt;/a&gt;{if&nbsp;$smarty.foreach.products.last}&lt;hr&gt;{else},{/if}<br />{foreachelse}<br />&nbsp;&nbsp;...&nbsp;コンテンツ&nbsp;...<br />{/foreach}</span>
-</code></TD
-></TR
-></TABLE
-></DIV
-></TD
-></TR
-></TABLE
-></DIV
-><DIV
-CLASS="sect2"
-><H2
-CLASS="sect2"
-><A
-NAME="foreach.property.show"
-></A
->.show</H2
-><P
->&#13;   <TT
-CLASS="parameter"
-><I
->show</I
-></TT
-> は <TT
-CLASS="varname"
->{foreach}</TT
-> のパラメータとして使用します。
-   <TT
-CLASS="parameter"
-><I
->show</I
-></TT
-> は boolean 値です。
-   <TT
-CLASS="constant"
->FALSE</TT
-> の場合は <TT
-CLASS="varname"
->{foreach}</TT
-> は表示されず、
-   もし <TT
-CLASS="varname"
->{foreachelse}</TT
-> が存在すれば、それが代わりに表示されます。
-  </P
-></DIV
-><DIV
-CLASS="sect2"
-><H2
-CLASS="sect2"
-><A
-NAME="foreach.property.total"
-></A
->.total</H2
-><P
->&#13;   <TT
-CLASS="parameter"
-><I
->total</I
-></TT
-> には、
-   <TT
-CLASS="varname"
->{foreach}</TT
-> がループするトータル回数が含まれます。
-   これは、<TT
-CLASS="varname"
->{foreach}</TT
-> の内部だけではなく
+  </p>
+<div class="example">
+<a name="id2773606"></a><p class="title"><b>Example 7.11. <em class="parameter"><code>iteration</code></em> および <em class="parameter"><code>index</code></em> の例</b></p>
+<div class="example-contents"><pre class="programlisting">
+
+{* この出力は 0|1, 1|2, 2|3, ... のようになります *}
+{foreach from=$myArray item=i name=foo}
+{$smarty.foreach.foo.index}|{$smarty.foreach.foo.iteration},
+{/foreach}
+
+  </pre></div>
+</div>
+<br class="example-break">
+</div>
+<div class="sect2" title=".first">
+<div class="titlepage"><div><div><h3 class="title">
+<a name="foreach.property.first"></a>.first</h3></div></div></div>
+<p>
+   <em class="parameter"><code>first</code></em> は、現在の <code class="varname">{foreach}</code>
+   の反復が最初のものであるときに <code class="constant">TRUE</code> となります。
+  </p>
+<div class="example">
+<a name="id2773668"></a><p class="title"><b>Example 7.12. <em class="parameter"><code>first</code></em> プロパティの例</b></p>
+<div class="example-contents"><pre class="programlisting">
+
+{* 最初の項目には「最新」、それ以外は id を表示します *}
+&lt;table&gt;
+{foreach from=$items key=myId item=i name=foo}
+&lt;tr&gt;
+  &lt;td&gt;{if $smarty.foreach.foo.first}最新{else}{$myId}{/if}&lt;/td&gt;
+  &lt;td&gt;{$i.label}&lt;/td&gt;
+&lt;/tr&gt;
+{/foreach}
+&lt;/table&gt;
+
+  </pre></div>
+</div>
+<br class="example-break">
+</div>
+<div class="sect2" title=".last">
+<div class="titlepage"><div><div><h3 class="title">
+<a name="foreach.property.last"></a>.last</h3></div></div></div>
+<p>
+   <em class="parameter"><code>last</code></em> は、現在の <code class="varname">{foreach}</code>
+   の反復が最後のものであるときに <code class="constant">TRUE</code> となります。
+  </p>
+<div class="example">
+<a name="id2773725"></a><p class="title"><b>Example 7.13. <em class="parameter"><code>last</code></em> プロパティの例</b></p>
+<div class="example-contents"><pre class="programlisting">
+
+{* 一覧の最後に横罫線を追加します *}
+{foreach from=$items key=part_id item=prod name=products}
+  &lt;a href="#{$part_id}"&gt;{$prod}&lt;/a&gt;{if $smarty.foreach.products.last}&lt;hr&gt;{else},{/if}
+{foreachelse}
+  ... コンテンツ ...
+{/foreach}
+
+  </pre></div>
+</div>
+<br class="example-break">
+</div>
+<div class="sect2" title=".show">
+<div class="titlepage"><div><div><h3 class="title">
+<a name="foreach.property.show"></a>.show</h3></div></div></div>
+<p>
+   <em class="parameter"><code>show</code></em> は <code class="varname">{foreach}</code> のパラメータとして使用します。
+   <em class="parameter"><code>show</code></em> は boolean 値です。
+   <code class="constant">FALSE</code> の場合は <code class="varname">{foreach}</code> は表示されず、
+   もし <code class="varname">{foreachelse}</code> が存在すれば、それが代わりに表示されます。
+  </p>
+</div>
+<div class="sect2" title=".total">
+<div class="titlepage"><div><div><h3 class="title">
+<a name="foreach.property.total"></a>.total</h3></div></div></div>
+<p>
+   <em class="parameter"><code>total</code></em> には、
+   <code class="varname">{foreach}</code> がループするトータル回数が含まれます。
+   これは、<code class="varname">{foreach}</code> の内部だけではなく
    ループを抜けた後でも使用できます。
-  </P
-><TABLE
-WIDTH="100%"
-BORDER="0"
-CELLPADDING="0"
-CELLSPACING="0"
-CLASS="EXAMPLE"
-><TR
-><TD
-><DIV
-CLASS="example"
-><A
-NAME="AEN1936"
-></A
-><P
-><B
->例 7-14. <TT
-CLASS="parameter"
-><I
->total</I
-></TT
-> プロパティの例</B
-></P
-><TABLE
-BORDER="0"
-BGCOLOR="#E0E0E0"
-CELLPADDING="5"
-><TR
-><TD
-><code><span style="color: #000000">
-{*&nbsp;返された行の総数を最後に表示します&nbsp;*}<br />{foreach&nbsp;from=$items&nbsp;key=part_id&nbsp;item=prod&nbsp;name=foo}<br />{$prod.name&gt;&lt;hr/&gt;<br />{if&nbsp;$smarty.foreach.foo.last}<br />&nbsp;&nbsp;&lt;div&nbsp;id="total"&gt;{$smarty.foreach.foo.total}&nbsp;items&lt;/div&gt;<br />{/if}<br />{foreachelse}<br />&nbsp;...&nbsp;別の内容&nbsp;...<br />{/foreach}</span>
-</code></TD
-></TR
-></TABLE
-></DIV
-></TD
-></TR
-></TABLE
-><P
->&#13;   <A
-HREF="language.function.section.html"
-><TT
-CLASS="varname"
->{section}</TT
-></A
->
-   および  <A
-HREF="language.variables.smarty.html#language.variables.smarty.loops"
-><TT
-CLASS="parameter"
-><I
->$smarty.foreach</I
-></TT
-></A
->
+  </p>
+<div class="example">
+<a name="id2773832"></a><p class="title"><b>Example 7.14. <em class="parameter"><code>total</code></em> プロパティの例</b></p>
+<div class="example-contents"><pre class="programlisting">
+
+{* 返された行の総数を最後に表示します *}
+{foreach from=$items key=part_id item=prod name=foo}
+{$prod.name}&lt;hr/&gt;
+{if $smarty.foreach.foo.last}
+  &lt;div id="total"&gt;{$smarty.foreach.foo.total} items&lt;/div&gt;
+{/if}
+{foreachelse}
+ ... 別の内容 ...
+{/foreach}
+
+  </pre></div>
+</div>
+<br class="example-break"><p>
+   <a class="link" href="language.function.section.html" title="{section},{sectionelse}"><code class="varname">{section}</code></a>
+   および  <a class="link" href="language.variables.smarty.html#language.variables.smarty.loops" title="{$smarty.section}、{$smarty.foreach}"><em class="parameter"><code>$smarty.foreach</code></em></a>
    も参照してください。
-  </P
-></DIV
-></DIV
-><DIV
-CLASS="NAVFOOTER"
-><HR
-ALIGN="LEFT"
-WIDTH="100%"><TABLE
-SUMMARY="Footer navigation table"
-WIDTH="100%"
-BORDER="0"
-CELLPADDING="0"
-CELLSPACING="0"
-><TR
-><TD
-WIDTH="33%"
-ALIGN="left"
-VALIGN="top"
-><A
-HREF="language.function.config.load.html"
-ACCESSKEY="P"
->前のページ</A
-></TD
-><TD
-WIDTH="34%"
-ALIGN="center"
-VALIGN="top"
-><A
-HREF="index.html"
-ACCESSKEY="H"
->ホーム</A
-></TD
-><TD
-WIDTH="33%"
-ALIGN="right"
-VALIGN="top"
-><A
-HREF="language.function.if.html"
-ACCESSKEY="N"
->次のページ</A
-></TD
-></TR
-><TR
-><TD
-WIDTH="33%"
-ALIGN="left"
-VALIGN="top"
->{config_load}</TD
-><TD
-WIDTH="34%"
-ALIGN="center"
-VALIGN="top"
-><A
-HREF="language.builtin.functions.html"
-ACCESSKEY="U"
->上に戻る</A
-></TD
-><TD
-WIDTH="33%"
-ALIGN="right"
-VALIGN="top"
->{if},{elseif},{else}</TD
-></TR
-></TABLE
-></DIV
-></BODY
-></HTML
->
+  </p>
+</div>
+</div>
+<div class="navfooter">
+<hr>
+<table width="100%" summary="Navigation footer">
+<tr>
+<td width="40%" align="left">
+<a accesskey="p" href="language.function.config.load.html">Prev</a> </td>
+<td width="20%" align="center"><a accesskey="u" href="language.builtin.functions.html">Up</a></td>
+<td width="40%" align="right"> <a accesskey="n" href="language.function.if.html">Next</a>
+</td>
+</tr>
+<tr>
+<td width="40%" align="left" valign="top">{config_load} </td>
+<td width="20%" align="center"><a accesskey="h" href="index.html">Home</a></td>
+<td width="40%" align="right" valign="top"> {if},{elseif},{else}</td>
+</tr>
+</table>
+</div>
+</body>
+</html>

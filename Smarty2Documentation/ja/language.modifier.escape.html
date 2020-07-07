@@ -1,507 +1,182 @@
-<HTML
-><HEAD
-><TITLE
->escape</TITLE
-><META
-NAME="GENERATOR"
-CONTENT="Modular DocBook HTML Stylesheet Version 1.7"><LINK
-REL="HOME"
-TITLE="Smarty マニュアル"
-HREF="index.html"><LINK
-REL="UP"
-TITLE="変数の修飾子"
-HREF="language.modifiers.html"><LINK
-REL="PREVIOUS"
-TITLE="default"
-HREF="language.modifier.default.html"><LINK
-REL="NEXT"
-TITLE="indent"
-HREF="language.modifier.indent.html"><META
-HTTP-EQUIV="Content-type"
-CONTENT="text/html; charset=utf-8"></HEAD
-><BODY
-CLASS="sect1"
-BGCOLOR="#FFFFFF"
-TEXT="#000000"
-LINK="#0000FF"
-VLINK="#840084"
-ALINK="#0000FF"
-><DIV
-CLASS="NAVHEADER"
-><TABLE
-SUMMARY="Header navigation table"
-WIDTH="100%"
-BORDER="0"
-CELLPADDING="0"
-CELLSPACING="0"
-><TR
-><TH
-COLSPAN="3"
-ALIGN="center"
->Smarty マニュアル</TH
-></TR
-><TR
-><TD
-WIDTH="10%"
-ALIGN="left"
-VALIGN="bottom"
-><A
-HREF="language.modifier.default.html"
-ACCESSKEY="P"
->前のページ</A
-></TD
-><TD
-WIDTH="80%"
-ALIGN="center"
-VALIGN="bottom"
->第 5章変数の修飾子</TD
-><TD
-WIDTH="10%"
-ALIGN="right"
-VALIGN="bottom"
-><A
-HREF="language.modifier.indent.html"
-ACCESSKEY="N"
->次のページ</A
-></TD
-></TR
-></TABLE
-><HR
-ALIGN="LEFT"
-WIDTH="100%"></DIV
-><DIV
-CLASS="sect1"
-><H1
-CLASS="sect1"
-><A
-NAME="language.modifier.escape"
-></A
->escape</H1
-><P
->&#13;    <TT
-CLASS="varname"
->escape</TT
-> は変数のエンコードやエスケープを行います。
-    たとえば <TT
-CLASS="literal"
->html</TT
->、
-     <TT
-CLASS="literal"
->url</TT
->、<TT
-CLASS="literal"
->シングルクォート</TT
->、
-     <TT
-CLASS="literal"
->hex</TT
->、<TT
-CLASS="literal"
->hexentity</TT
->、
-     <TT
-CLASS="literal"
->javascript</TT
-> および <TT
-CLASS="literal"
->mail</TT
->
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>escape</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.75.1">
+<link rel="home" href="index.html" title="Smarty マニュアル">
+<link rel="up" href="language.modifiers.html" title="Chapter 5. 変数の修飾子">
+<link rel="prev" href="language.modifier.default.html" title="default">
+<link rel="next" href="language.modifier.indent.html" title="indent">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<div class="navheader">
+<table width="100%" summary="Navigation header">
+<tr><th colspan="3" align="center">escape</th></tr>
+<tr>
+<td width="20%" align="left">
+<a accesskey="p" href="language.modifier.default.html">Prev</a> </td>
+<th width="60%" align="center">Chapter 5. 変数の修飾子</th>
+<td width="20%" align="right"> <a accesskey="n" href="language.modifier.indent.html">Next</a>
+</td>
+</tr>
+</table>
+<hr>
+</div>
+<div class="sect1" title="escape">
+<div class="titlepage"><div><div><h2 class="title" style="clear: both">
+<a name="language.modifier.escape"></a>escape</h2></div></div></div>
+<p>
+    <code class="varname">escape</code> は変数のエンコードやエスケープを行います。
+    たとえば <code class="literal">html</code>、
+     <code class="literal">url</code>、<code class="literal">シングルクォート</code>、
+     <code class="literal">hex</code>、<code class="literal">hexentity</code>、
+     <code class="literal">javascript</code> および <code class="literal">mail</code>
      などに対する処理を行います。
-     デフォルトでは <TT
-CLASS="literal"
->html</TT
-> 用の処理をします。
-  </P
-><DIV
-CLASS="informaltable"
-><A
-NAME="AEN1040"
-></A
-><P
-></P
-><TABLE
-BORDER="1"
-CLASS="CALSTABLE"
-><THEAD
-><TR
-><TH
-WIDTH="17%"
-ALIGN="CENTER"
-VALIGN="MIDDLE"
->パラメータの位置</TH
-><TH
-WIDTH="17%"
-ALIGN="CENTER"
-VALIGN="MIDDLE"
->型</TH
-><TH
-WIDTH="17%"
-ALIGN="CENTER"
-VALIGN="MIDDLE"
->必須</TH
-><TH
-WIDTH="17%"
-ALIGN="CENTER"
-VALIGN="MIDDLE"
->有効な値</TH
-><TH
-WIDTH="17%"
-ALIGN="CENTER"
-VALIGN="MIDDLE"
->デフォルト</TH
-><TH
-WIDTH="17%"
-ALIGN="LEFT"
-VALIGN="MIDDLE"
->概要</TH
-></TR
-></THEAD
-><TBODY
-><TR
-><TD
-WIDTH="17%"
-ALIGN="CENTER"
-VALIGN="MIDDLE"
->1</TD
-><TD
-WIDTH="17%"
-ALIGN="CENTER"
-VALIGN="MIDDLE"
->string</TD
-><TD
-WIDTH="17%"
-ALIGN="CENTER"
-VALIGN="MIDDLE"
->No</TD
-><TD
-WIDTH="17%"
-ALIGN="CENTER"
-VALIGN="MIDDLE"
-><TT
-CLASS="literal"
->html</TT
->, <TT
-CLASS="literal"
->htmlall</TT
->,
-              <TT
-CLASS="literal"
->url</TT
->,
-               <TT
-CLASS="literal"
->urlpathinfo</TT
->, <TT
-CLASS="literal"
->quotes</TT
->,
-               <TT
-CLASS="literal"
->hex</TT
->, <TT
-CLASS="literal"
->hexentity</TT
->,
-               <TT
-CLASS="literal"
->javascript</TT
->, <TT
-CLASS="literal"
->mail</TT
->
-       </TD
-><TD
-WIDTH="17%"
-ALIGN="CENTER"
-VALIGN="MIDDLE"
-><TT
-CLASS="literal"
->html</TT
-></TD
-><TD
-WIDTH="17%"
-ALIGN="LEFT"
-VALIGN="MIDDLE"
->使用するエスケープフォーマット</TD
-></TR
-><TR
-><TD
-WIDTH="17%"
-ALIGN="CENTER"
-VALIGN="MIDDLE"
->2</TD
-><TD
-WIDTH="17%"
-ALIGN="CENTER"
-VALIGN="MIDDLE"
->string</TD
-><TD
-WIDTH="17%"
-ALIGN="CENTER"
-VALIGN="MIDDLE"
->No</TD
-><TD
-WIDTH="17%"
-ALIGN="CENTER"
-VALIGN="MIDDLE"
-><TT
-CLASS="literal"
->ISO-8859-1</TT
->, <TT
-CLASS="literal"
->UTF-8</TT
->
-      および <A
-HREF="http://php.net/htmlentities"
-TARGET="_top"
->&#13;      <TT
-CLASS="varname"
->htmlentities()</TT
-></A
-> がサポートする任意の文字セット
-      </TD
-><TD
-WIDTH="17%"
-ALIGN="CENTER"
-VALIGN="MIDDLE"
-><TT
-CLASS="literal"
->ISO-8859-1</TT
-></TD
-><TD
-WIDTH="17%"
-ALIGN="LEFT"
-VALIGN="MIDDLE"
->htmlentities() へ渡す文字セットのエンコーディング</TD
-></TR
-></TBODY
-></TABLE
-><P
-></P
-></DIV
-><TABLE
-WIDTH="100%"
-BORDER="0"
-CELLPADDING="0"
-CELLSPACING="0"
-CLASS="EXAMPLE"
-><TR
-><TD
-><DIV
-CLASS="example"
-><A
-NAME="AEN1086"
-></A
-><P
-><B
->例 5-10. escape</B
-></P
-><TABLE
-BORDER="0"
-BGCOLOR="#E0E0E0"
-CELLPADDING="5"
-><TR
-><TD
-><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br /><br />$smarty</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">assign</span><span style="color: #007700">(</span><span style="color: #DD0000">'articleTitle'</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">"'Stiff&nbsp;Opposition&nbsp;Expected&nbsp;to&nbsp;Casketless&nbsp;Funeral&nbsp;Plan'"<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$smarty</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">assign</span><span style="color: #007700">(</span><span style="color: #DD0000">'EmailAddress'</span><span style="color: #007700">,</span><span style="color: #DD0000">'smarty@example.com'</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">?&gt;</span>
-</span>
-</code></TD
-></TR
-></TABLE
-><P
->&#13;   <TT
-CLASS="literal"
->escape</TT
-> を使用するテンプレートの後に、その出力結果を続けています。
-   </P
-><TABLE
-BORDER="0"
-BGCOLOR="#E0E0E0"
-CELLPADDING="5"
-><TR
-><TD
-><PRE
-CLASS="programlisting"
->{$articleTitle}
+     デフォルトでは <code class="literal">html</code> 用の処理をします。
+  </p>
+<div class="informaltable"><table border="1">
+<colgroup>
+<col align="center">
+<col align="center">
+<col align="center">
+<col align="center">
+<col align="center">
+<col>
+</colgroup>
+<thead><tr>
+<th align="center">パラメータの位置</th>
+<th align="center">型</th>
+<th align="center">必須</th>
+<th align="center">有効な値</th>
+<th align="center">デフォルト</th>
+<th>概要</th>
+</tr></thead>
+<tbody>
+<tr>
+<td align="center">1</td>
+<td align="center">string</td>
+<td align="center">No</td>
+<td align="center">
+<code class="literal">html</code>, <code class="literal">htmlall</code>,
+              <code class="literal">url</code>,
+               <code class="literal">urlpathinfo</code>, <code class="literal">quotes</code>,
+               <code class="literal">hex</code>, <code class="literal">hexentity</code>,
+               <code class="literal">javascript</code>, <code class="literal">mail</code>
+       </td>
+<td align="center"><code class="literal">html</code></td>
+<td>使用するエスケープフォーマット</td>
+</tr>
+<tr>
+<td align="center">2</td>
+<td align="center">string</td>
+<td align="center">No</td>
+<td align="center">
+<code class="literal">ISO-8859-1</code>, <code class="literal">UTF-8</code>
+      および <a class="ulink" href="http://php.net/htmlentities" target="_top">
+      <code class="varname">htmlentities()</code></a> がサポートする任意の文字セット
+      </td>
+<td align="center"><code class="literal">ISO-8859-1</code></td>
+<td>htmlentities() へ渡す文字セットのエンコーディング</td>
+</tr>
+</tbody>
+</table></div>
+<div class="example">
+<a name="id2761168"></a><p class="title"><b>Example 5.10. escape</b></p>
+<div class="example-contents">
+<pre class="programlisting">
+
+&lt;?php
+
+$smarty-&gt;assign('articleTitle',
+                "'Stiff Opposition Expected to Casketless Funeral Plan'"
+                );
+$smarty-&gt;assign('EmailAddress','smarty@example.com');
+
+?&gt;
+
+   </pre>
+<p>
+   <code class="literal">escape</code> を使用するテンプレートの後に、その出力結果を続けています。
+   </p>
+<pre class="programlisting">
+
+{$articleTitle}
 'Stiff Opposition Expected to Casketless Funeral Plan'
 
 {$articleTitle|escape}
-&#38;#039;Stiff Opposition Expected to Casketless Funeral Plan&#38;#039;
+&amp;#039;Stiff Opposition Expected to Casketless Funeral Plan&amp;#039;
 
-{$articleTitle|escape:'html'}    {* &#38; " ' &#60; &#62; をエスケープします *}
-&#38;#039;Stiff Opposition Expected to Casketless Funeral Plan&#38;#039;
+{$articleTitle|escape:'html'}    {* &amp; " ' &lt; &gt; をエスケープします *}
+&amp;#039;Stiff Opposition Expected to Casketless Funeral Plan&amp;#039;
 
 {$articleTitle|escape:'htmlall'} {* 全ての html エンティティをエスケープします *}
-&#38;#039;Stiff Opposition Expected to Casketless Funeral Plan&#38;#039;
+&amp;#039;Stiff Opposition Expected to Casketless Funeral Plan&amp;#039;
 
-&#60;a href="?title={$articleTitle|escape:'url'}"&#62;click here&#60;/a&#62;
-&#60;a href="?title=%27Stiff+Opposition+Expected+to+Casketless+Funeral+Plan%27"&#62;click here&#60;/a&#62;
+&lt;a href="?title={$articleTitle|escape:'url'}"&gt;click here&lt;/a&gt;
+&lt;a
+href="?title=%27Stiff%20Opposition%20Expected%20to%20Casketless%20Funeral%20Plan%27"&gt;click here&lt;/a&gt;
 
 {$articleTitle|escape:'quotes'}
 \'Stiff Opposition Expected to Casketless Funeral Plan\'
 
-&#60;a href="mailto:{$EmailAddress|escape:"hex"}"&#62;{$EmailAddress|escape:"hexentity"}&#60;/a&#62;
+&lt;a href="mailto:{$EmailAddress|escape:"hex"}"&gt;{$EmailAddress|escape:"hexentity"}&lt;/a&gt;
 {$EmailAddress|escape:'mail'}    {* email をテキストに変換します *}
-&#60;a href="mailto:%62%6f%..snip..%65%74"&#62;&#38;#x62;&#38;#x6f;&#38;#x62..snip..&#38;#x65;&#38;#x74;&#60;/a&#62;
+&lt;a href="mailto:%62%6f%..snip..%65%74"&gt;&amp;#x62;&amp;#x6f;&amp;#x62..snip..&amp;#x65;&amp;#x74;&lt;/a&gt;
 
 {'mail@example.com'|escape:'mail'}
-smarty [AT] example [DOT] com</PRE
-></TD
-></TR
-></TABLE
-></DIV
-></TD
-></TR
-></TABLE
-><TABLE
-WIDTH="100%"
-BORDER="0"
-CELLPADDING="0"
-CELLSPACING="0"
-CLASS="EXAMPLE"
-><TR
-><TD
-><DIV
-CLASS="example"
-><A
-NAME="AEN1092"
-></A
-><P
-><B
->例 5-11. 別の例</B
-></P
-><P
->PHP の関数を修飾子として使用できます。これは
-   <A
-HREF="variable.security.html"
->&#13;   <TT
-CLASS="varname"
->$security</TT
-></A
-> の設定によります。
-    </P
-><TABLE
-BORDER="0"
-BGCOLOR="#E0E0E0"
-CELLPADDING="5"
-><TR
-><TD
-><PRE
-CLASS="screen"
->{* "rewind" パラメータに現在の場所を登録します *}
-&#60;a href="{$SCRIPT_NAME}?page=foo&#38;rewind={$smarty.server.REQUEST_URI|urlencode}"&#62;click here&#60;/a&#62;</PRE
-></TD
-></TR
-></TABLE
-><P
->これは email 用に便利です。しかし、
-      <A
-HREF="language.function.mailto.html"
->&#13;      <TT
-CLASS="varname"
->{mailto}</TT
-></A
-> も参照してください。</P
-><TABLE
-BORDER="0"
-BGCOLOR="#E0E0E0"
-CELLPADDING="5"
-><TR
-><TD
-><PRE
-CLASS="screen"
->{* email アドレスを混乱させます *}
-&#60;a href="mailto:{$EmailAddress|escape:'hex'}"&#62;{$EmailAddress|escape:'mail'}&#60;/a&#62;</PRE
-></TD
-></TR
-></TABLE
-></DIV
-></TD
-></TR
-></TABLE
-><P
->&#13;   <A
-HREF="language.escaping.html"
->Smarty の構文解析を回避</A
->、
-   <A
-HREF="language.function.mailto.html"
-><TT
-CLASS="varname"
->{mailto}</TT
-></A
->
+smarty [AT] example [DOT] com
+
+   </pre>
+</div>
+</div>
+<br class="example-break"><div class="example">
+<a name="id2761205"></a><p class="title"><b>Example 5.11. 別の例</b></p>
+<div class="example-contents">
+<p>PHP の関数を修飾子として使用できます。これは
+   <a class="link" href="variable.security.html" title="$security">
+   <code class="varname">$security</code></a> の設定によります。
+    </p>
+<pre class="screen">
+
+{* "rewind" パラメータに現在の場所を登録します *}
+&lt;a href="{$SCRIPT_NAME}?page=foo&amp;rewind={$smarty.server.REQUEST_URI|urlencode}"&gt;click here&lt;/a&gt;
+
+   </pre>
+<p>これは email 用に便利です。しかし、
+      <a class="link" href="language.function.mailto.html" title="{mailto}">
+      <code class="varname">{mailto}</code></a> も参照してください。</p>
+<pre class="screen">
+
+{* email アドレスを混乱させます *}
+&lt;a href="mailto:{$EmailAddress|escape:'hex'}"&gt;{$EmailAddress|escape:'mail'}&lt;/a&gt;
+
+   </pre>
+</div>
+</div>
+<br class="example-break"><p>
+   <a class="link" href="language.escaping.html" title="Smarty の構文解析を回避する">Smarty の構文解析を回避</a>、
+   <a class="link" href="language.function.mailto.html" title="{mailto}"><code class="varname">{mailto}</code></a>
    および
-   <A
-HREF="tips.obfuscating.email.html"
->E-mail アドレスを混乱させる</A
->
+   <a class="link" href="tips.obfuscating.email.html" title="E-mail アドレスを混乱させる">E-mail アドレスを混乱させる</a>
    のページも参照してください。
-  </P
-></DIV
-><DIV
-CLASS="NAVFOOTER"
-><HR
-ALIGN="LEFT"
-WIDTH="100%"><TABLE
-SUMMARY="Footer navigation table"
-WIDTH="100%"
-BORDER="0"
-CELLPADDING="0"
-CELLSPACING="0"
-><TR
-><TD
-WIDTH="33%"
-ALIGN="left"
-VALIGN="top"
-><A
-HREF="language.modifier.default.html"
-ACCESSKEY="P"
->前のページ</A
-></TD
-><TD
-WIDTH="34%"
-ALIGN="center"
-VALIGN="top"
-><A
-HREF="index.html"
-ACCESSKEY="H"
->ホーム</A
-></TD
-><TD
-WIDTH="33%"
-ALIGN="right"
-VALIGN="top"
-><A
-HREF="language.modifier.indent.html"
-ACCESSKEY="N"
->次のページ</A
-></TD
-></TR
-><TR
-><TD
-WIDTH="33%"
-ALIGN="left"
-VALIGN="top"
->default</TD
-><TD
-WIDTH="34%"
-ALIGN="center"
-VALIGN="top"
-><A
-HREF="language.modifiers.html"
-ACCESSKEY="U"
->上に戻る</A
-></TD
-><TD
-WIDTH="33%"
-ALIGN="right"
-VALIGN="top"
->indent</TD
-></TR
-></TABLE
-></DIV
-></BODY
-></HTML
->
+  </p>
+</div>
+<div class="navfooter">
+<hr>
+<table width="100%" summary="Navigation footer">
+<tr>
+<td width="40%" align="left">
+<a accesskey="p" href="language.modifier.default.html">Prev</a> </td>
+<td width="20%" align="center"><a accesskey="u" href="language.modifiers.html">Up</a></td>
+<td width="40%" align="right"> <a accesskey="n" href="language.modifier.indent.html">Next</a>
+</td>
+</tr>
+<tr>
+<td width="40%" align="left" valign="top">default </td>
+<td width="20%" align="center"><a accesskey="h" href="index.html">Home</a></td>
+<td width="40%" align="right" valign="top"> indent</td>
+</tr>
+</table>
+</div>
+</body>
+</html>

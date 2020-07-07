@@ -1,476 +1,836 @@
-<HTML
-><HEAD
-><TITLE
->Smarty - コンパイリング PHP テンプレートエンジン</TITLE
-><META
-NAME="GENERATOR"
-CONTENT="Modular DocBook HTML Stylesheet Version 1.7"><LINK
-REL="NEXT"
-TITLE="序文"
-HREF="preface.html"><META
-HTTP-EQUIV="Content-type"
-CONTENT="text/html; charset=utf-8"></HEAD
-><BODY
-CLASS="book"
-BGCOLOR="#FFFFFF"
-TEXT="#000000"
-LINK="#0000FF"
-VLINK="#840084"
-ALINK="#0000FF"
-><DIV
-CLASS="BOOK"
-><A
-NAME="manual"
-></A
-><DIV
-CLASS="TITLEPAGE"
-><H1
-CLASS="title"
-><A
-NAME="bookinfo"
-></A
->Smarty - コンパイリング PHP テンプレートエンジン</H1
-><DIV
-CLASS="author"
->Monte Ohrt &#60;monte at ohrt dot com&#62;</DIV
-><DIV
-CLASS="author"
->Andrei Zmievski &#60;andrei@php.net&#62;</DIV
-><DIV
-CLASS="author"
->Shinsuke Matsuda &#60;mat-sh at fj9 dot so-net dot ne dot jp&#62;</DIV
-><DIV
-CLASS="author"
->Daichi Kamemoto &#60;daichi at asial dot co dot jp&#62;</DIV
-><DIV
-CLASS="author"
->Joe Morikawa &#60;joe at asial dot co dot jp&#62;</DIV
-><DIV
-CLASS="author"
->Masahiro Takagi &#60;takagi@php.net&#62;</DIV
-><P
-CLASS="pubdate"
->2007/05/04<BR></P
-><P
-CLASS="copyright"
->製作著作 &copy; 2001-2005 New Digital Group, Inc.</P
-><HR></DIV
-><DIV
-CLASS="TOC"
-><DL
-><DT
-><B
->目次</B
-></DT
-><DT
->II. <A
-HREF="smarty.for.designers.html"
->テンプレートデザイナのための Smarty</A
-></DT
-><DD
-><DL
-><DT
->3章<A
-HREF="language.basic.syntax.html"
->基本構文</A
-></DT
-><DD
-><DL
-><DT
-><A
-HREF="language.basic.syntax.html#language.syntax.comments"
->コメント</A
-></DT
-><DT
-><A
-HREF="language.syntax.variables.html"
->変数</A
-></DT
-><DT
-><A
-HREF="language.syntax.functions.html"
->関数</A
-></DT
-><DT
-><A
-HREF="language.syntax.attributes.html"
->属性</A
-></DT
-><DT
-><A
-HREF="language.syntax.quotes.html"
->ダブルクォート内に埋め込まれた変数</A
-></DT
-><DT
-><A
-HREF="language.math.html"
->演算子</A
-></DT
-><DT
-><A
-HREF="language.escaping.html"
->Smarty の構文解析を回避する</A
-></DT
-></DL
-></DD
-><DT
->4章<A
-HREF="language.variables.html"
->変数</A
-></DT
-><DD
-><DL
-><DT
-><A
-HREF="language.variables.smarty.html"
->予約変数 {$smarty}</A
-></DT
-></DL
-></DD
-><DT
->5章<A
-HREF="language.modifiers.html"
->変数の修飾子</A
-></DT
-><DD
-><DL
-><DT
-><A
-HREF="language.modifiers.html#language.modifier.capitalize"
->capitalize</A
-></DT
-><DT
-><A
-HREF="language.modifier.cat.html"
->cat</A
-></DT
-><DT
-><A
-HREF="language.modifier.count.characters.html"
->count_characters</A
-></DT
-><DT
-><A
-HREF="language.modifier.count.paragraphs.html"
->count_paragraphs</A
-></DT
-><DT
-><A
-HREF="language.modifier.count.sentences.html"
->count_sentences</A
-></DT
-><DT
-><A
-HREF="language.modifier.count.words.html"
->count_words</A
-></DT
-><DT
-><A
-HREF="language.modifier.date.format.html"
->date_format</A
-></DT
-><DT
-><A
-HREF="language.modifier.default.html"
->default</A
-></DT
-><DT
-><A
-HREF="language.modifier.escape.html"
->escape</A
-></DT
-><DT
-><A
-HREF="language.modifier.indent.html"
->indent</A
-></DT
-><DT
-><A
-HREF="language.modifier.lower.html"
->lower</A
-></DT
-><DT
-><A
-HREF="language.modifier.nl2br.html"
->nl2br</A
-></DT
-><DT
-><A
-HREF="language.modifier.regex.replace.html"
->regex_replace</A
-></DT
-><DT
-><A
-HREF="language.modifier.replace.html"
->replace</A
-></DT
-><DT
-><A
-HREF="language.modifier.spacify.html"
->spacify</A
-></DT
-><DT
-><A
-HREF="language.modifier.string.format.html"
->string_format</A
-></DT
-><DT
-><A
-HREF="language.modifier.strip.html"
->strip</A
-></DT
-><DT
-><A
-HREF="language.modifier.strip.tags.html"
->strip_tags</A
-></DT
-><DT
-><A
-HREF="language.modifier.truncate.html"
->truncate</A
-></DT
-><DT
-><A
-HREF="language.modifier.upper.html"
->upper</A
-></DT
-><DT
-><A
-HREF="language.modifier.wordwrap.html"
->wordwrap</A
-></DT
-></DL
-></DD
-><DT
->6章<A
-HREF="language.combining.modifiers.html"
->修飾子の連結</A
-></DT
-><DT
->7章<A
-HREF="language.builtin.functions.html"
->組み込み関数</A
-></DT
-><DD
-><DL
-><DT
-><A
-HREF="language.builtin.functions.html#language.function.capture"
->{capture}</A
-></DT
-><DT
-><A
-HREF="language.function.config.load.html"
->{config_load}</A
-></DT
-><DT
-><A
-HREF="language.function.foreach.html"
->{foreach},{foreachelse}</A
-></DT
-><DT
-><A
-HREF="language.function.if.html"
->{if},{elseif},{else}</A
-></DT
-><DT
-><A
-HREF="language.function.include.html"
->{include}</A
-></DT
-><DT
-><A
-HREF="language.function.ldelim.html"
->{ldelim},{rdelim}</A
-></DT
-><DT
-><A
-HREF="language.function.literal.html"
->{literal}</A
-></DT
-><DT
-><A
-HREF="language.function.section.html"
->{section},{sectionelse}</A
-></DT
-><DT
-><A
-HREF="language.function.strip.html"
->{strip}</A
-></DT
-></DL
-></DD
-><DT
->8章<A
-HREF="language.custom.functions.html"
->カスタム関数</A
-></DT
-><DD
-><DL
-><DT
-><A
-HREF="language.custom.functions.html#language.function.assign"
->{assign}</A
-></DT
-><DT
-><A
-HREF="language.function.counter.html"
->{counter}</A
-></DT
-><DT
-><A
-HREF="language.function.cycle.html"
->{cycle}</A
-></DT
-></DT
-><DT
-><A
-HREF="language.function.fetch.html"
->{fetch}</A
-></DT
-><DT
-><A
-HREF="language.function.html.checkboxes.html"
->{html_checkboxes}</A
-></DT
-><DT
-><A
-HREF="language.function.html.image.html"
->{html_image}</A
-></DT
-><DT
-><A
-HREF="language.function.html.options.html"
->{html_options}</A
-></DT
-><DT
-><A
-HREF="language.function.html.radios.html"
->{html_radios}</A
-></DT
-><DT
-><A
-HREF="language.function.html.select.date.html"
->{html_select_date}</A
-></DT
-><DT
-><A
-HREF="language.function.html.select.time.html"
->{html_select_time}</A
-></DT
-><DT
-><A
-HREF="language.function.html.table.html"
->{html_table}</A
-></DT
-><DT
-><A
-HREF="language.function.mailto.html"
->{mailto}</A
-></DT
-><DT
-><A
-HREF="language.function.math.html"
->{math}</A
-></DT
-><DT
-><A
-HREF="language.function.popup.html"
->{popup}</A
-></DT
-><DT
-><A
-HREF="language.function.popup.init.html"
->{popup_init}</A
-></DT
-><DT
-><A
-HREF="language.function.textformat.html"
->{textformat}</A
-></DT
-></DL
-></DD
-><DT
->9章<A
-HREF="config.files.html"
->設定ファイル</A
-></DT
-></DL
-></DD
-><DT
->18章<A
-HREF="tips.html"
->ヒント &#38; 裏ワザ</A
-></DT
-><DD
-><DL
-><DT
-><A
-HREF="tips.dates.html"
->日付</A
-></DT
-><DT
-><A
-HREF="tips.obfuscating.email.html"
->E-mail アドレスを混乱させる</A
-></DT
-></DL
-></DD
-></DL
-></DD
-></DL
-></DIV
-></DIV
-><DIV
-CLASS="NAVFOOTER"
-><HR
-ALIGN="LEFT"
-WIDTH="100%"><TABLE
-SUMMARY="Footer navigation table"
-WIDTH="100%"
-BORDER="0"
-CELLPADDING="0"
-CELLSPACING="0"
-><TR
-><TD
-WIDTH="33%"
-ALIGN="left"
-VALIGN="top"
->&nbsp;</TD
-><TD
-WIDTH="34%"
-ALIGN="center"
-VALIGN="top"
->&nbsp;</TD
-><TD
-WIDTH="33%"
-ALIGN="right"
-VALIGN="top"
-><A
-HREF="preface.html"
-ACCESSKEY="N"
->次のページ</A
-></TD
-></TR
-><TR
-><TD
-WIDTH="33%"
-ALIGN="left"
-VALIGN="top"
->&nbsp;</TD
-><TD
-WIDTH="34%"
-ALIGN="center"
-VALIGN="top"
->&nbsp;</TD
-><TD
-WIDTH="33%"
-ALIGN="right"
-VALIGN="top"
->序文</TD
-></TR
-></TABLE
-></DIV
-></BODY
-></HTML
->
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Smarty マニュアル</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.75.1">
+<link rel="home" href="index.html" title="Smarty マニュアル">
+<link rel="next" href="preface.html" title="序文">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<div class="navheader">
+<table width="100%" summary="Navigation header">
+<tr><th colspan="3" align="center">Smarty マニュアル</th></tr>
+<tr>
+<td width="20%" align="left"> </td>
+<th width="60%" align="center"> </th>
+<td width="20%" align="right"> <a accesskey="n" href="preface.html">Next</a>
+</td>
+</tr>
+</table>
+<hr>
+</div>
+<div class="book" title="Smarty マニュアル">
+<div class="titlepage">
+<div>
+<div><h1 class="title">
+<a name="manual"></a>Smarty - コンパイリング PHP テンプレートエンジン</h1></div>
+<div><div class="authorgroup">
+<a name="authors"></a><div class="author"><h3 class="author">
+<span class="firstname">Monte</span> <span class="surname">Ohrt &lt;monte at ohrt dot com&gt;</span>
+</h3></div>
+<div class="author"><h3 class="author">
+<span class="firstname">Andrei</span> <span class="surname">Zmievski &lt;andrei@php.net&gt;</span>
+</h3></div>
+</div></div>
+<div><div class="authorgroup">
+<a name="translators"></a><div class="author"><h3 class="author">
+<span class="firstname">Shinsuke</span> <span class="surname">Matsuda &lt;mat-sh at fj9 dot so-net dot ne dot jp&gt;</span>
+</h3></div>
+<div class="author"><h3 class="author">
+<span class="firstname">Daichi</span> <span class="surname">Kamemoto &lt;daichi at asial dot co dot jp&gt;</span>
+</h3></div>
+<div class="author"><h3 class="author">
+<span class="firstname">Joe</span> <span class="surname">Morikawa &lt;joe at asial dot co dot jp&gt;</span>
+</h3></div>
+<div class="author"><h3 class="author">
+<span class="firstname">Masahiro</span> <span class="surname">Takagi &lt;takagi@php.net&gt;</span>
+</h3></div>
+</div></div>
+<div><p class="copyright">Copyright © 2001-2005 New Digital Group, Inc.</p></div>
+<div><p class="pubdate">2010-09-20</p></div>
+</div>
+<hr>
+</div>
+<div class="toc">
+<p><b>Table of Contents</b></p>
+<dl>
+<dt><span class="preface"><a href="preface.html">序文</a></span></dt>
+<dt><span class="part"><a href="getting.started.html">I. はじめに</a></span></dt>
+<dd><dl>
+<dt><span class="chapter"><a href="what.is.smarty.html">1. Smarty とは?</a></span></dt>
+<dt><span class="chapter"><a href="installation.html">2. インストール</a></span></dt>
+<dd><dl>
+<dt><span class="sect1"><a href="installation.html#installation.requirements">必要条件</a></span></dt>
+<dt><span class="sect1"><a href="installing.smarty.basic.html">基本的なインストール</a></span></dt>
+<dt><span class="sect1"><a href="installing.smarty.extended.html">拡張セットアップ</a></span></dt>
+</dl></dd>
+</dl></dd>
+<dt><span class="part"><a href="smarty.for.designers.html">II. テンプレートデザイナのための Smarty</a></span></dt>
+<dd><dl>
+<dt><span class="chapter"><a href="language.basic.syntax.html">3. 基本構文</a></span></dt>
+<dd><dl>
+<dt><span class="sect1"><a href="language.basic.syntax.html#language.syntax.comments">コメント</a></span></dt>
+<dt><span class="sect1"><a href="language.syntax.variables.html">変数</a></span></dt>
+<dt><span class="sect1"><a href="language.syntax.functions.html">関数</a></span></dt>
+<dt><span class="sect1"><a href="language.syntax.attributes.html">属性</a></span></dt>
+<dt><span class="sect1"><a href="language.syntax.quotes.html">ダブルクォート内に埋め込まれた変数</a></span></dt>
+<dt><span class="sect1"><a href="language.math.html">演算子</a></span></dt>
+<dt><span class="sect1"><a href="language.escaping.html">Smarty の構文解析を回避する</a></span></dt>
+</dl></dd>
+<dt><span class="chapter"><a href="language.variables.html">4. 変数</a></span></dt>
+<dd><dl>
+<dt><span class="sect1"><a href="language.variables.html#language.assigned.variables">PHP から割り当てられた変数</a></span></dt>
+<dd><dl>
+<dt><span class="sect2"><a href="language.variables.html#language.variables.assoc.arrays">連想配列</a></span></dt>
+<dt><span class="sect2"><a href="language.variables.html#language.variables.array.indexes">配列のインデックス</a></span></dt>
+<dt><span class="sect2"><a href="language.variables.html#language.variables.objects">オブジェクト</a></span></dt>
+</dl></dd>
+<dt><span class="sect1"><a href="language.config.variables.html">設定ファイルから読み込まれた変数</a></span></dt>
+<dt><span class="sect1"><a href="language.variables.smarty.html">予約変数 {$smarty}</a></span></dt>
+<dd><dl>
+<dt><span class="sect2"><a href="language.variables.smarty.html#language.variables.smarty.request">リクエスト変数</a></span></dt>
+<dt><span class="sect2"><a href="language.variables.smarty.html#language.variables.smarty.now">{$smarty.now}</a></span></dt>
+<dt><span class="sect2"><a href="language.variables.smarty.html#language.variables.smarty.const">{$smarty.const}</a></span></dt>
+<dt><span class="sect2"><a href="language.variables.smarty.html#language.variables.smarty.capture">{$smarty.capture}</a></span></dt>
+<dt><span class="sect2"><a href="language.variables.smarty.html#language.variables.smarty.config">{$smarty.config}</a></span></dt>
+<dt><span class="sect2"><a href="language.variables.smarty.html#language.variables.smarty.loops">{$smarty.section}、{$smarty.foreach}</a></span></dt>
+<dt><span class="sect2"><a href="language.variables.smarty.html#language.variables.smarty.template">{$smarty.template}</a></span></dt>
+<dt><span class="sect2"><a href="language.variables.smarty.html#language.variables.smarty.version">{$smarty.version}</a></span></dt>
+<dt><span class="sect2"><a href="language.variables.smarty.html#language.variables.smarty.ldelim">{$smarty.ldelim}、{$smarty.rdelim}</a></span></dt>
+</dl></dd>
+</dl></dd>
+<dt><span class="chapter"><a href="language.modifiers.html">5. 変数の修飾子</a></span></dt>
+<dd><dl>
+<dt><span class="sect1"><a href="language.modifiers.html#language.modifier.capitalize">capitalize</a></span></dt>
+<dt><span class="sect1"><a href="language.modifier.cat.html">cat</a></span></dt>
+<dt><span class="sect1"><a href="language.modifier.count.characters.html">count_characters</a></span></dt>
+<dt><span class="sect1"><a href="language.modifier.count.paragraphs.html">count_paragraphs</a></span></dt>
+<dt><span class="sect1"><a href="language.modifier.count.sentences.html">count_sentences</a></span></dt>
+<dt><span class="sect1"><a href="language.modifier.count.words.html">count_words</a></span></dt>
+<dt><span class="sect1"><a href="language.modifier.date.format.html">date_format</a></span></dt>
+<dt><span class="sect1"><a href="language.modifier.default.html">default</a></span></dt>
+<dt><span class="sect1"><a href="language.modifier.escape.html">escape</a></span></dt>
+<dt><span class="sect1"><a href="language.modifier.indent.html">indent</a></span></dt>
+<dt><span class="sect1"><a href="language.modifier.lower.html">lower</a></span></dt>
+<dt><span class="sect1"><a href="language.modifier.nl2br.html">nl2br</a></span></dt>
+<dt><span class="sect1"><a href="language.modifier.regex.replace.html">regex_replace</a></span></dt>
+<dt><span class="sect1"><a href="language.modifier.replace.html">replace</a></span></dt>
+<dt><span class="sect1"><a href="language.modifier.spacify.html">spacify</a></span></dt>
+<dt><span class="sect1"><a href="language.modifier.string.format.html">string_format</a></span></dt>
+<dt><span class="sect1"><a href="language.modifier.strip.html">strip</a></span></dt>
+<dt><span class="sect1"><a href="language.modifier.strip.tags.html">strip_tags</a></span></dt>
+<dt><span class="sect1"><a href="language.modifier.truncate.html">truncate</a></span></dt>
+<dt><span class="sect1"><a href="language.modifier.upper.html">upper</a></span></dt>
+<dt><span class="sect1"><a href="language.modifier.wordwrap.html">wordwrap</a></span></dt>
+</dl></dd>
+<dt><span class="chapter"><a href="language.combining.modifiers.html">6. 修飾子の連結</a></span></dt>
+<dt><span class="chapter"><a href="language.builtin.functions.html">7. 組み込み関数</a></span></dt>
+<dd><dl>
+<dt><span class="sect1"><a href="language.builtin.functions.html#language.function.capture">{capture}</a></span></dt>
+<dt><span class="sect1"><a href="language.function.config.load.html">{config_load}</a></span></dt>
+<dt><span class="sect1"><a href="language.function.foreach.html">{foreach},{foreachelse}</a></span></dt>
+<dd><dl>
+<dt><span class="sect2"><a href="language.function.foreach.html#foreach.property.index">.index</a></span></dt>
+<dt><span class="sect2"><a href="language.function.foreach.html#foreach.property.iteration">.iteration</a></span></dt>
+<dt><span class="sect2"><a href="language.function.foreach.html#foreach.property.first">.first</a></span></dt>
+<dt><span class="sect2"><a href="language.function.foreach.html#foreach.property.last">.last</a></span></dt>
+<dt><span class="sect2"><a href="language.function.foreach.html#foreach.property.show">.show</a></span></dt>
+<dt><span class="sect2"><a href="language.function.foreach.html#foreach.property.total">.total</a></span></dt>
+</dl></dd>
+<dt><span class="sect1"><a href="language.function.if.html">{if},{elseif},{else}</a></span></dt>
+<dt><span class="sect1"><a href="language.function.include.html">{include}</a></span></dt>
+<dt><span class="sect1"><a href="language.function.include.php.html">{include_php}</a></span></dt>
+<dt><span class="sect1"><a href="language.function.insert.html">{insert}</a></span></dt>
+<dt><span class="sect1"><a href="language.function.ldelim.html">{ldelim},{rdelim}</a></span></dt>
+<dt><span class="sect1"><a href="language.function.literal.html">{literal}</a></span></dt>
+<dt><span class="sect1"><a href="language.function.php.html">{php}</a></span></dt>
+<dt><span class="sect1"><a href="language.function.section.html">{section},{sectionelse}</a></span></dt>
+<dd><dl>
+<dt><span class="sect2"><a href="language.function.section.html#section.property.index">.index</a></span></dt>
+<dt><span class="sect2"><a href="language.function.section.html#section.property.index.prev">.index_prev</a></span></dt>
+<dt><span class="sect2"><a href="language.function.section.html#section.property.index.next">.index_next</a></span></dt>
+<dt><span class="sect2"><a href="language.function.section.html#section.property.iteration">.iteration</a></span></dt>
+<dt><span class="sect2"><a href="language.function.section.html#section.property.first">.first</a></span></dt>
+<dt><span class="sect2"><a href="language.function.section.html#section.property.last">.last</a></span></dt>
+<dt><span class="sect2"><a href="language.function.section.html#section.property.rownum">.rownum</a></span></dt>
+<dt><span class="sect2"><a href="language.function.section.html#section.property.loop">.loop</a></span></dt>
+<dt><span class="sect2"><a href="language.function.section.html#section.property.show">.show</a></span></dt>
+<dt><span class="sect2"><a href="language.function.section.html#section.property.total">.total</a></span></dt>
+</dl></dd>
+<dt><span class="sect1"><a href="language.function.strip.html">{strip}</a></span></dt>
+</dl></dd>
+<dt><span class="chapter"><a href="language.custom.functions.html">8. カスタム関数</a></span></dt>
+<dd><dl>
+<dt><span class="sect1"><a href="language.custom.functions.html#language.function.assign">{assign}</a></span></dt>
+<dt><span class="sect1"><a href="language.function.counter.html">{counter}</a></span></dt>
+<dt><span class="sect1"><a href="language.function.cycle.html">{cycle}</a></span></dt>
+<dt><span class="sect1"><a href="language.function.debug.html">{debug}</a></span></dt>
+<dt><span class="sect1"><a href="language.function.eval.html">{eval}</a></span></dt>
+<dt><span class="sect1"><a href="language.function.fetch.html">{fetch}</a></span></dt>
+<dt><span class="sect1"><a href="language.function.html.checkboxes.html">{html_checkboxes}</a></span></dt>
+<dt><span class="sect1"><a href="language.function.html.image.html">{html_image}</a></span></dt>
+<dt><span class="sect1"><a href="language.function.html.options.html">{html_options}</a></span></dt>
+<dt><span class="sect1"><a href="language.function.html.radios.html">{html_radios}</a></span></dt>
+<dt><span class="sect1"><a href="language.function.html.select.date.html">{html_select_date}</a></span></dt>
+<dt><span class="sect1"><a href="language.function.html.select.time.html">{html_select_time}</a></span></dt>
+<dt><span class="sect1"><a href="language.function.html.table.html">{html_table}</a></span></dt>
+<dt><span class="sect1"><a href="language.function.mailto.html">{mailto}</a></span></dt>
+<dt><span class="sect1"><a href="language.function.math.html">{math}</a></span></dt>
+<dt><span class="sect1"><a href="language.function.popup.html">{popup}</a></span></dt>
+<dt><span class="sect1"><a href="language.function.popup.init.html">{popup_init}</a></span></dt>
+<dt><span class="sect1"><a href="language.function.textformat.html">{textformat}</a></span></dt>
+</dl></dd>
+<dt><span class="chapter"><a href="config.files.html">9. 設定ファイル</a></span></dt>
+<dt><span class="chapter"><a href="chapter.debugging.console.html">10. デバッギングコンソール</a></span></dt>
+</dl></dd>
+<dt><span class="part"><a href="smarty.for.programmers.html">III. プログラマのための Smarty</a></span></dt>
+<dd><dl>
+<dt><span class="chapter"><a href="smarty.constants.html">11. 定数</a></span></dt>
+<dd><dl>
+<dt><span class="sect1"><a href="smarty.constants.html#constant.smarty.dir">SMARTY_DIR</a></span></dt>
+<dt><span class="sect1"><a href="constant.smarty.core.dir.html">SMARTY_CORE_DIR</a></span></dt>
+</dl></dd>
+<dt><span class="chapter"><a href="api.variables.html">12. Smarty クラス変数</a></span></dt>
+<dd><dl>
+<dt><span class="sect1"><a href="api.variables.html#variable.template.dir">$template_dir</a></span></dt>
+<dt><span class="sect1"><a href="variable.compile.dir.html">$compile_dir</a></span></dt>
+<dt><span class="sect1"><a href="variable.config.dir.html">$config_dir</a></span></dt>
+<dt><span class="sect1"><a href="variable.plugins.dir.html">$plugins_dir</a></span></dt>
+<dt><span class="sect1"><a href="variable.debugging.html">$debugging</a></span></dt>
+<dt><span class="sect1"><a href="variable.debug.tpl.html">$debug_tpl</a></span></dt>
+<dt><span class="sect1"><a href="variable.debugging.ctrl.html">$debugging_ctrl</a></span></dt>
+<dt><span class="sect1"><a href="variable.autoload.filters.html">$autoload_filters</a></span></dt>
+<dt><span class="sect1"><a href="variable.compile.check.html">$compile_check</a></span></dt>
+<dt><span class="sect1"><a href="variable.force.compile.html">$force_compile</a></span></dt>
+<dt><span class="sect1"><a href="variable.caching.html">$caching</a></span></dt>
+<dt><span class="sect1"><a href="variable.cache.dir.html">$cache_dir</a></span></dt>
+<dt><span class="sect1"><a href="variable.cache.lifetime.html">$cache_lifetime</a></span></dt>
+<dt><span class="sect1"><a href="variable.cache.handler.func.html">$cache_handler_func</a></span></dt>
+<dt><span class="sect1"><a href="variable.cache.modified.check.html">$cache_modified_check</a></span></dt>
+<dt><span class="sect1"><a href="variable.config.overwrite.html">$config_overwrite</a></span></dt>
+<dt><span class="sect1"><a href="variable.config.booleanize.html">$config_booleanize</a></span></dt>
+<dt><span class="sect1"><a href="variable.config.read.hidden.html">$config_read_hidden</a></span></dt>
+<dt><span class="sect1"><a href="variable.config.fix.newlines.html">$config_fix_newlines</a></span></dt>
+<dt><span class="sect1"><a href="variable.default.template.handler.func.html">$default_template_handler_func</a></span></dt>
+<dt><span class="sect1"><a href="variable.php.handling.html">$php_handling</a></span></dt>
+<dt><span class="sect1"><a href="variable.security.html">$security</a></span></dt>
+<dt><span class="sect1"><a href="variable.secure.dir.html">$secure_dir</a></span></dt>
+<dt><span class="sect1"><a href="variable.security.settings.html">$security_settings</a></span></dt>
+<dt><span class="sect1"><a href="variable.trusted.dir.html">$trusted_dir</a></span></dt>
+<dt><span class="sect1"><a href="variable.left.delimiter.html">$left_delimiter</a></span></dt>
+<dt><span class="sect1"><a href="variable.right.delimiter.html">$right_delimiter</a></span></dt>
+<dt><span class="sect1"><a href="variable.compiler.class.html">$compiler_class</a></span></dt>
+<dt><span class="sect1"><a href="variable.request.vars.order.html">$request_vars_order</a></span></dt>
+<dt><span class="sect1"><a href="variable.request.use.auto.globals.html">$request_use_auto_globals</a></span></dt>
+<dt><span class="sect1"><a href="variable.error.reporting.html">$error_reporting</a></span></dt>
+<dt><span class="sect1"><a href="variable.compile.id.html">$compile_id</a></span></dt>
+<dt><span class="sect1"><a href="variable.use.sub.dirs.html">$use_sub_dirs</a></span></dt>
+<dt><span class="sect1"><a href="variable.default.modifiers.html">$default_modifiers</a></span></dt>
+<dt><span class="sect1"><a href="variable.default.resource.type.html">$default_resource_type</a></span></dt>
+</dl></dd>
+<dt><span class="chapter"><a href="api.functions.html">13. Smarty クラスメソッド</a></span></dt>
+<dd><dl>
+<dt>
+<span class="refentrytitle"><a href="api.append.html">append()</a></span><span class="refpurpose"> — 割り当てられたテンプレート配列に要素を追加します。</span>
+</dt>
+<dt>
+<span class="refentrytitle"><a href="api.append.by.ref.html">append_by_ref()</a></span><span class="refpurpose"> — 参照として値を追加します。</span>
+</dt>
+<dt>
+<span class="refentrytitle"><a href="api.assign.html">assign()</a></span><span class="refpurpose"> — テンプレートに値を割り当てます。</span>
+</dt>
+<dt>
+<span class="refentrytitle"><a href="api.assign.by.ref.html">assign_by_ref()</a></span><span class="refpurpose"> — 参照として値を割り当てます。</span>
+</dt>
+<dt>
+<span class="refentrytitle"><a href="api.clear.all.assign.html">clear_all_assign()</a></span><span class="refpurpose"> — 割り当てられた全てのテンプレート変数を破棄します。</span>
+</dt>
+<dt>
+<span class="refentrytitle"><a href="api.clear.all.cache.html">clear_all_cache()</a></span><span class="refpurpose"> — 全てのテンプレートのキャッシュをクリアします。</span>
+</dt>
+<dt>
+<span class="refentrytitle"><a href="api.clear.assign.html">clear_assign()</a></span><span class="refpurpose"> — 割り当てられたテンプレート変数の値を破棄します。</span>
+</dt>
+<dt>
+<span class="refentrytitle"><a href="api.clear.cache.html">clear_cache()</a></span><span class="refpurpose"> — 指定したテンプレートのキャッシュを破棄します。</span>
+</dt>
+<dt>
+<span class="refentrytitle"><a href="api.clear.compiled.tpl.html">clear_compiled_tpl()</a></span><span class="refpurpose"> — 指定したテンプレートのキャッシュを破棄します。</span>
+</dt>
+<dt>
+<span class="refentrytitle"><a href="api.clear.config.html">clear_config()</a></span><span class="refpurpose"> — 割り当てられたすべての設定ファイルの変数をクリアします。</span>
+</dt>
+<dt>
+<span class="refentrytitle"><a href="api.config.load.html">config_load()</a></span><span class="refpurpose"> — 設定ファイルのデータを読み込み、テンプレートに割り当てます。</span>
+</dt>
+<dt>
+<span class="refentrytitle"><a href="api.display.html">display()</a></span><span class="refpurpose"> — テンプレートを表示します。</span>
+</dt>
+<dt>
+<span class="refentrytitle"><a href="api.fetch.html">fetch()</a></span><span class="refpurpose"> — テンプレートの出力を返します。</span>
+</dt>
+<dt>
+<span class="refentrytitle"><a href="api.get.config.vars.html">get_config_vars()</a></span><span class="refpurpose"> — 読み込まれた設定ファイル変数を返します。</span>
+</dt>
+<dt>
+<span class="refentrytitle"><a href="api.get.registered.object.html">get_registered_object()</a></span><span class="refpurpose"> — 登録されたオブジェクトの参照を返します。</span>
+</dt>
+<dt>
+<span class="refentrytitle"><a href="api.get.template.vars.html">get_template_vars()</a></span><span class="refpurpose"> — 割り当てられた変数の値を返します。</span>
+</dt>
+<dt>
+<span class="refentrytitle"><a href="api.is.cached.html">is_cached()</a></span><span class="refpurpose"> — テンプレートが有効なキャッシュを持つ場合にtrueを返します。</span>
+</dt>
+<dt>
+<span class="refentrytitle"><a href="api.load.filter.html">load_filter()</a></span><span class="refpurpose"> — フィルタプラグインを読み込みます。</span>
+</dt>
+<dt>
+<span class="refentrytitle"><a href="api.register.block.html">register_block()</a></span><span class="refpurpose"> — ブロック関数プラグインを動的に登録します。</span>
+</dt>
+<dt>
+<span class="refentrytitle"><a href="api.register.compiler.function.html">register_compiler_function()</a></span><span class="refpurpose"> — コンパイラ関数プラグインを動的に登録します。</span>
+</dt>
+<dt>
+<span class="refentrytitle"><a href="api.register.function.html">register_function()</a></span><span class="refpurpose"> — テンプレート関数プラグインを動的に登録します。</span>
+</dt>
+<dt>
+<span class="refentrytitle"><a href="api.register.modifier.html">register_modifier()</a></span><span class="refpurpose"> — 変数の修飾子プラグインを動的に登録します。</span>
+</dt>
+<dt>
+<span class="refentrytitle"><a href="api.register.object.html">register_object()</a></span><span class="refpurpose"> — テンプレート内で使用するオブジェクトを登録します。</span>
+</dt>
+<dt>
+<span class="refentrytitle"><a href="api.register.outputfilter.html">register_outputfilter()</a></span><span class="refpurpose"> — アウトプットフィルタを動的に登録します。</span>
+</dt>
+<dt>
+<span class="refentrytitle"><a href="api.register.postfilter.html">register_postfilter()</a></span><span class="refpurpose"> — ポストフィルタを動的に登録します。</span>
+</dt>
+<dt>
+<span class="refentrytitle"><a href="api.register.prefilter.html">register_prefilter()</a></span><span class="refpurpose"> — プリフィルタを動的に登録します。</span>
+</dt>
+<dt>
+<span class="refentrytitle"><a href="api.register.resource.html">register_resource()</a></span><span class="refpurpose"> — リソースプラグインを動的に登録します。</span>
+</dt>
+<dt>
+<span class="refentrytitle"><a href="api.trigger.error.html">trigger_error()</a></span><span class="refpurpose"> — エラーメッセージを出力します。</span>
+</dt>
+<dt>
+<span class="refentrytitle"><a href="api.template.exists.html">template_exists()</a></span><span class="refpurpose"> — 指定したテンプレートが存在するかどうかをチェックします。</span>
+</dt>
+<dt>
+<span class="refentrytitle"><a href="api.unregister.block.html">unregister_block()</a></span><span class="refpurpose"> — 動的に登録されたブロック関数プラグインを未登録にします。</span>
+</dt>
+<dt>
+<span class="refentrytitle"><a href="api.unregister.compiler.function.html">unregister_compiler_function()</a></span><span class="refpurpose"> — 動的に登録されたコンパイラ関数を未登録にします。</span>
+</dt>
+<dt>
+<span class="refentrytitle"><a href="api.unregister.function.html">unregister_function</a></span><span class="refpurpose"> — 動的に登録されたテンプレート関数プラグインを未登録にします。</span>
+</dt>
+<dt>
+<span class="refentrytitle"><a href="api.unregister.modifier.html">unregister_modifier()</a></span><span class="refpurpose"> — 動的に登録された変数の修飾子プラグインを未登録にします。</span>
+</dt>
+<dt>
+<span class="refentrytitle"><a href="api.unregister.object.html">unregister_object()</a></span><span class="refpurpose"> — 動的に登録されたオブジェクトを未登録にします。</span>
+</dt>
+<dt>
+<span class="refentrytitle"><a href="api.unregister.outputfilter.html">unregister_outputfilter()</a></span><span class="refpurpose"> — 動的に登録されたアウトプットフィルタプラグインを未登録にします。</span>
+</dt>
+<dt>
+<span class="refentrytitle"><a href="api.unregister.postfilter.html">unregister_postfilter()</a></span><span class="refpurpose"> — 動的に登録されたポストフィルタプラグインを未登録にします。</span>
+</dt>
+<dt>
+<span class="refentrytitle"><a href="api.unregister.prefilter.html">unregister_prefilter()</a></span><span class="refpurpose"> — 動的に登録されたプリフィルタプラグインを未登録にします。</span>
+</dt>
+<dt>
+<span class="refentrytitle"><a href="api.unregister.resource.html">unregister_resource()</a></span><span class="refpurpose"> — 動的に登録されたリソースプラグインを未登録にします。</span>
+</dt>
+</dl></dd>
+<dt><span class="chapter"><a href="caching.html">14. キャッシュ</a></span></dt>
+<dd><dl>
+<dt><span class="sect1"><a href="caching.html#caching.setting.up">キャッシュのセットアップ</a></span></dt>
+<dt><span class="sect1"><a href="caching.multiple.caches.html">ページごとに複数のキャッシュ</a></span></dt>
+<dt><span class="sect1"><a href="caching.groups.html">キャッシュのグループ</a></span></dt>
+<dt><span class="sect1"><a href="caching.cacheable.html">キャッシュ可能なプラグインの出力の制御</a></span></dt>
+</dl></dd>
+<dt><span class="chapter"><a href="advanced.features.html">15. 拡張機能</a></span></dt>
+<dd><dl>
+<dt><span class="sect1"><a href="advanced.features.html#advanced.features.objects">オブジェクト</a></span></dt>
+<dt><span class="sect1"><a href="advanced.features.prefilters.html">プリフィルタ</a></span></dt>
+<dt><span class="sect1"><a href="advanced.features.postfilters.html">ポストフィルタ</a></span></dt>
+<dt><span class="sect1"><a href="advanced.features.outputfilters.html">アウトプットフィルタ</a></span></dt>
+<dt><span class="sect1"><a href="section.template.cache.handler.func.html">キャッシュハンドラ関数</a></span></dt>
+<dt><span class="sect1"><a href="template.resources.html">テンプレートリソース</a></span></dt>
+<dd><dl>
+<dt><span class="sect2"><a href="template.resources.html#templates.from.template.dir">$template_dir からのテンプレート</a></span></dt>
+<dt><span class="sect2"><a href="template.resources.html#templates.from.any.dir">任意のディレクトリからのテンプレート</a></span></dt>
+<dt><span class="sect2"><a href="template.resources.html#templates.from.elsewhere">その他のリソース内のテンプレート</a></span></dt>
+<dt><span class="sect2"><a href="template.resources.html#default.template.handler.function">デフォルトのテンプレートハンドラ関数</a></span></dt>
+</dl></dd>
+</dl></dd>
+<dt><span class="chapter"><a href="plugins.html">16. プラグインによる Smarty の拡張</a></span></dt>
+<dd><dl>
+<dt><span class="sect1"><a href="plugins.html#plugins.howto">プラグインの動作原理</a></span></dt>
+<dt><span class="sect1"><a href="plugins.naming.conventions.html">命名規約</a></span></dt>
+<dt><span class="sect1"><a href="plugins.writing.html">プラグインの記述</a></span></dt>
+<dt><span class="sect1"><a href="plugins.functions.html">テンプレート関数プラグイン</a></span></dt>
+<dt><span class="sect1"><a href="plugins.modifiers.html">修飾子プラグイン</a></span></dt>
+<dt><span class="sect1"><a href="plugins.block.functions.html">ブロック関数プラグイン</a></span></dt>
+<dt><span class="sect1"><a href="plugins.compiler.functions.html">コンパイラ関数プラグイン</a></span></dt>
+<dt><span class="sect1"><a href="plugins.prefilters.postfilters.html">プリフィルタ/ポストフィルタプラグイン</a></span></dt>
+<dt><span class="sect1"><a href="plugins.outputfilters.html">アウトプットフィルタプラグイン</a></span></dt>
+<dt><span class="sect1"><a href="plugins.resources.html">リソースプラグイン</a></span></dt>
+<dt><span class="sect1"><a href="plugins.inserts.html">インサートプラグイン</a></span></dt>
+</dl></dd>
+</dl></dd>
+<dt><span class="part"><a href="appendixes.html">IV. 付録</a></span></dt>
+<dd><dl>
+<dt><span class="chapter"><a href="troubleshooting.html">17. トラブルシューティング</a></span></dt>
+<dd><dl><dt><span class="sect1"><a href="troubleshooting.html#smarty.php.errors">Smarty/PHP エラー</a></span></dt></dl></dd>
+<dt><span class="chapter"><a href="tips.html">18. ヒント &amp; 裏ワザ</a></span></dt>
+<dd><dl>
+<dt><span class="sect1"><a href="tips.html#tips.blank.var.handling">空白の変数の扱い</a></span></dt>
+<dt><span class="sect1"><a href="tips.default.var.handling.html">変数のデフォルトの扱い</a></span></dt>
+<dt><span class="sect1"><a href="tips.passing.vars.html">ヘッダテンプレートにタイトルの変数を渡す</a></span></dt>
+<dt><span class="sect1"><a href="tips.dates.html">日付</a></span></dt>
+<dt><span class="sect1"><a href="tips.wap.html">WAP/WML</a></span></dt>
+<dt><span class="sect1"><a href="tips.componentized.templates.html">コンポーネント化したテンプレート</a></span></dt>
+<dt><span class="sect1"><a href="tips.obfuscating.email.html">E-mail アドレスを混乱させる</a></span></dt>
+</dl></dd>
+<dt><span class="chapter"><a href="resources.html">19. リソース</a></span></dt>
+<dt><span class="chapter"><a href="bugs.html">20. バグ</a></span></dt>
+</dl></dd>
+</dl>
+</div>
+<div class="list-of-examples">
+<p><b>List of Examples</b></p>
+<dl>
+<dt>2.1. <a href="installing.smarty.basic.html#id2747724">必要な Smarty ライブラリファイル群</a>
+</dt>
+<dt>2.2. <a href="installing.smarty.basic.html#id2747865">手動で SMARTY_DIR 定数を定義する</a>
+</dt>
+<dt>2.3. <a href="installing.smarty.basic.html#id2747879">ライブラリファイルの絶対パスを指定する</a>
+</dt>
+<dt>2.4. <a href="installing.smarty.basic.html#id2747912"><code class="filename">php.ini</code> ファイルにライブラリへのパスを追加する</a>
+</dt>
+<dt>2.5. <a href="installing.smarty.basic.html#id2747941">PHP スクリプト内での ini_set()
+     によるインクルードパスの追加</a>
+</dt>
+<dt>2.6. <a href="installing.smarty.basic.html#id2748103">ファイル構造</a>
+</dt>
+<dt>2.7. <a href="installing.smarty.basic.html#id2748415">パーミッションおよびディレクトリへの書き込み権限の付与</a>
+</dt>
+<dt>2.8. <a href="installing.smarty.basic.html#id2748501">/web/www.example.com/guestbook/templates/index.tpl</a>
+</dt>
+<dt>2.9. <a href="installing.smarty.basic.html#id2748580">/web/www.example.com/docs/guestbook/index.php の編集</a>
+</dt>
+<dt>2.10. <a href="installing.smarty.extended.html#id2748747">/php/includes/guestbook/setup.php</a>
+</dt>
+<dt>2.11. <a href="installing.smarty.extended.html#id2748778">/web/www.example.com/guestbook/htdocs/index.php</a>
+</dt>
+<dt>3.1. <a href="language.basic.syntax.html#id2750864">テンプレート内のコメント</a>
+</dt>
+<dt>3.2. <a href="language.syntax.variables.html#id2751121">変数</a>
+</dt>
+<dt>3.3. <a href="language.syntax.functions.html#id2750410">関数の構文</a>
+</dt>
+<dt>3.4. <a href="language.syntax.attributes.html#id2750640">関数の属性の構文</a>
+</dt>
+<dt>3.5. <a href="language.syntax.quotes.html#id2752112">構文の例</a>
+</dt>
+<dt>3.6. <a href="language.syntax.quotes.html#id2752123">実用例</a>
+</dt>
+<dt>3.7. <a href="language.math.html#id2751952">演算子の例</a>
+</dt>
+<dt>3.8. <a href="language.escaping.html#id2752621">デリミタを変更する例</a>
+</dt>
+<dt>4.1. <a href="language.variables.html#id2753272">変数の例</a>
+</dt>
+<dt>4.2. <a href="language.variables.html#id2753352">割り当てられた変数</a>
+</dt>
+<dt>4.3. <a href="language.variables.html#id2754047">連想配列の値にアクセスする</a>
+</dt>
+<dt>4.4. <a href="language.variables.html#id2754126">インデックスによって配列にアクセスする</a>
+</dt>
+<dt>4.5. <a href="language.variables.html#id2754213">オブジェクトのプロパティにアクセスする</a>
+</dt>
+<dt>4.6. <a href="language.config.variables.html#id2753891">設定ファイルの変数</a>
+</dt>
+<dt>4.7. <a href="language.variables.smarty.html#id2754660">リクエスト変数の表示</a>
+</dt>
+<dt>5.1. <a href="language.modifiers.html#id2756626">修飾子の例</a>
+</dt>
+<dt>5.2. <a href="language.modifiers.html#id2757578">capitalize</a>
+</dt>
+<dt>5.3. <a href="language.modifier.cat.html#id2757960">cat</a>
+</dt>
+<dt>5.4. <a href="language.modifier.count.characters.html#id2757392">count_characters</a>
+</dt>
+<dt>5.5. <a href="language.modifier.count.paragraphs.html#id2757849">count_paragraphs</a>
+</dt>
+<dt>5.6. <a href="language.modifier.count.sentences.html#id2758100">count_sentences</a>
+</dt>
+<dt>5.7. <a href="language.modifier.count.words.html#id2758243">count_words</a>
+</dt>
+<dt>5.8. <a href="language.modifier.date.format.html#id2759485">date_format</a>
+</dt>
+<dt>5.9. <a href="language.modifier.default.html#id2760606">default</a>
+</dt>
+<dt>5.10. <a href="language.modifier.escape.html#id2761168">escape</a>
+</dt>
+<dt>5.11. <a href="language.modifier.escape.html#id2761205">別の例</a>
+</dt>
+<dt>5.12. <a href="language.modifier.indent.html#id2761917">indent</a>
+</dt>
+<dt>5.13. <a href="language.modifier.lower.html#id2761559">lower</a>
+</dt>
+<dt>5.14. <a href="language.modifier.nl2br.html#id2761692">nl2br</a>
+</dt>
+<dt>5.15. <a href="language.modifier.regex.replace.html#id2762852">regex_replace</a>
+</dt>
+<dt>5.16. <a href="language.modifier.replace.html#id2763296">replace</a>
+</dt>
+<dt>5.17. <a href="language.modifier.spacify.html#id2763715">spacify</a>
+</dt>
+<dt>5.18. <a href="language.modifier.string.format.html#id2764113">string_format</a>
+</dt>
+<dt>5.19. <a href="language.modifier.strip.html#id2763593">strip</a>
+</dt>
+<dt>5.20. <a href="language.modifier.strip.tags.html#id2764731">strip_tags</a>
+</dt>
+<dt>5.21. <a href="language.modifier.truncate.html#id2765238">truncate</a>
+</dt>
+<dt>5.22. <a href="language.modifier.upper.html#id2764855">upper</a>
+</dt>
+<dt>5.23. <a href="language.modifier.wordwrap.html#id2765995">wordwrap</a>
+</dt>
+<dt>6.1. <a href="language.combining.modifiers.html#id2769682">修飾子の連結</a>
+</dt>
+<dt>7.1. <a href="language.builtin.functions.html#id2771385">name 属性を使用した {capture}</a>
+</dt>
+<dt>7.2. <a href="language.builtin.functions.html#id2771398">{capture} をテンプレート変数に格納</a>
+</dt>
+<dt>7.3. <a href="language.function.config.load.html#id2772090">{config_load}</a>
+</dt>
+<dt>7.4. <a href="language.function.config.load.html#id2772193">セクションを指定した {config_load} 関数</a>
+</dt>
+<dt>7.5. <a href="language.function.foreach.html#id2773201"><em class="parameter"><code>item</code></em> 属性</a>
+</dt>
+<dt>7.6. <a href="language.function.foreach.html#id2773253"><em class="parameter"><code>item</code></em> および <em class="parameter"><code>key</code></em> 属性の説明</a>
+</dt>
+<dt>7.7. <a href="language.function.foreach.html#id2773322">{foreach} で連想配列の <em class="parameter"><code>item</code></em> 属性を指定する例</a>
+</dt>
+<dt>7.8. <a href="language.function.foreach.html#id2773385">{foreach} で <em class="parameter"><code>item</code></em> と <em class="parameter"><code>key</code></em> をネストする例</a>
+</dt>
+<dt>7.9. <a href="language.function.foreach.html#id2773464">データベースを使用する {foreachelse} の例</a>
+</dt>
+<dt>7.10. <a href="language.function.foreach.html#id2773543"><em class="parameter"><code>index</code></em> の例</a>
+</dt>
+<dt>7.11. <a href="language.function.foreach.html#id2773606"><em class="parameter"><code>iteration</code></em> および <em class="parameter"><code>index</code></em> の例</a>
+</dt>
+<dt>7.12. <a href="language.function.foreach.html#id2773668"><em class="parameter"><code>first</code></em> プロパティの例</a>
+</dt>
+<dt>7.13. <a href="language.function.foreach.html#id2773725"><em class="parameter"><code>last</code></em> プロパティの例</a>
+</dt>
+<dt>7.14. <a href="language.function.foreach.html#id2773832"><em class="parameter"><code>total</code></em> プロパティの例</a>
+</dt>
+<dt>7.15. <a href="language.function.if.html#id2775483">{if} ステートメント</a>
+</dt>
+<dt>7.16. <a href="language.function.if.html#id2775496">{if} のその他の例</a>
+</dt>
+<dt>7.17. <a href="language.function.include.html#id2776414">シンプルな {include} の例</a>
+</dt>
+<dt>7.18. <a href="language.function.include.html#id2776427">{include} に変数を渡す</a>
+</dt>
+<dt>7.19. <a href="language.function.include.html#id2776473">{include} と変数への割り当て</a>
+</dt>
+<dt>7.20. <a href="language.function.include.html#id2776507">さまざまな {include} リソースの例</a>
+</dt>
+<dt>7.21. <a href="language.function.include.php.html#id2777400">{include_php} 関数</a>
+</dt>
+<dt>7.22. <a href="language.function.insert.html#id2778177">{insert} 関数</a>
+</dt>
+<dt>7.23. <a href="language.function.ldelim.html#id2778033">{ldelim}, {rdelim}</a>
+</dt>
+<dt>7.24. <a href="language.function.ldelim.html#id2778090">別の Javascript の例</a>
+</dt>
+<dt>7.25. <a href="language.function.literal.html#id2778920">{literal} タグ</a>
+</dt>
+<dt>7.26. <a href="language.function.literal.html#id2778933">Javascript の関数の例</a>
+</dt>
+<dt>7.27. <a href="language.function.literal.html#id2778954">テンプレート内での css style</a>
+</dt>
+<dt>7.28. <a href="language.function.php.html#id2778796">{php} タグ内での PHP コード</a>
+</dt>
+<dt>7.29. <a href="language.function.php.html#id2778810">{php} タグで global を使用して変数を代入する</a>
+</dt>
+<dt>7.30. <a href="language.function.section.html#id2780391">{section} でのシンプルな配列のループ</a>
+</dt>
+<dt>7.31. <a href="language.function.section.html#id2780452">{section} で配列を割り当てない例</a>
+</dt>
+<dt>7.32. <a href="language.function.section.html#id2780488">{section} の名前</a>
+</dt>
+<dt>7.33. <a href="language.function.section.html#id2780526">{section} での連想配列のループ</a>
+</dt>
+<dt>7.34. <a href="language.function.section.html#id2780612">{section} での <code class="varname">loop</code> 変数の使用</a>
+</dt>
+<dt>7.35. <a href="language.function.section.html#id2780718">ネストした {section}</a>
+</dt>
+<dt>7.36. <a href="language.function.section.html#id2779898">データベースを使用する {sectionelse} の例</a>
+</dt>
+<dt>7.37. <a href="language.function.section.html#id2781094">{section} の <code class="varname">index</code> プロパティ</a>
+</dt>
+<dt>7.38. <a href="language.function.section.html#id2781206"><code class="varname">index</code>、<code class="varname">index_next</code>
+ および <code class="varname">index_prev</code> プロパティ</a>
+</dt>
+<dt>7.39. <a href="language.function.section.html#id2781379">セクションのプロパティ <code class="varname">iteration</code></a>
+</dt>
+<dt>7.40. <a href="language.function.section.html#id2781546">{section} プロパティ <code class="varname">first</code> と <code class="varname">last</code></a>
+</dt>
+<dt>7.41. <a href="language.function.section.html#id2781667">{section} プロパティ <code class="varname">loop</code></a>
+</dt>
+<dt>7.42. <a href="language.function.section.html#id2781735"><code class="varname">show</code> プロパティ</a>
+</dt>
+<dt>7.43. <a href="language.function.section.html#id2781814"><code class="varname">total</code> プロパティの例</a>
+</dt>
+<dt>7.44. <a href="language.function.strip.html#id2783495">{strip} タグ</a>
+</dt>
+<dt>8.1. <a href="language.custom.functions.html#id2789942">{assign}</a>
+</dt>
+<dt>8.2. <a href="language.custom.functions.html#id2789968">{assign} での演算子の使用</a>
+</dt>
+<dt>8.3. <a href="language.custom.functions.html#id2789990">PHP スクリプトからの {assign} 変数へのアクセス</a>
+</dt>
+<dt>8.4. <a href="language.function.counter.html#id2790840">{counter}</a>
+</dt>
+<dt>8.5. <a href="language.function.cycle.html#id2791545">{cycle}</a>
+</dt>
+<dt>8.6. <a href="language.function.eval.html#id2792531">{eval}</a>
+</dt>
+<dt>8.7. <a href="language.function.eval.html#id2792584">もうひとつの {eval} の例</a>
+</dt>
+<dt>8.8. <a href="language.function.fetch.html#id2793212">{fetch} の例</a>
+</dt>
+<dt>8.9. <a href="language.function.html.checkboxes.html#id2793954">{html_checkboxes}</a>
+</dt>
+<dt>8.10. <a href="language.function.html.checkboxes.html#id2794045">
+      データベースの例 (PEAR あるいは ADODB)
+  </a>
+</dt>
+<dt>8.11. <a href="language.function.html.image.html#id2795035">{html_image} の例</a>
+</dt>
+<dt>8.12. <a href="language.function.html.options.html#id2795875"><code class="varname">options</code> 属性での連想配列</a>
+</dt>
+<dt>8.13. <a href="language.function.html.options.html#id2795940"><code class="varname">values</code> と
+<code class="varname">ouptut</code> を個別の配列で指定したドロップダウン</a>
+</dt>
+<dt>8.14. <a href="language.function.html.options.html#id2796018">データベース (ADODB あるいは PEAR) の例</a>
+</dt>
+<dt>8.15. <a href="language.function.html.options.html#id2796073">&lt;optgroup&gt; を使用したドロップダウン</a>
+</dt>
+<dt>8.16. <a href="language.function.html.radios.html#id2797071">{html_radios} の最初の例</a>
+</dt>
+<dt>8.17. <a href="language.function.html.radios.html#id2797108">{html_radios} の二番目の例</a>
+</dt>
+<dt>8.18. <a href="language.function.html.radios.html#id2797162">{html_radios} - データベース (PEAR あるいは ADODB) の例</a>
+</dt>
+<dt>8.19. <a href="language.function.html.select.date.html#id2798485">{html_select_date}</a>
+</dt>
+<dt>8.20. <a href="language.function.html.select.date.html#id2798511">{html_select_date} の二番目の例</a>
+</dt>
+<dt>8.21. <a href="language.function.html.select.time.html#id2800003">{html_select_time}</a>
+</dt>
+<dt>8.22. <a href="language.function.html.table.html#id2801223">{html_table}</a>
+</dt>
+<dt>8.23. <a href="language.function.mailto.html#id2802265">{mailto} のサンプルと、その結果</a>
+</dt>
+<dt>8.24. <a href="language.function.math.html#id2803123">{math}</a>
+</dt>
+<dt>8.25. <a href="language.function.popup.html#id2804933">{popup}</a>
+</dt>
+<dt>8.26. <a href="language.function.popup.init.html#id2806522">{popup_init}</a>
+</dt>
+<dt>8.27. <a href="language.function.textformat.html#id2807109">{textformat}</a>
+</dt>
+<dt>9.1. <a href="config.files.html#id2815543">設定ファイルの記述例</a>
+</dt>
+<dt>11.1. <a href="smarty.constants.html#id2817206">SMARTY_DIR</a>
+</dt>
+<dt>11.2. <a href="constant.smarty.core.dir.html#id2817311">SMARTY_CORE_DIR</a>
+</dt>
+<dt>12.1. <a href="variable.plugins.dir.html#id2818831">ローカルのプラグインディレクトリの追加</a>
+</dt>
+<dt>12.2. <a href="variable.plugins.dir.html#id2818850">複数の $plugins_dir</a>
+</dt>
+<dt>12.3. <a href="variable.debugging.ctrl.html#id2819510">localhost での $debugging_ctrl</a>
+</dt>
+<dt>12.4. <a href="variable.config.overwrite.html#id2821059">設定ファイル変数の配列</a>
+</dt>
+<dt>12.5. <a href="variable.secure.dir.html#id2822951">$secure_dir の例</a>
+</dt>
+<dt>12.6. <a href="variable.compile.id.html#id2825150">バーチャルホスト環境での $compile_id</a>
+</dt>
+<dt>13.1. <a href="api.append.html#id2829773">append</a>
+</dt>
+<dt>13.2. <a href="api.append.by.ref.html#id2830255">append_by_ref</a>
+</dt>
+<dt>13.3. <a href="api.assign.html#id2830622">assign()</a>
+</dt>
+<dt>13.4. <a href="api.assign.by.ref.html#id2831090">assign_by_ref()</a>
+</dt>
+<dt>13.5. <a href="api.clear.all.assign.html#id2830531">clear_all_assign()</a>
+</dt>
+<dt>13.6. <a href="api.clear.all.cache.html#id2830924">clear_all_cache</a>
+</dt>
+<dt>13.7. <a href="api.clear.assign.html#id2831918">clear_assign()</a>
+</dt>
+<dt>13.8. <a href="api.clear.cache.html#id2831894">clear_cache()</a>
+</dt>
+<dt>13.9. <a href="api.clear.compiled.tpl.html#id2832688">clear_compiled_tpl()</a>
+</dt>
+<dt>13.10. <a href="api.clear.config.html#id2832221">clear_config()</a>
+</dt>
+<dt>13.11. <a href="api.config.load.html#id2833380">config_load()</a>
+</dt>
+<dt>13.12. <a href="api.display.html#id2833802">display()</a>
+</dt>
+<dt>13.13. <a href="api.display.html#id2833847">display() 関数にテンプレートリソースを指定した例</a>
+</dt>
+<dt>13.14. <a href="api.fetch.html#id2834499">fetch()</a>
+</dt>
+<dt>13.15. <a href="api.fetch.html#id2834517">Email の送信に fetch() を使用する</a>
+</dt>
+<dt>13.16. <a href="api.get.config.vars.html#id2835123">get_config_vars()</a>
+</dt>
+<dt>13.17. <a href="api.get.registered.object.html#id2835026">get_registered_object()</a>
+</dt>
+<dt>13.18. <a href="api.get.template.vars.html#id2834895">get_template_vars</a>
+</dt>
+<dt>13.19. <a href="api.is.cached.html#id2836222">is_cached()</a>
+</dt>
+<dt>13.20. <a href="api.is.cached.html#id2836236">複数のキャッシュを使用したテンプレートにおける is_cached()</a>
+</dt>
+<dt>13.21. <a href="api.load.filter.html#id2836744">フィルタプラグインを読み込む</a>
+</dt>
+<dt>13.22. <a href="api.register.block.html#id2837192">register_block()</a>
+</dt>
+<dt>13.23. <a href="api.register.function.html#id2838223">register_function()</a>
+</dt>
+<dt>13.24. <a href="api.register.modifier.html#id2838712">register_modifier()</a>
+</dt>
+<dt>13.25. <a href="api.register.resource.html#id2841089">register_resource()</a>
+</dt>
+<dt>13.26. <a href="api.template.exists.html#id2840828">template_exists()</a>
+</dt>
+<dt>13.27. <a href="api.unregister.function.html#id2841773">unregister_function</a>
+</dt>
+<dt>13.28. <a href="api.unregister.modifier.html#id2842751">unregister_modifier()</a>
+</dt>
+<dt>13.29. <a href="api.unregister.resource.html#id2843472">unregister_resource()</a>
+</dt>
+<dt>14.1. <a href="caching.html#id2850308">キャッシュを有効にする</a>
+</dt>
+<dt>14.2. <a href="caching.html#id2851068">キャッシュごとに生存時間を設定する</a>
+</dt>
+<dt>14.3. <a href="caching.html#id2851152">$compile_check を有効にする</a>
+</dt>
+<dt>14.4. <a href="caching.html#id2851255">is_cached() を使用する</a>
+</dt>
+<dt>14.5. <a href="caching.html#id2851356">キャッシュをクリアする</a>
+</dt>
+<dt>14.6. <a href="caching.multiple.caches.html#id2850638">display() に $cache_id を渡す</a>
+</dt>
+<dt>14.7. <a href="caching.multiple.caches.html#id2852052">is_cached() に cache_id を渡す</a>
+</dt>
+<dt>14.8. <a href="caching.multiple.caches.html#id2852107">特定のcache_idの全てのキャッシュをクリアする</a>
+</dt>
+<dt>14.9. <a href="caching.groups.html#id2852669">$cache_id groups</a>
+</dt>
+<dt>14.10. <a href="caching.cacheable.html#id2853100">プラグインの出力がキャッシュされるのを防ぐ</a>
+</dt>
+<dt>14.11. <a href="caching.cacheable.html#id2853171">テンプレートの一節がキャッシュされるのを防ぐ</a>
+</dt>
+<dt>15.1. <a href="advanced.features.html#id2855050">登録または割り当てられたオブジェクトを使用する</a>
+</dt>
+<dt>15.2. <a href="advanced.features.prefilters.html#id2855525">プリフィルタを使用する</a>
+</dt>
+<dt>15.3. <a href="advanced.features.postfilters.html#id2854774">ポストフィルタを使用する</a>
+</dt>
+<dt>15.4. <a href="advanced.features.outputfilters.html#id2855398">アウトプットフィルタを使用する</a>
+</dt>
+<dt>15.5. <a href="section.template.cache.handler.func.html#id2856626">キャッシュソースとしてMySQLを使用する例</a>
+</dt>
+<dt>15.6. <a href="template.resources.html#id2857099">$template_dir のテンプレートを使用する</a>
+</dt>
+<dt>15.7. <a href="template.resources.html#id2857173">任意のディレクトリからのテンプレートを使用する</a>
+</dt>
+<dt>15.8. <a href="template.resources.html#id2857234">Windows ファイルパスからテンプレートを使用する</a>
+</dt>
+<dt>15.9. <a href="template.resources.html#id2857331">カスタムリソースを使用する</a>
+</dt>
+<dt>15.10. <a href="template.resources.html#id2857384">デフォルトのテンプレートハンドラ関数を使用する</a>
+</dt>
+<dt>16.1. <a href="plugins.functions.html#id2860444">出力ありのテンプレート関数プラグイン</a>
+</dt>
+<dt>16.2. <a href="plugins.functions.html#id2860502">出力なしのテンプレート関数プラグイン</a>
+</dt>
+<dt>16.3. <a href="plugins.modifiers.html#id2860890">シンプルな修飾子プラグイン</a>
+</dt>
+<dt>16.4. <a href="plugins.modifiers.html#id2860915">更に複雑な修飾子プラグイン</a>
+</dt>
+<dt>16.5. <a href="plugins.block.functions.html#id2861469">ブロック関数プラグイン</a>
+</dt>
+<dt>16.6. <a href="plugins.compiler.functions.html#id2861284">シンプルなコンパイラ関数プラグイン</a>
+</dt>
+<dt>16.7. <a href="plugins.prefilters.postfilters.html#id2861947">プリフィルタプラグイン</a>
+</dt>
+<dt>16.8. <a href="plugins.prefilters.postfilters.html#id2862360">ポストフィルタプラグイン</a>
+</dt>
+<dt>16.9. <a href="plugins.outputfilters.html#id2861855">アウトプットフィルタプラグイン</a>
+</dt>
+<dt>16.10. <a href="plugins.resources.html#id2863312">リソースプラグイン</a>
+</dt>
+<dt>16.11. <a href="plugins.inserts.html#id2863886">インサートプラグイン</a>
+</dt>
+<dt>17.1. <a href="troubleshooting.html#id2865154">Smarty エラー</a>
+</dt>
+<dt>17.2. <a href="troubleshooting.html#id2865240">PHP パースエラー</a>
+</dt>
+<dt>17.3. <a href="troubleshooting.html#id2865869">その他共通のエラー</a>
+</dt>
+<dt>18.1. <a href="tips.html#id2865836">変数が空白の時、&amp;nbsp; を出力する</a>
+</dt>
+<dt>18.2. <a href="tips.default.var.handling.html#id2866844">デフォルト値をテンプレート変数に割り当てる</a>
+</dt>
+<dt>18.3. <a href="tips.passing.vars.html#id2866934">ヘッダテンプレートにタイトルの変数を渡す</a>
+</dt>
+<dt>18.4. <a href="tips.dates.html#id2867111">date_format の使用</a>
+</dt>
+<dt>18.5. <a href="tips.dates.html#id2867191">フォームの日付要素をUNIXタイムスタンプ型に変換する</a>
+</dt>
+<dt>18.6. <a href="tips.wap.html#id2866772">WML Content-Type ヘッダを出力するために {insert} を使用する</a>
+</dt>
+<dt>18.7. <a href="tips.componentized.templates.html#id2867587">コンポーネント化したテンプレート</a>
+</dt>
+<dt>18.8. <a href="tips.obfuscating.email.html#id2867729">E-mail アドレスを混乱させる例</a>
+</dt>
+</dl>
+</div>
+</div>
+<div class="navfooter">
+<hr>
+<table width="100%" summary="Navigation footer">
+<tr>
+<td width="40%" align="left"> </td>
+<td width="20%" align="center"> </td>
+<td width="40%" align="right"> <a accesskey="n" href="preface.html">Next</a>
+</td>
+</tr>
+<tr>
+<td width="40%" align="left" valign="top"> </td>
+<td width="20%" align="center"> </td>
+<td width="40%" align="right" valign="top"> 序文</td>
+</tr>
+</table>
+</div>
+</body>
+</html>

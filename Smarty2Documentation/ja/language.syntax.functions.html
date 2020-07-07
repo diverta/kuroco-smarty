@@ -1,301 +1,103 @@
-<HTML
-><HEAD
-><TITLE
->関数</TITLE
-><META
-NAME="GENERATOR"
-CONTENT="Modular DocBook HTML Stylesheet Version 1.7"><LINK
-REL="HOME"
-TITLE="Smarty マニュアル"
-HREF="index.html"><LINK
-REL="UP"
-TITLE="基本構文"
-HREF="language.basic.syntax.html"><LINK
-REL="PREVIOUS"
-TITLE="変数"
-HREF="language.syntax.variables.html"><LINK
-REL="NEXT"
-TITLE="属性"
-HREF="language.syntax.attributes.html"><META
-HTTP-EQUIV="Content-type"
-CONTENT="text/html; charset=utf-8"></HEAD
-><BODY
-CLASS="sect1"
-BGCOLOR="#FFFFFF"
-TEXT="#000000"
-LINK="#0000FF"
-VLINK="#840084"
-ALINK="#0000FF"
-><DIV
-CLASS="NAVHEADER"
-><TABLE
-SUMMARY="Header navigation table"
-WIDTH="100%"
-BORDER="0"
-CELLPADDING="0"
-CELLSPACING="0"
-><TR
-><TH
-COLSPAN="3"
-ALIGN="center"
->Smarty マニュアル</TH
-></TR
-><TR
-><TD
-WIDTH="10%"
-ALIGN="left"
-VALIGN="bottom"
-><A
-HREF="language.syntax.variables.html"
-ACCESSKEY="P"
->前のページ</A
-></TD
-><TD
-WIDTH="80%"
-ALIGN="center"
-VALIGN="bottom"
->第 3章基本構文</TD
-><TD
-WIDTH="10%"
-ALIGN="right"
-VALIGN="bottom"
-><A
-HREF="language.syntax.attributes.html"
-ACCESSKEY="N"
->次のページ</A
-></TD
-></TR
-></TABLE
-><HR
-ALIGN="LEFT"
-WIDTH="100%"></DIV
-><DIV
-CLASS="sect1"
-><H1
-CLASS="sect1"
-><A
-NAME="language.syntax.functions"
-></A
->関数</H1
-><P
->&#13;  すべての Smarty タグは、
-  <A
-HREF="language.variables.html"
->変数</A
->
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>関数</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.75.1">
+<link rel="home" href="index.html" title="Smarty マニュアル">
+<link rel="up" href="language.basic.syntax.html" title="Chapter 3. 基本構文">
+<link rel="prev" href="language.syntax.variables.html" title="変数">
+<link rel="next" href="language.syntax.attributes.html" title="属性">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<div class="navheader">
+<table width="100%" summary="Navigation header">
+<tr><th colspan="3" align="center">関数</th></tr>
+<tr>
+<td width="20%" align="left">
+<a accesskey="p" href="language.syntax.variables.html">Prev</a> </td>
+<th width="60%" align="center">Chapter 3. 基本構文</th>
+<td width="20%" align="right"> <a accesskey="n" href="language.syntax.attributes.html">Next</a>
+</td>
+</tr>
+</table>
+<hr>
+</div>
+<div class="sect1" title="関数">
+<div class="titlepage"><div><div><h2 class="title" style="clear: both">
+<a name="language.syntax.functions"></a>関数</h2></div></div></div>
+<p>
+  すべての Smarty タグは、
+  <a class="link" href="language.variables.html" title="Chapter 4. 変数">変数</a>
   を出力するか何らかの関数を呼び出す動作をします。
   関数は、
-  <TT
-CLASS="literal"
->{funcname attr1='val1' attr2='val2'}</TT
->
+  <code class="literal">{funcname attr1='val1' attr2='val2'}</code>
   のように関数名とその
-  <A
-HREF="language.syntax.attributes.html"
->属性</A
->
+  <a class="link" href="language.syntax.attributes.html" title="属性">属性</a>
   をデリミタで囲みます。
- </P
-><TABLE
-WIDTH="100%"
-BORDER="0"
-CELLPADDING="0"
-CELLSPACING="0"
-CLASS="EXAMPLE"
-><TR
-><TD
-><DIV
-CLASS="example"
-><A
-NAME="AEN341"
-></A
-><P
-><B
->例 3-3. 関数の構文</B
-></P
-><TABLE
-BORDER="0"
-BGCOLOR="#E0E0E0"
-CELLPADDING="5"
-><TR
-><TD
-><PRE
-CLASS="programlisting"
->{config_load file='colors.conf'}
+ </p>
+<div class="example">
+<a name="id2750410"></a><p class="title"><b>Example 3.3. 関数の構文</b></p>
+<div class="example-contents"><pre class="programlisting">
+
+{config_load file='colors.conf'}
 
 {include file='header.tpl'}
 {insert file='banner_ads.tpl' title='イケてる Smarty'}
 
 {if $logged_in}
-    ようこそ、&#60;font color="{#fontColor#}"&#62;{$name}!&#60;/font&#62;
+    ようこそ、&lt;font color="{#fontColor#}"&gt;{$name}!&lt;/font&gt;
 {else}
     やぁ、{$name}
 {/if}
 
-{include file='footer.tpl' ad=$random_id}</PRE
-></TD
-></TR
-></TABLE
-></DIV
-></TD
-></TR
-></TABLE
-><P
-></P
-><UL
-><LI
-><P
->&#13;  <A
-HREF="language.builtin.functions.html"
->組み込み関数</A
->
-  と <A
-HREF="language.custom.functions.html"
->カスタム関数</A
->
+{include file='footer.tpl' ad=$random_id}
+
+  </pre></div>
+</div>
+<br class="example-break"><div class="itemizedlist"><ul class="itemizedlist" type="disc">
+<li class="listitem"><p>
+  <a class="link" href="language.builtin.functions.html" title="Chapter 7. 組み込み関数">組み込み関数</a>
+  と <a class="link" href="language.custom.functions.html" title="Chapter 8. カスタム関数">カスタム関数</a>
   は、テンプレート内では同じ構文です。
-  </P
-></LI
-><LI
-><P
->組み込み関数とは Smarty の
-  <SPAN
-CLASS="bold"
-><B
-CLASS="emphasis"
->内部で</B
-></SPAN
-> 動作する関数で、たとえば
-  <A
-HREF="language.function.if.html"
-><TT
-CLASS="varname"
->{if}</TT
-></A
->、
-  <A
-HREF="language.function.section.html"
-><TT
-CLASS="varname"
->{section}</TT
-></A
-> および
-  <A
-HREF="language.function.strip.html"
-><TT
-CLASS="varname"
->{strip}</TT
-></A
->
+  </p></li>
+<li class="listitem"><p>組み込み関数とは Smarty の
+  <span class="bold"><strong>内部で</strong></span> 動作する関数で、たとえば
+  <a class="link" href="language.function.if.html" title="{if},{elseif},{else}"><code class="varname">{if}</code></a>、
+  <a class="link" href="language.function.section.html" title="{section},{sectionelse}"><code class="varname">{section}</code></a> および
+  <a class="link" href="language.function.strip.html" title="{strip}"><code class="varname">{strip}</code></a>
   などのことです。これらを変更したり修正したりすることはありません。
-  </P
-></LI
-><LI
-><P
->カスタム関数は
-  <SPAN
-CLASS="bold"
-><B
-CLASS="emphasis"
->追加の</B
-></SPAN
-> 関数で、
-  <A
-HREF="plugins.html"
->プラグイン</A
-> で実装します。
+  </p></li>
+<li class="listitem"><p>カスタム関数は
+  <span class="bold"><strong>追加の</strong></span> 関数で、
+  <a class="link" href="plugins.html" title="Chapter 16. プラグインによる Smarty の拡張">プラグイン</a> で実装します。
   これらは自由に修正したり、新たな関数を追加したりする事が可能です。
-  <A
-HREF="language.function.html.options.html"
->&#13;  <TT
-CLASS="varname"
->{html_options}</TT
-></A
-> や
-  <A
-HREF="language.function.popup.html"
-><TT
-CLASS="varname"
->{popup}</TT
-></A
->
+  <a class="link" href="language.function.html.options.html" title="{html_options}">
+  <code class="varname">{html_options}</code></a> や
+  <a class="link" href="language.function.popup.html" title="{popup}"><code class="varname">{popup}</code></a>
   などがカスタム関数の例です。
- </P
-></LI
-></UL
-><P
->&#13; <A
-HREF="api.register.function.html"
-><TT
-CLASS="varname"
->register_function()</TT
-></A
->
+ </p></li>
+</ul></div>
+<p>
+ <a class="link" href="api.register.function.html" title="register_function()"><code class="varname">register_function()</code></a>
  も参照してください。
- </P
-></DIV
-><DIV
-CLASS="NAVFOOTER"
-><HR
-ALIGN="LEFT"
-WIDTH="100%"><TABLE
-SUMMARY="Footer navigation table"
-WIDTH="100%"
-BORDER="0"
-CELLPADDING="0"
-CELLSPACING="0"
-><TR
-><TD
-WIDTH="33%"
-ALIGN="left"
-VALIGN="top"
-><A
-HREF="language.syntax.variables.html"
-ACCESSKEY="P"
->前のページ</A
-></TD
-><TD
-WIDTH="34%"
-ALIGN="center"
-VALIGN="top"
-><A
-HREF="index.html"
-ACCESSKEY="H"
->ホーム</A
-></TD
-><TD
-WIDTH="33%"
-ALIGN="right"
-VALIGN="top"
-><A
-HREF="language.syntax.attributes.html"
-ACCESSKEY="N"
->次のページ</A
-></TD
-></TR
-><TR
-><TD
-WIDTH="33%"
-ALIGN="left"
-VALIGN="top"
->変数</TD
-><TD
-WIDTH="34%"
-ALIGN="center"
-VALIGN="top"
-><A
-HREF="language.basic.syntax.html"
-ACCESSKEY="U"
->上に戻る</A
-></TD
-><TD
-WIDTH="33%"
-ALIGN="right"
-VALIGN="top"
->属性</TD
-></TR
-></TABLE
-></DIV
-></BODY
-></HTML
->
+ </p>
+</div>
+<div class="navfooter">
+<hr>
+<table width="100%" summary="Navigation footer">
+<tr>
+<td width="40%" align="left">
+<a accesskey="p" href="language.syntax.variables.html">Prev</a> </td>
+<td width="20%" align="center"><a accesskey="u" href="language.basic.syntax.html">Up</a></td>
+<td width="40%" align="right"> <a accesskey="n" href="language.syntax.attributes.html">Next</a>
+</td>
+</tr>
+<tr>
+<td width="40%" align="left" valign="top">変数 </td>
+<td width="20%" align="center"><a accesskey="h" href="index.html">Home</a></td>
+<td width="40%" align="right" valign="top"> 属性</td>
+</tr>
+</table>
+</div>
+</body>
+</html>

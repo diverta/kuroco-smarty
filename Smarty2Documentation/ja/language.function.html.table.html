@@ -1,832 +1,264 @@
-<HTML
-><HEAD
-><TITLE
->{html_table}</TITLE
-><META
-NAME="GENERATOR"
-CONTENT="Modular DocBook HTML Stylesheet Version 1.7"><LINK
-REL="HOME"
-TITLE="Smarty マニュアル"
-HREF="index.html"><LINK
-REL="UP"
-TITLE="カスタム関数"
-HREF="language.custom.functions.html"><LINK
-REL="PREVIOUS"
-TITLE="{html_select_time}"
-HREF="language.function.html.select.time.html"><LINK
-REL="NEXT"
-TITLE="{mailto}"
-HREF="language.function.mailto.html"><META
-HTTP-EQUIV="Content-type"
-CONTENT="text/html; charset=utf-8"></HEAD
-><BODY
-CLASS="sect1"
-BGCOLOR="#FFFFFF"
-TEXT="#000000"
-LINK="#0000FF"
-VLINK="#840084"
-ALINK="#0000FF"
-><DIV
-CLASS="NAVHEADER"
-><TABLE
-SUMMARY="Header navigation table"
-WIDTH="100%"
-BORDER="0"
-CELLPADDING="0"
-CELLSPACING="0"
-><TR
-><TH
-COLSPAN="3"
-ALIGN="center"
->Smarty マニュアル</TH
-></TR
-><TR
-><TD
-WIDTH="10%"
-ALIGN="left"
-VALIGN="bottom"
-><A
-HREF="language.function.html.select.time.html"
-ACCESSKEY="P"
->前のページ</A
-></TD
-><TD
-WIDTH="80%"
-ALIGN="center"
-VALIGN="bottom"
->第 8章カスタム関数</TD
-><TD
-WIDTH="10%"
-ALIGN="right"
-VALIGN="bottom"
-><A
-HREF="language.function.mailto.html"
-ACCESSKEY="N"
->次のページ</A
-></TD
-></TR
-></TABLE
-><HR
-ALIGN="LEFT"
-WIDTH="100%"></DIV
-><DIV
-CLASS="sect1"
-><H1
-CLASS="sect1"
-><A
-NAME="language.function.html.table"
-></A
->{html_table}</H1
-><P
->&#13;   <TT
-CLASS="varname"
->{html_table}</TT
-> は、HTML の
-   <TT
-CLASS="literal"
->&#60;table&#62;</TT
-> にデータの配列を出力する
-   <A
-HREF="language.custom.functions.html"
->カスタム関数</A
-> です。
-   </P
-><DIV
-CLASS="informaltable"
-><A
-NAME="AEN3950"
-></A
-><P
-></P
-><TABLE
-BORDER="1"
-CLASS="CALSTABLE"
-><THEAD
-><TR
-><TH
-WIDTH="20%"
-ALIGN="CENTER"
-VALIGN="MIDDLE"
->属性名</TH
-><TH
-WIDTH="20%"
-ALIGN="CENTER"
-VALIGN="MIDDLE"
->型</TH
-><TH
-WIDTH="20%"
-ALIGN="CENTER"
-VALIGN="MIDDLE"
->必須</TH
-><TH
-WIDTH="20%"
-ALIGN="CENTER"
-VALIGN="MIDDLE"
->デフォルト</TH
-><TH
-WIDTH="20%"
-ALIGN="LEFT"
-VALIGN="MIDDLE"
->概要</TH
-></TR
-></THEAD
-><TBODY
-><TR
-><TD
-WIDTH="20%"
-ALIGN="CENTER"
-VALIGN="MIDDLE"
->loop</TD
-><TD
-WIDTH="20%"
-ALIGN="CENTER"
-VALIGN="MIDDLE"
->array</TD
-><TD
-WIDTH="20%"
-ALIGN="CENTER"
-VALIGN="MIDDLE"
->Yes</TD
-><TD
-WIDTH="20%"
-ALIGN="CENTER"
-VALIGN="MIDDLE"
-><SPAN
-CLASS="emphasis"
-><I
-CLASS="emphasis"
->n/a</I
-></SPAN
-></TD
-><TD
-WIDTH="20%"
-ALIGN="LEFT"
-VALIGN="MIDDLE"
->ループに用いるデータ配列</TD
-></TR
-><TR
-><TD
-WIDTH="20%"
-ALIGN="CENTER"
-VALIGN="MIDDLE"
->cols</TD
-><TD
-WIDTH="20%"
-ALIGN="CENTER"
-VALIGN="MIDDLE"
->mixed</TD
-><TD
-WIDTH="20%"
-ALIGN="CENTER"
-VALIGN="MIDDLE"
->No</TD
-><TD
-WIDTH="20%"
-ALIGN="CENTER"
-VALIGN="MIDDLE"
-><SPAN
-CLASS="emphasis"
-><I
-CLASS="emphasis"
->3</I
-></SPAN
-></TD
-><TD
-WIDTH="20%"
-ALIGN="LEFT"
-VALIGN="MIDDLE"
->&#13;      テーブルのカラム数。cols属性は空であるがrows属性が与えられたという場合、
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>{html_table}</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.75.1">
+<link rel="home" href="index.html" title="Smarty マニュアル">
+<link rel="up" href="language.custom.functions.html" title="Chapter 8. カスタム関数">
+<link rel="prev" href="language.function.html.select.time.html" title="{html_select_time}">
+<link rel="next" href="language.function.mailto.html" title="{mailto}">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<div class="navheader">
+<table width="100%" summary="Navigation header">
+<tr><th colspan="3" align="center">{html_table}</th></tr>
+<tr>
+<td width="20%" align="left">
+<a accesskey="p" href="language.function.html.select.time.html">Prev</a> </td>
+<th width="60%" align="center">Chapter 8. カスタム関数</th>
+<td width="20%" align="right"> <a accesskey="n" href="language.function.mailto.html">Next</a>
+</td>
+</tr>
+</table>
+<hr>
+</div>
+<div class="sect1" title="{html_table}">
+<div class="titlepage"><div><div><h2 class="title" style="clear: both">
+<a name="language.function.html.table"></a>{html_table}</h2></div></div></div>
+<p>
+   <code class="varname">{html_table}</code> は、HTML の
+   <code class="literal">&lt;table&gt;</code> にデータの配列を出力する
+   <a class="link" href="language.custom.functions.html" title="Chapter 8. カスタム関数">カスタム関数</a> です。
+   </p>
+<div class="informaltable"><table border="1">
+<colgroup>
+<col align="center">
+<col align="center">
+<col align="center">
+<col align="center">
+<col>
+</colgroup>
+<thead><tr>
+<th align="center">属性名</th>
+<th align="center">型</th>
+<th align="center">必須</th>
+<th align="center">デフォルト</th>
+<th>概要</th>
+</tr></thead>
+<tbody>
+<tr>
+<td align="center">loop</td>
+<td align="center">array</td>
+<td align="center">Yes</td>
+<td align="center"><span class="emphasis"><em>n/a</em></span></td>
+<td>ループに用いるデータ配列</td>
+</tr>
+<tr>
+<td align="center">cols</td>
+<td align="center">mixed</td>
+<td align="center">No</td>
+<td align="center"><span class="emphasis"><em>3</em></span></td>
+<td>
+      テーブルのカラム数。cols属性は空であるがrows属性が与えられたという場合、
       colsの数は、すべての要素を表示するのに事足りるcolsが表示されるように
       rowsの数と要素の数によって計算されます。
       rowsとcolsの両方が空だった場合、 colsのデフォルトは 3 として計算は省かれます。
       リストあるいは配列を渡すと、そのリストあるいは配列の要素数がカラム数となります。
-     </TD
-></TR
-><TR
-><TD
-WIDTH="20%"
-ALIGN="CENTER"
-VALIGN="MIDDLE"
->rows</TD
-><TD
-WIDTH="20%"
-ALIGN="CENTER"
-VALIGN="MIDDLE"
->integer</TD
-><TD
-WIDTH="20%"
-ALIGN="CENTER"
-VALIGN="MIDDLE"
->No</TD
-><TD
-WIDTH="20%"
-ALIGN="CENTER"
-VALIGN="MIDDLE"
-><SPAN
-CLASS="emphasis"
-><I
-CLASS="emphasis"
->empty</I
-></SPAN
-></TD
-><TD
-WIDTH="20%"
-ALIGN="LEFT"
-VALIGN="MIDDLE"
->&#13;      テーブルの行数。rows属性は空であるがcols属性が与えられたという場合、
+     </td>
+</tr>
+<tr>
+<td align="center">rows</td>
+<td align="center">integer</td>
+<td align="center">No</td>
+<td align="center"><span class="emphasis"><em>empty</em></span></td>
+<td>
+      テーブルの行数。rows属性は空であるがcols属性が与えられたという場合、
       rowsの数は、すべての要素を表示するのに事足りるrowsが表示されるように
       colsの数と要素の数によって計算されます。
-     </TD
-></TR
-><TR
-><TD
-WIDTH="20%"
-ALIGN="CENTER"
-VALIGN="MIDDLE"
->inner</TD
-><TD
-WIDTH="20%"
-ALIGN="CENTER"
-VALIGN="MIDDLE"
->string</TD
-><TD
-WIDTH="20%"
-ALIGN="CENTER"
-VALIGN="MIDDLE"
->No</TD
-><TD
-WIDTH="20%"
-ALIGN="CENTER"
-VALIGN="MIDDLE"
-><SPAN
-CLASS="emphasis"
-><I
-CLASS="emphasis"
->cols</I
-></SPAN
-></TD
-><TD
-WIDTH="20%"
-ALIGN="LEFT"
-VALIGN="MIDDLE"
->&#13;      ループ配列から参照される連続要素の進行方向。
-      <SPAN
-CLASS="emphasis"
-><I
-CLASS="emphasis"
->cols</I
-></SPAN
-> なら要素が列方向へ、
-      <SPAN
-CLASS="emphasis"
-><I
-CLASS="emphasis"
->rows</I
-></SPAN
-> なら要素が行方向へ記述されることを意味します。
-     </TD
-></TR
-><TR
-><TD
-WIDTH="20%"
-ALIGN="CENTER"
-VALIGN="MIDDLE"
->caption</TD
-><TD
-WIDTH="20%"
-ALIGN="CENTER"
-VALIGN="MIDDLE"
->string</TD
-><TD
-WIDTH="20%"
-ALIGN="CENTER"
-VALIGN="MIDDLE"
->No</TD
-><TD
-WIDTH="20%"
-ALIGN="CENTER"
-VALIGN="MIDDLE"
-><SPAN
-CLASS="emphasis"
-><I
-CLASS="emphasis"
->empty</I
-></SPAN
-></TD
-><TD
-WIDTH="20%"
-ALIGN="LEFT"
-VALIGN="MIDDLE"
->テーブルの <TT
-CLASS="literal"
->&#60;caption&#62;</TT
->
-     要素に使用する文字列</TD
-></TR
-><TR
-><TD
-WIDTH="20%"
-ALIGN="CENTER"
-VALIGN="MIDDLE"
->table_attr</TD
-><TD
-WIDTH="20%"
-ALIGN="CENTER"
-VALIGN="MIDDLE"
->string</TD
-><TD
-WIDTH="20%"
-ALIGN="CENTER"
-VALIGN="MIDDLE"
->No</TD
-><TD
-WIDTH="20%"
-ALIGN="CENTER"
-VALIGN="MIDDLE"
-><SPAN
-CLASS="emphasis"
-><I
-CLASS="emphasis"
->border="1"</I
-></SPAN
-></TD
-><TD
-WIDTH="20%"
-ALIGN="LEFT"
-VALIGN="MIDDLE"
-><TT
-CLASS="literal"
->&#60;table&#62;</TT
-> タグの属性</TD
-></TR
-><TR
-><TD
-WIDTH="20%"
-ALIGN="CENTER"
-VALIGN="MIDDLE"
->th_attr</TD
-><TD
-WIDTH="20%"
-ALIGN="CENTER"
-VALIGN="MIDDLE"
->string</TD
-><TD
-WIDTH="20%"
-ALIGN="CENTER"
-VALIGN="MIDDLE"
->No</TD
-><TD
-WIDTH="20%"
-ALIGN="CENTER"
-VALIGN="MIDDLE"
-><SPAN
-CLASS="emphasis"
-><I
-CLASS="emphasis"
->empty</I
-></SPAN
-></TD
-><TD
-WIDTH="20%"
-ALIGN="LEFT"
-VALIGN="MIDDLE"
-><TT
-CLASS="literal"
->&#60;th&#62;</TT
-> タグの属性
-     (配列は循環します)</TD
-></TR
-><TR
-><TD
-WIDTH="20%"
-ALIGN="CENTER"
-VALIGN="MIDDLE"
->tr_attr</TD
-><TD
-WIDTH="20%"
-ALIGN="CENTER"
-VALIGN="MIDDLE"
->string</TD
-><TD
-WIDTH="20%"
-ALIGN="CENTER"
-VALIGN="MIDDLE"
->No</TD
-><TD
-WIDTH="20%"
-ALIGN="CENTER"
-VALIGN="MIDDLE"
-><SPAN
-CLASS="emphasis"
-><I
-CLASS="emphasis"
->empty</I
-></SPAN
-></TD
-><TD
-WIDTH="20%"
-ALIGN="LEFT"
-VALIGN="MIDDLE"
-><TT
-CLASS="literal"
->&#60;tr&#62;</TT
-> タグの属性
-     (配列は循環します)</TD
-></TR
-><TR
-><TD
-WIDTH="20%"
-ALIGN="CENTER"
-VALIGN="MIDDLE"
->td_attr</TD
-><TD
-WIDTH="20%"
-ALIGN="CENTER"
-VALIGN="MIDDLE"
->string</TD
-><TD
-WIDTH="20%"
-ALIGN="CENTER"
-VALIGN="MIDDLE"
->No</TD
-><TD
-WIDTH="20%"
-ALIGN="CENTER"
-VALIGN="MIDDLE"
-><SPAN
-CLASS="emphasis"
-><I
-CLASS="emphasis"
->empty</I
-></SPAN
-></TD
-><TD
-WIDTH="20%"
-ALIGN="LEFT"
-VALIGN="MIDDLE"
-><TT
-CLASS="literal"
->&#60;td&#62;</TT
-> タグの属性
-     (配列は循環します)</TD
-></TR
-><TR
-><TD
-WIDTH="20%"
-ALIGN="CENTER"
-VALIGN="MIDDLE"
->trailpad</TD
-><TD
-WIDTH="20%"
-ALIGN="CENTER"
-VALIGN="MIDDLE"
->string</TD
-><TD
-WIDTH="20%"
-ALIGN="CENTER"
-VALIGN="MIDDLE"
->No</TD
-><TD
-WIDTH="20%"
-ALIGN="CENTER"
-VALIGN="MIDDLE"
-><SPAN
-CLASS="emphasis"
-><I
-CLASS="emphasis"
->&#38;nbsp;</I
-></SPAN
-></TD
-><TD
-WIDTH="20%"
-ALIGN="LEFT"
-VALIGN="MIDDLE"
->行の最後に余ったセルがあればそれらを埋めるのに用いられる値</TD
-></TR
-><TR
-><TD
-WIDTH="20%"
-ALIGN="CENTER"
-VALIGN="MIDDLE"
->hdir</TD
-><TD
-WIDTH="20%"
-ALIGN="CENTER"
-VALIGN="MIDDLE"
->string</TD
-><TD
-WIDTH="20%"
-ALIGN="CENTER"
-VALIGN="MIDDLE"
->No</TD
-><TD
-WIDTH="20%"
-ALIGN="CENTER"
-VALIGN="MIDDLE"
-><SPAN
-CLASS="emphasis"
-><I
-CLASS="emphasis"
->right</I
-></SPAN
-></TD
-><TD
-WIDTH="20%"
-ALIGN="LEFT"
-VALIGN="MIDDLE"
->&#13;      各行の表示される方向。有効な値:
-      <SPAN
-CLASS="emphasis"
-><I
-CLASS="emphasis"
->right</I
-></SPAN
-> (左から右へ)、
-      <SPAN
-CLASS="emphasis"
-><I
-CLASS="emphasis"
->left</I
-></SPAN
-> (右から左へ)
-     </TD
-></TR
-><TR
-><TD
-WIDTH="20%"
-ALIGN="CENTER"
-VALIGN="MIDDLE"
->vdir</TD
-><TD
-WIDTH="20%"
-ALIGN="CENTER"
-VALIGN="MIDDLE"
->string</TD
-><TD
-WIDTH="20%"
-ALIGN="CENTER"
-VALIGN="MIDDLE"
->No</TD
-><TD
-WIDTH="20%"
-ALIGN="CENTER"
-VALIGN="MIDDLE"
-><SPAN
-CLASS="emphasis"
-><I
-CLASS="emphasis"
->down</I
-></SPAN
-></TD
-><TD
-WIDTH="20%"
-ALIGN="LEFT"
-VALIGN="MIDDLE"
->&#13;      各カラムの表示される方向。有効な値:
-      <SPAN
-CLASS="emphasis"
-><I
-CLASS="emphasis"
->down</I
-></SPAN
-> (上から下へ)、
-      <SPAN
-CLASS="emphasis"
-><I
-CLASS="emphasis"
->up</I
-></SPAN
-> (下から上へ)
-     </TD
-></TR
-></TBODY
-></TABLE
-><P
-></P
-></DIV
-><P
-></P
-><UL
-><LI
-><P
->&#13;   <TT
-CLASS="parameter"
-><I
->cols</I
-></TT
-> 属性は、テーブルのカラム数を定義します。
-   </P
-></LI
-><LI
-><P
->&#13;   <TT
-CLASS="parameter"
-><I
->table_attr</I
-></TT
->、<TT
-CLASS="parameter"
-><I
->tr_attr</I
-></TT
->
-   および <TT
-CLASS="parameter"
-><I
->td_attr</I
-></TT
-> の値は、それぞれ
-   <TT
-CLASS="literal"
->&#60;table&#62;</TT
->、<TT
-CLASS="literal"
->&#60;tr&#62;</TT
->
-   および <TT
-CLASS="literal"
->&#60;td&#62;</TT
-> タグの属性を表します。
-   </P
-></LI
-><LI
-><P
->&#13;   <TT
-CLASS="parameter"
-><I
->tr_attr</I
-></TT
-> や <TT
-CLASS="parameter"
-><I
->td_attr</I
-></TT
->
+     </td>
+</tr>
+<tr>
+<td align="center">inner</td>
+<td align="center">string</td>
+<td align="center">No</td>
+<td align="center"><span class="emphasis"><em>cols</em></span></td>
+<td>
+      ループ配列から参照される連続要素の進行方向。
+      <span class="emphasis"><em>cols</em></span> なら要素が列方向へ、
+      <span class="emphasis"><em>rows</em></span> なら要素が行方向へ記述されることを意味します。
+     </td>
+</tr>
+<tr>
+<td align="center">caption</td>
+<td align="center">string</td>
+<td align="center">No</td>
+<td align="center"><span class="emphasis"><em>empty</em></span></td>
+<td>テーブルの <code class="literal">&lt;caption&gt;</code>
+     要素に使用する文字列</td>
+</tr>
+<tr>
+<td align="center">table_attr</td>
+<td align="center">string</td>
+<td align="center">No</td>
+<td align="center"><span class="emphasis"><em>border="1"</em></span></td>
+<td>
+<code class="literal">&lt;table&gt;</code> タグの属性</td>
+</tr>
+<tr>
+<td align="center">th_attr</td>
+<td align="center">string</td>
+<td align="center">No</td>
+<td align="center"><span class="emphasis"><em>empty</em></span></td>
+<td>
+<code class="literal">&lt;th&gt;</code> タグの属性
+     (配列は循環します)</td>
+</tr>
+<tr>
+<td align="center">tr_attr</td>
+<td align="center">string</td>
+<td align="center">No</td>
+<td align="center"><span class="emphasis"><em>empty</em></span></td>
+<td>
+<code class="literal">&lt;tr&gt;</code> タグの属性
+     (配列は循環します)</td>
+</tr>
+<tr>
+<td align="center">td_attr</td>
+<td align="center">string</td>
+<td align="center">No</td>
+<td align="center"><span class="emphasis"><em>empty</em></span></td>
+<td>
+<code class="literal">&lt;td&gt;</code> タグの属性
+     (配列は循環します)</td>
+</tr>
+<tr>
+<td align="center">trailpad</td>
+<td align="center">string</td>
+<td align="center">No</td>
+<td align="center"><span class="emphasis"><em>&amp;nbsp;</em></span></td>
+<td>行の最後に余ったセルがあればそれらを埋めるのに用いられる値</td>
+</tr>
+<tr>
+<td align="center">hdir</td>
+<td align="center">string</td>
+<td align="center">No</td>
+<td align="center"><span class="emphasis"><em>right</em></span></td>
+<td>
+      各行の表示される方向。有効な値:
+      <span class="emphasis"><em>right</em></span> (左から右へ)、
+      <span class="emphasis"><em>left</em></span> (右から左へ)
+     </td>
+</tr>
+<tr>
+<td align="center">vdir</td>
+<td align="center">string</td>
+<td align="center">No</td>
+<td align="center"><span class="emphasis"><em>down</em></span></td>
+<td>
+      各カラムの表示される方向。有効な値:
+      <span class="emphasis"><em>down</em></span> (上から下へ)、
+      <span class="emphasis"><em>up</em></span> (下から上へ)
+     </td>
+</tr>
+</tbody>
+</table></div>
+<div class="itemizedlist"><ul class="itemizedlist" type="disc">
+<li class="listitem"><p>
+   <em class="parameter"><code>cols</code></em> 属性は、テーブルのカラム数を定義します。
+   </p></li>
+<li class="listitem"><p>
+   <em class="parameter"><code>table_attr</code></em>、<em class="parameter"><code>tr_attr</code></em>
+   および <em class="parameter"><code>td_attr</code></em> の値は、それぞれ
+   <code class="literal">&lt;table&gt;</code>、<code class="literal">&lt;tr&gt;</code>
+   および <code class="literal">&lt;td&gt;</code> タグの属性を表します。
+   </p></li>
+<li class="listitem"><p>
+   <em class="parameter"><code>tr_attr</code></em> や <em class="parameter"><code>td_attr</code></em>
    が配列の場合は、循環して処理します。
-   </P
-></LI
-><LI
-><P
->&#13;   <TT
-CLASS="parameter"
-><I
->trailpad</I
-></TT
-> は、テーブルの最後の行でセルが余った場合に
+   </p></li>
+<li class="listitem"><p>
+   <em class="parameter"><code>trailpad</code></em> は、テーブルの最後の行でセルが余った場合に
    そこを埋める値として使用します。
-   </P
-></LI
-></UL
-><TABLE
-WIDTH="100%"
-BORDER="0"
-CELLPADDING="0"
-CELLSPACING="0"
-CLASS="EXAMPLE"
-><TR
-><TD
-><DIV
-CLASS="example"
-><A
-NAME="AEN4079"
-></A
-><P
-><B
->例 8-22. {html_table}</B
-></P
-><TABLE
-BORDER="0"
-BGCOLOR="#E0E0E0"
-CELLPADDING="5"
-><TR
-><TD
-><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br />$smarty</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">assign</span><span style="color: #007700">(&nbsp;</span><span style="color: #DD0000">'data'</span><span style="color: #007700">,&nbsp;array(</span><span style="color: #0000BB">1</span><span style="color: #007700">,</span><span style="color: #0000BB">2</span><span style="color: #007700">,</span><span style="color: #0000BB">3</span><span style="color: #007700">,</span><span style="color: #0000BB">4</span><span style="color: #007700">,</span><span style="color: #0000BB">5</span><span style="color: #007700">,</span><span style="color: #0000BB">6</span><span style="color: #007700">,</span><span style="color: #0000BB">7</span><span style="color: #007700">,</span><span style="color: #0000BB">8</span><span style="color: #007700">,</span><span style="color: #0000BB">9</span><span style="color: #007700">)&nbsp;);<br /></span><span style="color: #0000BB">$smarty</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">assign</span><span style="color: #007700">(&nbsp;</span><span style="color: #DD0000">'tr'</span><span style="color: #007700">,&nbsp;array(</span><span style="color: #DD0000">'bgcolor="#eeeeee"'</span><span style="color: #007700">,</span><span style="color: #DD0000">'bgcolor="#dddddd"'</span><span style="color: #007700">)&nbsp;);<br /></span><span style="color: #0000BB">$smarty</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">display</span><span style="color: #007700">(</span><span style="color: #DD0000">'index.tpl'</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
-</span>
-</code></TD
-></TR
-></TABLE
-><P
->PHP から割り当てられた変数の内容を、三通りの方法で出力します。
+   </p></li>
+</ul></div>
+<div class="example">
+<a name="id2801223"></a><p class="title"><b>Example 8.22. {html_table}</b></p>
+<div class="example-contents">
+<pre class="programlisting">
+
+&lt;?php
+$smarty-&gt;assign( 'data', array(1,2,3,4,5,6,7,8,9) );
+$smarty-&gt;assign( 'tr', array('bgcolor="#eeeeee"','bgcolor="#dddddd"') );
+$smarty-&gt;display('index.tpl');
+?&gt;
+
+  </pre>
+<p>PHP から割り当てられた変数の内容を、三通りの方法で出力します。
     それぞれ、テンプレートの後に出力結果を続けます。
-    </P
-><TABLE
-BORDER="0"
-BGCOLOR="#E0E0E0"
-CELLPADDING="5"
-><TR
-><TD
-><PRE
-CLASS="programlisting"
->{**** 例 1 ****}
+    </p>
+<pre class="programlisting">
+
+{**** 例 1 ****}
 {html_table loop=$data}
 
-&#60;table border="1"&#62;
-&#60;tbody&#62;
-&#60;tr&#62;&#60;td&#62;1&#60;/td&#62;&#60;td&#62;2&#60;/td&#62;&#60;td&#62;3&#60;/td&#62;&#60;/tr&#62;
-&#60;tr&#62;&#60;td&#62;4&#60;/td&#62;&#60;td&#62;5&#60;/td&#62;&#60;td&#62;6&#60;/td&#62;&#60;/tr&#62;
-&#60;tr&#62;&#60;td&#62;7&#60;/td&#62;&#60;td&#62;8&#60;/td&#62;&#60;td&#62;9&#60;/td&#62;&#60;/tr&#62;
-&#60;/tbody&#62;
-&#60;/table&#62;
+&lt;table border="1"&gt;
+&lt;tbody&gt;
+&lt;tr&gt;&lt;td&gt;1&lt;/td&gt;&lt;td&gt;2&lt;/td&gt;&lt;td&gt;3&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;4&lt;/td&gt;&lt;td&gt;5&lt;/td&gt;&lt;td&gt;6&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;7&lt;/td&gt;&lt;td&gt;8&lt;/td&gt;&lt;td&gt;9&lt;/td&gt;&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
 
 
 {**** 例 2 ****}
 {html_table loop=$data cols=4 table_attr='border="0"'}
 
-&#60;table border="0"&#62;
-&#60;tbody&#62;
-&#60;tr&#62;&#60;td&#62;1&#60;/td&#62;&#60;td&#62;2&#60;/td&#62;&#60;td&#62;3&#60;/td&#62;&#60;td&#62;4&#60;/td&#62;&#60;/tr&#62;
-&#60;tr&#62;&#60;td&#62;5&#60;/td&#62;&#60;td&#62;6&#60;/td&#62;&#60;td&#62;7&#60;/td&#62;&#60;td&#62;8&#60;/td&#62;&#60;/tr&#62;
-&#60;tr&#62;&#60;td&#62;9&#60;/td&#62;&#60;td&#62;&#38;nbsp;&#60;/td&#62;&#60;td&#62;&#38;nbsp;&#60;/td&#62;&#60;td&#62;&#38;nbsp;&#60;/td&#62;&#60;/tr&#62;
-&#60;/tbody&#62;
-&#60;/table&#62;
+&lt;table border="0"&gt;
+&lt;tbody&gt;
+&lt;tr&gt;&lt;td&gt;1&lt;/td&gt;&lt;td&gt;2&lt;/td&gt;&lt;td&gt;3&lt;/td&gt;&lt;td&gt;4&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;5&lt;/td&gt;&lt;td&gt;6&lt;/td&gt;&lt;td&gt;7&lt;/td&gt;&lt;td&gt;8&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;9&lt;/td&gt;&lt;td&gt;&amp;nbsp;&lt;/td&gt;&lt;td&gt;&amp;nbsp;&lt;/td&gt;&lt;td&gt;&amp;nbsp;&lt;/td&gt;&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
 
 
 {**** 例 3 ****}
 {html_table loop=$data cols="first,second,third,fourth" tr_attr=$tr}
 
-&#60;table border="1"&#62;
-&#60;thead&#62;
-&#60;tr&#62;
-&#60;th&#62;first&#60;/th&#62;&#60;th&#62;second&#60;/th&#62;&#60;th&#62;third&#60;/th&#62;&#60;th&#62;fourth&#60;/th&#62;
-&#60;/tr&#62;
-&#60;/thead&#62;
-&#60;tbody&#62;
-&#60;tr bgcolor="#eeeeee"&#62;&#60;td&#62;1&#60;/td&#62;&#60;td&#62;2&#60;/td&#62;&#60;td&#62;3&#60;/td&#62;&#60;td&#62;4&#60;/td&#62;&#60;/tr&#62;
-&#60;tr bgcolor="#dddddd"&#62;&#60;td&#62;5&#60;/td&#62;&#60;td&#62;6&#60;/td&#62;&#60;td&#62;7&#60;/td&#62;&#60;td&#62;8&#60;/td&#62;&#60;/tr&#62;
-&#60;tr bgcolor="#eeeeee"&#62;&#60;td&#62;9&#60;/td&#62;&#60;td&#62;&#38;nbsp;&#60;/td&#62;&#60;td&#62;&#38;nbsp;&#60;/td&#62;&#60;td&#62;&#38;nbsp;&#60;/td&#62;&#60;/tr&#62;
-&#60;/tbody&#62;
-&#60;/table&#62;</PRE
-></TD
-></TR
-></TABLE
-></DIV
-></TD
-></TR
-></TABLE
-></DIV
-><DIV
-CLASS="NAVFOOTER"
-><HR
-ALIGN="LEFT"
-WIDTH="100%"><TABLE
-SUMMARY="Footer navigation table"
-WIDTH="100%"
-BORDER="0"
-CELLPADDING="0"
-CELLSPACING="0"
-><TR
-><TD
-WIDTH="33%"
-ALIGN="left"
-VALIGN="top"
-><A
-HREF="language.function.html.select.time.html"
-ACCESSKEY="P"
->前のページ</A
-></TD
-><TD
-WIDTH="34%"
-ALIGN="center"
-VALIGN="top"
-><A
-HREF="index.html"
-ACCESSKEY="H"
->ホーム</A
-></TD
-><TD
-WIDTH="33%"
-ALIGN="right"
-VALIGN="top"
-><A
-HREF="language.function.mailto.html"
-ACCESSKEY="N"
->次のページ</A
-></TD
-></TR
-><TR
-><TD
-WIDTH="33%"
-ALIGN="left"
-VALIGN="top"
->{html_select_time}</TD
-><TD
-WIDTH="34%"
-ALIGN="center"
-VALIGN="top"
-><A
-HREF="language.custom.functions.html"
-ACCESSKEY="U"
->上に戻る</A
-></TD
-><TD
-WIDTH="33%"
-ALIGN="right"
-VALIGN="top"
->{mailto}</TD
-></TR
-></TABLE
-></DIV
-></BODY
-></HTML
->
+&lt;table border="1"&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;first&lt;/th&gt;&lt;th&gt;second&lt;/th&gt;&lt;th&gt;third&lt;/th&gt;&lt;th&gt;fourth&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr bgcolor="#eeeeee"&gt;&lt;td&gt;1&lt;/td&gt;&lt;td&gt;2&lt;/td&gt;&lt;td&gt;3&lt;/td&gt;&lt;td&gt;4&lt;/td&gt;&lt;/tr&gt;
+&lt;tr bgcolor="#dddddd"&gt;&lt;td&gt;5&lt;/td&gt;&lt;td&gt;6&lt;/td&gt;&lt;td&gt;7&lt;/td&gt;&lt;td&gt;8&lt;/td&gt;&lt;/tr&gt;
+&lt;tr bgcolor="#eeeeee"&gt;&lt;td&gt;9&lt;/td&gt;&lt;td&gt;&amp;nbsp;&lt;/td&gt;&lt;td&gt;&amp;nbsp;&lt;/td&gt;&lt;td&gt;&amp;nbsp;&lt;/td&gt;&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+  </pre>
+</div>
+</div>
+<br class="example-break">
+</div>
+<div class="navfooter">
+<hr>
+<table width="100%" summary="Navigation footer">
+<tr>
+<td width="40%" align="left">
+<a accesskey="p" href="language.function.html.select.time.html">Prev</a> </td>
+<td width="20%" align="center"><a accesskey="u" href="language.custom.functions.html">Up</a></td>
+<td width="40%" align="right"> <a accesskey="n" href="language.function.mailto.html">Next</a>
+</td>
+</tr>
+<tr>
+<td width="40%" align="left" valign="top">{html_select_time} </td>
+<td width="20%" align="center"><a accesskey="h" href="index.html">Home</a></td>
+<td width="40%" align="right" valign="top"> {mailto}</td>
+</tr>
+</table>
+</div>
+</body>
+</html>
