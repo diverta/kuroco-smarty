@@ -1,8 +1,5 @@
 ## Smarty {systempage} compiler function plugin
 
-### Author:
-加藤健太(kenta@diverta.co.jp)
-
 ### Purpose:
 Generate an exception to display a system page, such as 404.
 
