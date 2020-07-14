@@ -9,5 +9,5 @@ Param | Description
 tmp_path | temp path
 path | upload path
 
-### Usage: 使用例:
+### Usage:
 {put_file tmp_path=$tmp_path path=$upload_path}
