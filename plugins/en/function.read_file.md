@@ -10,5 +10,5 @@ var |
 path |
 url |
 
-### Usage: 使用例:
+### Usage:
 {read_file path=$path var='contents'}
