@@ -1,5 +1,13 @@
 ## Smarty {assign_array} function plugin
 
+### Params
+Param |
+--- |
+var |
+values |
+delimiter |
+keys |
+
 ### Usage:
 {assign_array var="foo" values="bar1,bar2"}
 
